@@ -1,0 +1,290 @@
+body {
+	background-color: rgba(145, 145, 145, 1);
+	margin: 0;
+    padding: 0;
+	font-family: Gadugi;
+}
+
+/*  -------------------------------------------  Bakom sidan */
+
+.headerbild {
+   max-width: 100%;
+    width: 100%;
+    height: 400px;
+    background-image: url('headerbild.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+
+/* ---------------------------------------------- Toppen på sidan */
+
+.container{
+    max-width: 95%;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.headerbildCurrent {
+ /*Här ska det ligga en bild för aktuell sida, tillkommer senare*/
+}
+
+.header {
+    position: fixed;
+    top: 0px;
+    background-color: rgba(246, 246, 246, 0.70);
+    padding: 0px 0px 0px 0px;
+    border-bottom: 2px outset rgba(130, 130, 130, 0.95);
+    margin: 0 auto;
+    width: 100%;
+    max-width: 95%;
+}
+
+.header img{
+    display: inline;
+    /*max-width: 20%;
+    height: auto;*/
+    width: 200px;
+    height: 60px;
+    margin-left: 43px;
+    margin-top: 10px;
+}
+  
+.header .text {
+    
+    padding: 5px;
+    background-color: #f3eeee;
+    border-radius: 30px;
+    position:relative;
+    visibility:hidden;
+    display: inline;
+    margin-left: 10%;
+        
+}
+
+.header:hover .text{ 
+    
+    visibility:visible;
+}
+
+
+.nav {
+    background-color: none;
+    padding: 0 0 0 0;
+    display: inline;
+    margin: 0 auto;
+}
+
+.nav ul {
+    margin: 0 auto;
+	display: inline;
+}
+
+
+.nav ul li {
+	display: inline-block;
+	list-style-type: none;
+	padding: 10px 17.5px 12px 17.5px;
+    background-color: rgba(170, 170, 170, 1);
+    margin: 0 -8px 0 0;
+    border-top: 2px ridge rgba(130, 130, 130, 0.95);
+    border-right: 2px solid rgba(130, 130, 130, 0.95);
+    border-left: 2px solid rgba(130, 130, 130, 0.95);
+}
+
+.nav ul li a{
+	color: white;
+    text-decoration: none;
+    margin: 0 auto;
+}
+
+.nav ul li:hover {
+    background-color: rgba(145, 145, 145, 1);
+}
+
+.nav .current {
+	color: rgba(255, 69, 0, 0.65);
+    text-decoration: none;
+}
+
+.current {
+	color: #e37500;
+}
+
+
+/* --------------------------------------------------------- Mitten på sidan */
+
+.main{
+    background-color: #f0f0f0;
+    margin: 0px 0 0px 0;
+    border-top: 2px inset rgba(130, 130, 130, 0.95);
+    border-bottom: 2px outset rgba(130, 130, 130, 0.95);
+    width: 100%;
+}
+
+.grid {
+	background-color: #e0e0e0;
+	float: left;
+    margin: .75%;
+    width: auto;
+    padding: 0 .5% 0 .5%;
+    border: .5px solid rgba(72, 72, 72, 0.50);
+    border-radius: 5px;
+    color: black;
+}
+
+.gridFloatRight {
+	height: 250px;
+	float: left;
+    margin-right: 1.66666666%;
+    width: 20%;
+}
+
+.subnavigering {
+    list-style-type: none;
+    width: 14.5%;
+    height: 120px;
+    position: absolute;
+    
+}
+
+.aktieslagSortering{
+    margin: 5px auto;
+    max-width: 70%;
+    text-align: center;
+}
+
+.subnavigering ul li{
+    list-style-type: square;
+}
+
+.subnavigering ul li a{
+    color: rgb(172, 46, 0);
+    text-decoration: none;
+
+}
+
+.gridMiddle {
+    width: 60%;
+    height: inherit;
+    margin-left: 18.9%;
+    
+}
+
+.gridRight {
+    width: 14.5%;
+    height: 180px;
+    position: fixed;
+    margin-left: 82.5%;
+    visibility:hidden;
+    
+}
+
+.aktieslagSortering {
+    font-size: 13px;
+    margin-bottom: 0;
+}
+
+.headerAktier{
+   border-bottom: 1px solid rgba(72, 72, 72, 0.50);
+   background-color: rgba(185, 185, 185, 1);
+   width: 99.8%;
+
+
+}
+
+.headerAktier p{
+        display: inline-block;
+        width: 19.465%;
+        margin:0;
+        padding: 0;
+        text-align: center;
+}
+
+
+.headerAktier .börslista{
+    border-right: none;
+}
+
+#Main_aktieDiv div{
+    color: rgb(143, 39, 0);
+    display: inline-block;
+    list-style-type: none;
+    border-right: 1px solid rgba(203, 203, 203, 0.99);
+    border-left: 1px solid rgba(160, 160, 160, 0.99);
+    width: 19.72%;
+    text-align: center;
+
+
+}
+#Main_aktieDiv div li:nth-child(2n+2){
+
+    background-color:rgba(200, 200, 200, 1);
+}
+
+#Main_aktieDiv div li:last-child{
+
+    border-bottom: 1px solid rgba(203, 203, 203, 0.99);
+}
+
+#Main_aktieDiv div.allaNamn{
+    text-align:left;
+    border-left: 1px solid rgba(203, 203, 203, 0.99);
+}
+#Main_aktieDiv div.allaBörslista{
+    
+    border-right: 1px solid rgba(203, 203, 203, 0.99);
+}
+
+
+/* ----------------------------------------------------------- Botten på sidan */
+
+.footer {
+	background-color: rgba(145, 145, 145, 1);
+    height: auto;
+    width: 100%;
+    max-width: 100%;
+    z-index: 1;
+}
+
+.footer img{  /*Används EJ i nuläget*/
+    /*position: relative;
+    display: inline;
+    width: 200px;
+    height: 60px;
+    margin-top: 1px;
+    margin-left: 45px;
+    margin-right: 100px;*/
+    display: none;
+}
+
+.footerGrids{
+    display: inline;
+    top: 0px;
+    margin-left: 10%;
+}
+
+.fGrid{
+    padding: 0 0 0 0;
+    display: inline-block;
+    margin-right: 100px;
+}
+
+.fGrid .mindreText{
+    font-size: small;
+    margin-top: 10px;
+    margin-left: 5px;
+}
+
+.infoOmSite{
+    font-size: 70%;
+    color: #313131;
+    text-align: center;
+}
+
+
+
+.clearfix:before, .clearfix:after {content: "";display: table;}
+.clearfix:after {clear: both;}
+.clearfix{*zoom: 1;}

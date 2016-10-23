@@ -1,0 +1,118 @@
+.grid {
+    width: 50%;
+}
+
+.subnavigering{
+    width: auto;
+    height: auto;
+    text-align: center;
+}
+
+.gridMiddle {
+    margin: 10px;
+    width: auto;
+    height: auto;
+}
+
+.gridRight {
+    clear: both;
+    float:  none;
+    width: auto;
+    height: auto;
+}
+
+.mobil {
+    float:  none;
+    width: auto;
+    margin: 10px auto;
+    }
+.subnavigering ul li {
+    margin: 3px auto;
+    }
+.header .text{
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    text-align: center;
+}
+
+
+@media screen and (max-width:750px) {
+    .nav ul li {
+        width: auto;
+        font-size: 85%;
+        display: block;
+        text-align: center;
+        height: 15px;
+        margin-top: 0;
+    }
+
+    .header img { 
+    display: none;
+       /* margin: .5% 35%;
+        height: 25%;
+        width: 25%;*/
+    }
+    .main {
+    font-size: 90%;
+    }
+    .mobil {
+    float:  none;
+    width: auto;
+    margin: 10px auto;
+    }
+
+    .footer img{
+    display: none;
+    }
+}
+
+
+@media screen and (max-width:500px) {
+    .nav ul li {
+    width: auto; 
+    font-size: 85%;
+    display: block;
+    text-align: center;
+    }
+    .header img {
+    display: none;
+    
+        }
+    .mobil {
+    float:  none;
+    width: auto;
+    margin: 10px auto;
+    }
+    
+
+}
+
+@media screen and (max-width:320px) {
+    .nav ul li {
+    width: 100%; 
+    margin: 0 auto;
+    font-size: 85%;
+    display: block;
+    text-align: center;
+    height: 10px;
+    }
+    .header img{
+    height: 0px;
+    margin: 0;
+    }
+    .mobil {
+    float:  none;
+    width: auto;
+    margin: 10px auto;
+        
+    }
+
+    .fGrid{
+    display: block;
+    text-align: center;
+    font-size: 85%;
+    }
+    
+
+}

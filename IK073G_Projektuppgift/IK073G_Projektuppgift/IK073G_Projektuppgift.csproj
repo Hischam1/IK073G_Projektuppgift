@@ -66,7 +66,10 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="headerbild.png" />
     <Content Include="Index.aspx" />
+    <Content Include="logga.gif" />
+    <Content Include="mainStyle.css" />
     <Content Include="packages.config" />
     <Content Include="JE-Bank.Master" />
     <None Include="Web.Debug.config">
@@ -77,6 +80,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="responsive.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

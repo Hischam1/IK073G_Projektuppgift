@@ -6,18 +6,41 @@
 <head runat="server">
     <title>JE-Bank</title>
     <meta charset="utf-8"/>
-    <<%--link rel="stylesheet" href="StyleSheet.css" type="text/css"/>--%>
+    <link rel="stylesheet" href="mainStyle.css" type="text/css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
-        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                <div class="container">
+
+            <div class="headerbild"></div>
+
+            <div class="header">
+
+                    <a href ="Index.aspx"><img src="logga.gif" alt="JE LOGO"/></a>
+
+            <div class="nav">
+				    <ul>
+					    <li><a href="Index.aspx" class="current">Start</a></li>
+				    </ul>
+		    </div>
+
+            </div>
+
+            <div class="main">
+
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
         
-        </asp:ContentPlaceHolder>
-    </div>
+                        </asp:ContentPlaceHolder>
+
+                </div>
+
+                <footer class="footer">
+                    <p class="infoOmSite"> JE-Bank © Johan Conradsson och Hischam El Yahiaoui</p>
+                 </footer>
+        </div>
     </form>
 </body>
 </html>
