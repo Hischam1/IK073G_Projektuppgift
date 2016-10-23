@@ -4,7 +4,10 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>JE-Bank</title>
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="mainStyle.css" type="text/css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
