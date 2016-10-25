@@ -36,17 +36,18 @@ namespace IK073G_Projektuppgift
                 divFråga.Controls.Add(svarsalternativDivFråga);
 
                 HtmlGenericControl svar1Fråga = new HtmlGenericControl("input type = checkbox name = svar1 value=" + qa.svar1);
+                svar1Fråga.InnerText = qa.svar1;
                 svarsalternativDivFråga.Controls.Add(svar1Fråga);
 
-                HtmlGenericControl svar2Fråga = new HtmlGenericControl("input type = checkbox name = svar2");
+                HtmlGenericControl svar2Fråga = new HtmlGenericControl("input type = checkbox name = svar2 value=" + qa.svar2);
                 svar2Fråga.InnerText = qa.svar2;
                 svarsalternativDivFråga.Controls.Add(svar2Fråga);
 
-                HtmlGenericControl svar3Fråga = new HtmlGenericControl("input type = checkbox name = svar3");
+                HtmlGenericControl svar3Fråga = new HtmlGenericControl("input type = checkbox name = svar3 value=" + qa.svar3);
                 svar3Fråga.InnerText = qa.svar3;
                 svarsalternativDivFråga.Controls.Add(svar3Fråga);
 
-                HtmlGenericControl svar4Fråga = new HtmlGenericControl("input type = checkbox name = svar4");
+                HtmlGenericControl svar4Fråga = new HtmlGenericControl("input type = checkbox name = svar4 value=" + qa.svar4);
                 svar4Fråga.InnerText = qa.svar4;
                 svarsalternativDivFråga.Controls.Add(svar4Fråga);
 
@@ -61,19 +62,23 @@ namespace IK073G_Projektuppgift
 
             XmlNodeList allaFrågorOchSvar = doc.SelectNodes("/bank/Frågor/FrågorLicensiering/Frågenummer");
 
+
             foreach (XmlNode node in allaFrågorOchSvar)
             {
                 QA qa = new QA();
                 qa.kategori = node["Kategori"].InnerXml;
-                qa.typ = node["Typ"].InnerXml;
+                qa.typ = node["Typ"].InnerXml; 
                 qa.fråga = node["Fråga"].InnerXml;
-                qa.svar1 = node["Svar id='1'"].InnerXml;
-                qa.svar2 = node["Svar id='2'"].InnerXml;
-                qa.svar3 = node["Svar id='3'"].InnerXml;
-                qa.svar4 = node["Svar id='4'"].InnerXml;
+                qa.svar1 = node["Svar1"].InnerXml;
+                qa.svar2 = node["Svar2"].InnerXml;
+                qa.svar3 = node["Svar3"].InnerXml;
+                qa.svar4 = node["Svar4"].InnerXml;
+
 
                 QALista.Add(qa);
             }
+
+
 
             return QALista;
         }

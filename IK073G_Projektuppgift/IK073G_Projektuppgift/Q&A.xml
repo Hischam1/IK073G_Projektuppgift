@@ -8,10 +8,10 @@
         <Kategori>Produkter och hantering av kundens affärer</Kategori>
         <Typ>EttRätt</Typ>
         <Fråga>Vad heter JE-Bankens kundsystem?</Fråga>
-        <Svar id="1">JE-Systemet</Svar>
-        <Svar id="2">JE-Bank System</Svar>
-        <Svar id="3">Kundhantering JE</Svar>
-        <Svar id="4">Service appen</Svar>
+        <Svar1>JE-Systemet</Svar1>
+        <Svar2>JE-Bank System</Svar2>
+        <Svar3>Kundhantering JE</Svar3>
+        <Svar4>Service appen</Svar4>
         <RättSvar id="1">JE-Systemet</RättSvar>
       </Frågenummer>
 
@@ -19,10 +19,10 @@
         <Kategori>Produkter och hantering av kundens affärer</Kategori>
         <Typ>EttRätt</Typ>
         <Fråga>Hur hanteras svar till kunder.</Fråga>
-        <Svar id="1">Via SMS</Svar>
-        <Svar id="2">Via Mail</Svar>
-        <Svar id="3">Via Telefon</Svar>
-        <Svar id="4">Via Brev</Svar>
+        <Svar1>Via SMS</Svar1>
+        <Svar2>Via Mail</Svar2>
+        <Svar3>Via Telefon</Svar3>
+        <Svar4>Via Brev</Svar4>
         <RättSvar id="1">Via Brev</RättSvar>
       </Frågenummer>
 
