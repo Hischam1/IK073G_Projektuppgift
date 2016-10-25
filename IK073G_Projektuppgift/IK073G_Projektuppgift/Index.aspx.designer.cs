@@ -13,6 +13,15 @@ namespace IK073G_Projektuppgift {
     public partial class Index {
         
         /// <summary>
+        /// bild control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl bild;
+        
+        /// <summary>
         /// frågeform control.
         /// </summary>
         /// <remarks>

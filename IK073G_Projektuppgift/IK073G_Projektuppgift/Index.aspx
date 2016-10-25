@@ -10,7 +10,9 @@
                     </div>
 				        <div class="grid gridMiddle mobil" runat="server">
 
+                            <div id="bild" runat="server"></div>
                             <div id="frågeform" runat="server"></div>
+                            
 
                         </div>
 				    <div class="grid gridRight mobil">
