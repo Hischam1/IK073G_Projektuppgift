@@ -24,7 +24,7 @@ namespace IK073G_Projektuppgift
             foreach (QA qa in QALista)
             {
                 div.InnerHtml = qa.kategori;
-                sorteraFrågor.Controls.Add(div);
+                //sorteraFrågor.Controls.Add(div); 
             }
         }
         public List<QA> XmlTillLista()
