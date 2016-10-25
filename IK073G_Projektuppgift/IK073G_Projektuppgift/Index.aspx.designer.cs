@@ -13,12 +13,12 @@ namespace IK073G_Projektuppgift {
     public partial class Index {
         
         /// <summary>
-        /// sorteraFrågor control.
+        /// frågeform control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl sorteraFrågor;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl frågeform;
     }
 }

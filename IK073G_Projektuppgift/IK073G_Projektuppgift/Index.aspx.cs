@@ -18,14 +18,37 @@ namespace IK073G_Projektuppgift
         public void VisaAllt(List<QA> QALista)
         {
 
-            HtmlGenericControl divAllaKategorier = new HtmlGenericControl("div class=allaKategoerier");
-            sorteraFrågor.Controls.Add(divAllaKategorier);
-
             foreach (QA qa in QALista)
             {
-                HtmlGenericControl div = new HtmlGenericControl("div");
-                div.InnerHtml = qa.kategori;
-                divAllaKategorier.Controls.Add(div);
+
+                HtmlGenericControl divFråga = new HtmlGenericControl("div class=fråga");
+                frågeform.Controls.Add(divFråga);
+
+                HtmlGenericControl kategoriFråga = new HtmlGenericControl("p class=frågaKategori");
+                kategoriFråga.InnerText = qa.kategori;
+                divFråga.Controls.Add(kategoriFråga);
+
+                HtmlGenericControl rubrikFråga = new HtmlGenericControl("p class=frågaRubrik");
+                rubrikFråga.InnerText = qa.fråga;
+                divFråga.Controls.Add(rubrikFråga);
+
+                HtmlGenericControl svarsalternativDivFråga = new HtmlGenericControl("div class=svarsalternativ");
+                divFråga.Controls.Add(svarsalternativDivFråga);
+
+                HtmlGenericControl svar1Fråga = new HtmlGenericControl("input type = checkbox name = svar1 value=" + qa.svar1);
+                svarsalternativDivFråga.Controls.Add(svar1Fråga);
+
+                HtmlGenericControl svar2Fråga = new HtmlGenericControl("input type = checkbox name = svar2");
+                svar2Fråga.InnerText = qa.svar2;
+                svarsalternativDivFråga.Controls.Add(svar2Fråga);
+
+                HtmlGenericControl svar3Fråga = new HtmlGenericControl("input type = checkbox name = svar3");
+                svar3Fråga.InnerText = qa.svar3;
+                svarsalternativDivFråga.Controls.Add(svar3Fråga);
+
+                HtmlGenericControl svar4Fråga = new HtmlGenericControl("input type = checkbox name = svar4");
+                svar4Fråga.InnerText = qa.svar4;
+                svarsalternativDivFråga.Controls.Add(svar4Fråga);
 
             }
         }
@@ -42,9 +65,12 @@ namespace IK073G_Projektuppgift
             {
                 QA qa = new QA();
                 qa.kategori = node["Kategori"].InnerXml;
-                //qa.typ = node["Typ"].InnerXml;
-                //qa.text = node["Text"].InnerXml;
-                //qa.fråga = node["Fråga"].InnerXml;
+                qa.typ = node["Typ"].InnerXml;
+                qa.fråga = node["Fråga"].InnerXml;
+                qa.svar1 = node["Svar id='1'"].InnerXml;
+                qa.svar2 = node["Svar id='2'"].InnerXml;
+                qa.svar3 = node["Svar id='3'"].InnerXml;
+                qa.svar4 = node["Svar id='4'"].InnerXml;
 
                 QALista.Add(qa);
             }
