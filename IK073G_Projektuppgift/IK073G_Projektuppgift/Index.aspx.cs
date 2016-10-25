@@ -28,12 +28,13 @@ namespace IK073G_Projektuppgift
                 kategoriFråga.InnerText = qa.kategori;
                 divFråga.Controls.Add(kategoriFråga);
 
-                HtmlGenericControl svarsalternativDivFråga = new HtmlGenericControl("div class=svarsalternativ");
-                divFråga.Controls.Add(svarsalternativDivFråga);
 
                 HtmlGenericControl rubrikFråga = new HtmlGenericControl("p class=frågaRubrik");
                 rubrikFråga.InnerText = qa.fråga;
                 divFråga.Controls.Add(rubrikFråga);
+
+                HtmlGenericControl svarsalternativDivFråga = new HtmlGenericControl("div class=svarsalternativ");
+                divFråga.Controls.Add(svarsalternativDivFråga);
 
                 HtmlGenericControl svar1Fråga = new HtmlGenericControl("li class=svar1");
                 svarsalternativDivFråga.Controls.Add(svar1Fråga);
@@ -88,6 +89,9 @@ namespace IK073G_Projektuppgift
                 qa.svar2 = node["Svar2"].InnerXml;
                 qa.svar3 = node["Svar3"].InnerXml;
                 qa.svar4 = node["Svar4"].InnerXml;
+                qa.rättSvar1 = node["RättSvar1"].InnerXml;
+                qa.rättSvar2 = node["RättSvar2"].InnerXml;
+                qa.rättSvar3 = node["RättSvar3"].InnerXml;
 
 
                 QALista.Add(qa);

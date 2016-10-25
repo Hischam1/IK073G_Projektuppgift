@@ -12,18 +12,22 @@
         <Svar2>JE-Bank System</Svar2>
         <Svar3>Kundhantering JE</Svar3>
         <Svar4>Service appen</Svar4>
-        <RättSvar id="1">JE-Systemet</RättSvar>
+        <RättSvar1>JE-Systemet</RättSvar1>
+        <RättSvar2></RättSvar2>
+        <RättSvar3></RättSvar3>
       </Frågenummer>
 
       <Frågenummer id="2">
         <Kategori>Produkter och hantering av kundens affärer</Kategori>
         <Typ>EttRätt</Typ>
-        <Fråga>Hur hanteras svar till kunder.</Fråga>
+        <Fråga>Hur hanteras svar till kunder?</Fråga>
         <Svar1>Via SMS</Svar1>
         <Svar2>Via Mail</Svar2>
         <Svar3>Via Telefon</Svar3>
         <Svar4>Via Brev</Svar4>
-        <RättSvar id="1">Via Brev</RättSvar>
+        <RättSvar1>Via Brev</RättSvar1>
+        <RättSvar2></RättSvar2>
+        <RättSvar3></RättSvar3>
       </Frågenummer>
 
 
