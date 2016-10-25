@@ -180,9 +180,11 @@ body {
     visibility:hidden;
     
 }
+.svarsalternativ li{
+    list-style-type: none;
+}
 
-
-.svarsalternativ li input{
+.svarsalternativ li p{
     display: inline;
 }
 /* ----------------------------------------------------------- Botten på sidan */
