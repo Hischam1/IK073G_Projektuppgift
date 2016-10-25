@@ -182,8 +182,8 @@ body {
 }
 
 
-.svarsalternativ li{
-    list-style-type: none;
+.svarsalternativ li input{
+    display: inline;
 }
 /* ----------------------------------------------------------- Botten på sidan */
 

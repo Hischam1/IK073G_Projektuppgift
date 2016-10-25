@@ -28,28 +28,20 @@ namespace IK073G_Projektuppgift
                 kategoriFråga.InnerText = qa.kategori;
                 divFråga.Controls.Add(kategoriFråga);
 
+                HtmlGenericControl svarsalternativDivFråga = new HtmlGenericControl("div class=svarsalternativ");
+                divFråga.Controls.Add(svarsalternativDivFråga);
+
                 HtmlGenericControl rubrikFråga = new HtmlGenericControl("p class=frågaRubrik");
                 rubrikFråga.InnerText = qa.fråga;
                 divFråga.Controls.Add(rubrikFråga);
 
-                HtmlGenericControl svarsalternativDivFråga = new HtmlGenericControl("div class=svarsalternativ");
-                divFråga.Controls.Add(svarsalternativDivFråga);
-
-                HtmlGenericControl svar1Fråga = new HtmlGenericControl("input type = checkbox name = svar1 value=" + qa.svar1);
-                svar1Fråga.InnerText = qa.svar1;
+                HtmlGenericControl svar1Fråga = new HtmlGenericControl("li class=svar1");
                 svarsalternativDivFråga.Controls.Add(svar1Fråga);
-
-                HtmlGenericControl svar2Fråga = new HtmlGenericControl("input type = checkbox name = svar2 value=" + qa.svar2);
-                svar2Fråga.InnerText = qa.svar2;
-                svarsalternativDivFråga.Controls.Add(svar2Fråga);
-
-                HtmlGenericControl svar3Fråga = new HtmlGenericControl("input type = checkbox name = svar3 value=" + qa.svar3);
-                svar3Fråga.InnerText = qa.svar3;
-                svarsalternativDivFråga.Controls.Add(svar3Fråga);
-
-                HtmlGenericControl svar4Fråga = new HtmlGenericControl("input type = checkbox name = svar4 value=" + qa.svar4);
-                svar4Fråga.InnerText = qa.svar4;
-                svarsalternativDivFråga.Controls.Add(svar4Fråga);
+                HtmlGenericControl checkBox1Fråga = new HtmlGenericControl("input type = checkbox name = svar1");
+                svar1Fråga.Controls.Add(checkBox1Fråga);
+                HtmlGenericControl svar1TextFråga = new HtmlGenericControl("p");
+                svar1TextFråga.InnerText = qa.svar1;
+                svar1Fråga.Controls.Add(svar1TextFråga);
 
             }
         }
