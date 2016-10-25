@@ -66,9 +66,10 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="headerbild.png" />
+    <Content Include="Huvudkontor.jpg" />
+    <Content Include="Images\headerbild.png" />
     <Content Include="Index.aspx" />
-    <Content Include="logga.gif" />
+    <Content Include="Images\logga.gif" />
     <Content Include="mainStyle.css" />
     <Content Include="packages.config" />
     <Content Include="JE-Bank.Master" />

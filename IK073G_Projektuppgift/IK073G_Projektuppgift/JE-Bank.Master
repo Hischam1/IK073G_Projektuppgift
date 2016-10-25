@@ -19,7 +19,7 @@
 
             <div class="header">
 
-                    <a href ="Index.aspx"><img src="logga.gif" alt="JE LOGO"/></a>
+                    <a href ="Index.aspx"><img src="/Images/logga.gif" alt="JE LOGO"/></a>
 
             <div class="nav">
 				    <ul>
