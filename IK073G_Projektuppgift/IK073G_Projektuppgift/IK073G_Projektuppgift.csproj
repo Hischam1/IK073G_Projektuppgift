@@ -80,6 +80,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Q&amp;A.xml" />
     <Content Include="responsive.css" />
     <Content Include="Web.config" />
   </ItemGroup>

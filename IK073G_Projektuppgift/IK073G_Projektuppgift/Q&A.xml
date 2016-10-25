@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Frågor>
+  <FrågorLicensiering>
+    <Kategori>Produkter och hantering av kundens affärer</Kategori>
+    <Typ>EttRätt</Typ>
+    <Fråga id="1">Vad heter JE-Bankens kundsystem?</Fråga>
+    <Svar id="1">JE-Systemet</Svar>
+    <Svar id="2">JE-Bank System</Svar>
+    <Svar id="3">Kundhantering JE</Svar>
+    <RättSvar id="1">JE-Systemet</RättSvar>
+    
+
+    <Kategori>Ekonomi – nationalekonomi, finansiell ekonomi och privatekonomi</Kategori>
+    <Typ>FleraRätt</Typ>
+    <Fråga id="2"></Fråga>
+    <Svar id="2"></Svar>
+
+    <Kategori>Etik och regelverk</Kategori>
+    <Typ>BildSvar</Typ>
+    <Fråga id="3"></Fråga>
+    <Svar id="3"></Svar>
+  </FrågorLicensiering>
+
+  <FrågorÅKU>
+    
+    
+  </FrågorÅKU>
+</Frågor>

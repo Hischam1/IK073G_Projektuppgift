@@ -6,7 +6,6 @@
                     <div class="grid subnavigering mobil">
                          <ul>
                              <li>Sidomeny</li>
-
 				         </ul>
                     </div>
 				        <div class="grid gridMiddle mobil">
