@@ -7,6 +7,8 @@
       <Frågenummer id="1">
         <Kategori>Produkter och hantering av kundens affärer</Kategori>
         <Typ>EttRätt</Typ>
+        <Text></Text>
+        <Bild></Bild>
         <Fråga>Vad heter JE-Bankens kundsystem?</Fråga>
         <Svar1>JE-Systemet</Svar1>
         <Svar2>JE-Bank System</Svar2>
@@ -20,6 +22,8 @@
       <Frågenummer id="2">
         <Kategori>Produkter och hantering av kundens affärer</Kategori>
         <Typ>EttRätt</Typ>
+        <Text></Text>
+        <Bild></Bild>
         <Fråga>Hur hanteras svar till kunder?</Fråga>
         <Svar1>Via SMS</Svar1>
         <Svar2>Via Mail</Svar2>
@@ -30,6 +34,80 @@
         <RättSvar3></RättSvar3>
       </Frågenummer>
 
+      <Frågenummer id="3">
+        <Kategori>Produkter och hantering av kundens affärer</Kategori>
+        <Typ>BildFråga</Typ>
+        <Text></Text>
+        <Bild src="Images\Huvudkontor.jpg"></Bild>
+        <Fråga>Vilket hus är detta?</Fråga>
+        <Svar1>Vita huset</Svar1>
+        <Svar2>Globen</Svar2>
+        <Svar3>JE-Bankens huvudkontor</Svar3>
+        <Svar4>San Siro</Svar4>
+        <RättSvar1>JE-Bankens huvudkontor</RättSvar1>
+        <RättSvar2></RättSvar2>
+        <RättSvar3></RättSvar3>
+      </Frågenummer>
+
+      <Frågenummer id="4">
+        <Kategori>Produkter och hantering av kundens affärer</Kategori>
+        <Typ>EttRätt</Typ>
+        <Text></Text>
+        <Bild></Bild>
+        <Fråga>Vad heter JE-Bankens chef?</Fråga>
+        <Svar1>Maarten Schtekelenburg</Svar1>
+        <Svar2>Karl Von Anka</Svar2>
+        <Svar3>Leif Schnejder</Svar3>
+        <Svar4>Anna Zlibrienzska</Svar4>
+        <RättSvar1>Maarten Schtekelenburg</RättSvar1>
+        <RättSvar2></RättSvar2>
+        <RättSvar3></RättSvar3>
+      </Frågenummer>
+
+      <Frågenummer id="5">
+        <Kategori>Produkter och hantering av kundens affärer</Kategori>
+        <Typ>EttRätt</Typ>
+        <Text></Text>
+        <Bild></Bild>
+        <Fråga>Hur ofta ska man göra ÅKU?</Fråga>
+        <Svar1>Varje dag</Svar1>
+        <Svar2>Varje vecka</Svar2>
+        <Svar3>Varje månad</Svar3>
+        <Svar4>Varje år</Svar4>
+        <RättSvar1>Varje år</RättSvar1>
+        <RättSvar2></RättSvar2>
+        <RättSvar3></RättSvar3>
+      </Frågenummer>
+
+      <Frågenummer id="6">
+        <Kategori>Produkter och hantering av kundens affärer</Kategori>
+        <Typ>FleraRätt</Typ>
+        <Text>Här är det två svarsalternativ som är korrekt.</Text>
+        <Bild></Bild>
+        <Fråga>Hur hanteras kundens personuppgifter</Fråga>
+        <Svar1>Med största möjliga sekretess</Svar1>
+        <Svar2>Offentligt för allmänheten</Svar2>
+        <Svar3>Offentligt för JE-Bankens anställda</Svar3>
+        <Svar4>Bara chefen får veta</Svar4>
+        <RättSvar1>Med största möjliga sekretess</RättSvar1>
+        <RättSvar2>Offentligt för JE-Bankens anställda</RättSvar2>
+        <RättSvar3></RättSvar3>
+      </Frågenummer>
+
+      <Frågenummer id="6">
+        <Kategori>Produkter och hantering av kundens affärer</Kategori>
+        <Typ>EttRätt</Typ>
+        <Text></Text>
+        <Bild></Bild>
+        <Fråga>Hur hanteras kundens personuppgifter</Fråga>
+        <Svar1>Med största möjliga sekretess</Svar1>
+        <Svar2>Offentligt för allmänheten</Svar2>
+        <Svar3>Offentligt för JE-Bankens anställda</Svar3>
+        <Svar4>Bara chefen får veta</Svar4>
+        <RättSvar1>Med största möjliga sekretess</RättSvar1>
+        <RättSvar2>Offentligt för JE-Bankens anställda</RättSvar2>
+        <RättSvar3></RättSvar3>
+      </Frågenummer>
 
     </FrågorLicensiering>
 

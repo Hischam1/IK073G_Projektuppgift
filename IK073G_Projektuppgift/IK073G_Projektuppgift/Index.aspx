@@ -10,9 +10,9 @@
                     </div>
 				        <div class="grid gridMiddle mobil" runat="server">
 
-                            <a href=""<asp:Button ID="Button1" runat="server" Text="Button" /></a>
-
-                            <%--<div id="frågeform" runat="server"></div>--%>
+                            <div id="bild" runat="server"></div>
+                            <div id="frågeform" runat="server"></div>
+                            
 
                         </div>
 				    <div class="grid gridRight mobil">
