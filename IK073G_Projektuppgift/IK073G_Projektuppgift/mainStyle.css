@@ -181,63 +181,10 @@ body {
     
 }
 
-.aktieslagSortering {
-    font-size: 13px;
-    margin-bottom: 0;
-}
 
-.headerAktier{
-   border-bottom: 1px solid rgba(72, 72, 72, 0.50);
-   background-color: rgba(185, 185, 185, 1);
-   width: 99.8%;
-
-
-}
-
-.headerAktier p{
-        display: inline-block;
-        width: 19.465%;
-        margin:0;
-        padding: 0;
-        text-align: center;
-}
-
-
-.headerAktier .börslista{
-    border-right: none;
-}
-
-#Main_aktieDiv div{
-    color: rgb(143, 39, 0);
-    display: inline-block;
+.svarsalternativ li{
     list-style-type: none;
-    border-right: 1px solid rgba(203, 203, 203, 0.99);
-    border-left: 1px solid rgba(160, 160, 160, 0.99);
-    width: 19.72%;
-    text-align: center;
-
-
 }
-#Main_aktieDiv div li:nth-child(2n+2){
-
-    background-color:rgba(200, 200, 200, 1);
-}
-
-#Main_aktieDiv div li:last-child{
-
-    border-bottom: 1px solid rgba(203, 203, 203, 0.99);
-}
-
-#Main_aktieDiv div.allaNamn{
-    text-align:left;
-    border-left: 1px solid rgba(203, 203, 203, 0.99);
-}
-#Main_aktieDiv div.allaBörslista{
-    
-    border-right: 1px solid rgba(203, 203, 203, 0.99);
-}
-
-
 /* ----------------------------------------------------------- Botten på sidan */
 
 .footer {
