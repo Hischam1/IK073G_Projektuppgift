@@ -71,6 +71,7 @@
     <Content Include="Index.aspx" />
     <Content Include="Images\logga.gif" />
     <Content Include="mainStyle.css" />
+    <Content Include="nyanställd.aspx" />
     <Content Include="packages.config" />
     <Content Include="JE-Bank.Master" />
     <None Include="Web.Debug.config">
@@ -99,6 +100,13 @@
     </Compile>
     <Compile Include="JE-Bank.Master.designer.cs">
       <DependentUpon>JE-Bank.Master</DependentUpon>
+    </Compile>
+    <Compile Include="nyanställd.aspx.cs">
+      <DependentUpon>nyanställd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="nyanställd.aspx.designer.cs">
+      <DependentUpon>nyanställd.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QA.cs" />
