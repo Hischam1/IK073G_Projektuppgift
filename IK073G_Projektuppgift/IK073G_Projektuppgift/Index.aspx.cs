@@ -17,14 +17,16 @@ namespace IK073G_Projektuppgift
         }
         public void VisaAllt(List<QA> QALista)
         {
-            HtmlGenericControl div = new HtmlGenericControl("div");
-            sorteraFrågor.Controls.Add(div);
-              
+
+            HtmlGenericControl divAllaKategorier = new HtmlGenericControl("div class=allaKategoerier");
+            sorteraFrågor.Controls.Add(divAllaKategorier);
 
             foreach (QA qa in QALista)
             {
+                HtmlGenericControl div = new HtmlGenericControl("div");
                 div.InnerHtml = qa.kategori;
-                //sorteraFrågor.Controls.Add(div); 
+                divAllaKategorier.Controls.Add(div);
+
             }
         }
         public List<QA> XmlTillLista()
@@ -34,15 +36,15 @@ namespace IK073G_Projektuppgift
             XmlDocument doc = new XmlDocument();
             doc.Load(path);
 
-            XmlNodeList allaFrågorOchSvar = doc.SelectNodes("/Frågor/FrågorLicensiering/Frågenummer");
+            XmlNodeList allaFrågorOchSvar = doc.SelectNodes("/bank/Frågor/FrågorLicensiering/Frågenummer");
 
             foreach (XmlNode node in allaFrågorOchSvar)
             {
                 QA qa = new QA();
                 qa.kategori = node["Kategori"].InnerXml;
-                qa.typ = node["Typ"].InnerXml;
-                qa.text = node["Text"].InnerXml;
-                qa.fråga = node["fråga"].InnerXml;
+                //qa.typ = node["Typ"].InnerXml;
+                //qa.text = node["Text"].InnerXml;
+                //qa.fråga = node["Fråga"].InnerXml;
 
                 QALista.Add(qa);
             }
