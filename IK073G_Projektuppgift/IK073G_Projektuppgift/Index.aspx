@@ -10,6 +10,7 @@
                     </div>
 				        <div class="grid gridMiddle mobil">
                                 <p>Middle grid</p> 
+                            <div id="sorteraFrågor" runat="server"></div>
                         </div>
 				    <div class="grid gridRight mobil">
                         <p>höger meny</p>
