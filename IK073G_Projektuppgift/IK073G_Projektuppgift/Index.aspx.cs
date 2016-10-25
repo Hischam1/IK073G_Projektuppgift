@@ -35,8 +35,8 @@ namespace IK073G_Projektuppgift
                 HtmlGenericControl svarsalternativDivFråga = new HtmlGenericControl("div class=svarsalternativ");
                 divFråga.Controls.Add(svarsalternativDivFråga);
 
-                HtmlGenericControl svar1Fråga = new HtmlGenericControl("input type = checkbox name = svar1 value=" + qa.svar1);
-                svar1Fråga.InnerText = qa.svar1;
+                HtmlGenericControl svar1Fråga = new HtmlGenericControl(qa.svar1 + "input type = checkbox name = svar1 value=" + qa.svar1);
+                //svar1Fråga.InnerText = qa.svar1;
                 svarsalternativDivFråga.Controls.Add(svar1Fråga);
 
                 HtmlGenericControl svar2Fråga = new HtmlGenericControl("input type = checkbox name = svar2 value=" + qa.svar2);
