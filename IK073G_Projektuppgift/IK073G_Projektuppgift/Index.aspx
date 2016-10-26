@@ -10,6 +10,8 @@
                     </div>
 				        <div class="grid gridMiddle mobil" runat="server">
 
+                            <a href="nyanställd.aspx">Nyanställd</a>
+
                             <div id="bild" runat="server"></div>
                             <div id="frågeform" runat="server"></div>
                             

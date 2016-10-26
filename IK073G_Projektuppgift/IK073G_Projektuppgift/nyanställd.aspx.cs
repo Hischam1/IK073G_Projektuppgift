@@ -21,6 +21,10 @@ namespace IK073G_Projektuppgift
             foreach (QA qa in QALista)
             {
 
+                //HtmlGenericControl divBild = new HtmlGenericControl("div class=bild");
+                //divBild.InnerText = qa.bild;
+                //bild.Controls.Add(divBild);
+
                 HtmlGenericControl divFråga = new HtmlGenericControl("div class=fråga");
                 frågeform.Controls.Add(divFråga);
 
@@ -28,10 +32,13 @@ namespace IK073G_Projektuppgift
                 kategoriFråga.InnerText = qa.kategori;
                 divFråga.Controls.Add(kategoriFråga);
 
-
                 HtmlGenericControl rubrikFråga = new HtmlGenericControl("p class=frågaRubrik");
                 rubrikFråga.InnerText = qa.fråga;
                 divFråga.Controls.Add(rubrikFråga);
+
+                HtmlGenericControl divText = new HtmlGenericControl("div class=text");
+                divText.InnerText = qa.text;
+                divFråga.Controls.Add(divText);
 
                 HtmlGenericControl svarsalternativDivFråga = new HtmlGenericControl("div class=svarsalternativ");
                 divFråga.Controls.Add(svarsalternativDivFråga);
@@ -84,6 +91,8 @@ namespace IK073G_Projektuppgift
                 QA qa = new QA();
                 qa.kategori = node["Kategori"].InnerXml;
                 qa.typ = node["Typ"].InnerXml;
+                qa.text = node["Text"].InnerXml;
+                qa.bild = node["Bild"].InnerXml;
                 qa.fråga = node["Fråga"].InnerXml;
                 qa.svar1 = node["Svar1"].InnerXml;
                 qa.svar2 = node["Svar2"].InnerXml;
@@ -101,7 +110,5 @@ namespace IK073G_Projektuppgift
 
             return QALista;
         }
-    }
-}
     }
 }
