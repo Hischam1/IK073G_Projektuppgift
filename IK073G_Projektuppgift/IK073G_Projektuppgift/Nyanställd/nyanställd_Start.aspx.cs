@@ -11,9 +11,18 @@ namespace IK073G_Projektuppgift
 {
     public partial class nyanställd : System.Web.UI.Page
     {
+        List<QA> AllaQALista = new List<QA>();
+        List<QA> Kategori1QALista = new List<QA>();
+        List<QA> Kategori2QALista = new List<QA>();
+        List<QA> Kategori3QALista = new List<QA>();
+
+        private bool kategori1;
+        private bool kategori2;
+        private bool kategori3;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            VisaAllt(XmlTillLista());
+            
         }
         public void VisaAllt(List<QA> QALista)
         {
@@ -78,8 +87,13 @@ namespace IK073G_Projektuppgift
         }
         public List<QA> XmlTillLista()
         {
-            List<QA> QALista = new List<QA>();
-            string path = Server.MapPath("Q&A.xml");
+            AllaQALista.Clear();
+            Kategori1QALista.Clear();
+            Kategori2QALista.Clear();
+            Kategori3QALista.Clear();
+
+
+            string path = Server.MapPath("../Q&A.xml");
             XmlDocument doc = new XmlDocument();
             doc.Load(path);
 
@@ -103,12 +117,61 @@ namespace IK073G_Projektuppgift
                 qa.rättSvar3 = node["RättSvar3"].InnerXml;
 
 
-                QALista.Add(qa);
+                AllaQALista.Add(qa);
             }
 
+            if (kategori1 == true)
+            {
+                for (int i = 0; i < AllaQALista.Count; i++)
+                {
+                    if (AllaQALista[i].kategori == "Produkter och hantering av kundens affärer")
+                    {
+
+                        Kategori1QALista.Add(AllaQALista[i]);
+                    }
+                }
+
+                return Kategori1QALista;
+            }
+            else if (kategori2 == true)
+            {
+                for (int i = 0; i < AllaQALista.Count; i++)
+                {
+                    if (AllaQALista[i].kategori == "Ekonomi – nationalekonomi, finansiell ekonomi och privatekonomi")
+                    {
+                        Kategori2QALista.Add(AllaQALista[i]);
+                    }
+                }
+
+                return Kategori2QALista;
+            }
+            else if (kategori3 == true)
+            {
+                for (int i = 0; i < AllaQALista.Count; i++)
+                {
+                    if (AllaQALista[i].kategori == "Etik och regelverk")
+                    {
+                        Kategori3QALista.Add(AllaQALista[i]);
+                    }
+                }
+
+                return Kategori3QALista;
+            }
+            else
+            {
+                return AllaQALista;
+            }
+        }
 
 
-            return QALista;
+
+        protected void startaNyttTest_Click(object sender, EventArgs e)
+        {
+            kategori1 = true;
+            kategori2 = false;
+            kategori3 = false;
+
+            VisaAllt(XmlTillLista());
         }
     }
 }

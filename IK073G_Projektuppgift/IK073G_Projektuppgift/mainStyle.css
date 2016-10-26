@@ -17,6 +17,10 @@ body {
     position: relative;
 }
 
+.hidden {
+    visibility: hidden;
+}
+
 
 /* ---------------------------------------------- Toppen på sidan */
 
@@ -40,7 +44,7 @@ body {
     width: 100%;
     max-width: 100%;
     z-index: 10;
-    transition: height 0.1s linear 0s, linear 0s;
+    transition: height 0.01s linear 0s, width 0.01s linear 0s;
 	overflow:hidden;
 }
 
@@ -113,6 +117,11 @@ body {
 
 .current {
 	color: #e37500;
+}
+
+#loggaut {
+    float: right;
+    border: 2px solid rgba(130, 130, 130, 0.95);
 }
 
 

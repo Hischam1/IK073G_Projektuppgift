@@ -66,12 +66,14 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin\admin_Start.aspx" />
+    <Content Include="Anställd\anställd_Start.aspx" />
     <Content Include="Images\Huvudkontor.jpg" />
     <Content Include="Images\headerbild.png" />
     <Content Include="Index.aspx" />
     <Content Include="Images\logga.gif" />
     <Content Include="mainStyle.css" />
-    <Content Include="nyanställd.aspx" />
+    <Content Include="Nyanställd\nyanställd_Start.aspx" />
     <Content Include="packages.config" />
     <Content Include="JE-Bank.Master" />
     <None Include="Web.Debug.config">
@@ -87,6 +89,20 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\admin_Start.aspx.cs">
+      <DependentUpon>admin_Start.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\admin_Start.aspx.designer.cs">
+      <DependentUpon>admin_Start.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Anställd\anställd_Start.aspx.cs">
+      <DependentUpon>anställd_Start.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Anställd\anställd_Start.aspx.designer.cs">
+      <DependentUpon>anställd_Start.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -101,12 +117,12 @@
     <Compile Include="JE-Bank.Master.designer.cs">
       <DependentUpon>JE-Bank.Master</DependentUpon>
     </Compile>
-    <Compile Include="nyanställd.aspx.cs">
-      <DependentUpon>nyanställd.aspx</DependentUpon>
+    <Compile Include="Nyanställd\nyanställd_Start.aspx.cs">
+      <DependentUpon>nyanställd_Start.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="nyanställd.aspx.designer.cs">
-      <DependentUpon>nyanställd.aspx</DependentUpon>
+    <Compile Include="Nyanställd\nyanställd_Start.aspx.designer.cs">
+      <DependentUpon>nyanställd_Start.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QA.cs" />

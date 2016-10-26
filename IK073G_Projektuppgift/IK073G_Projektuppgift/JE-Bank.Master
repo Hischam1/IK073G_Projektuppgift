@@ -41,8 +41,8 @@
         window.addEventListener("scroll", yScroll);
     </script>
 
-    <asp:ContentPlaceHolder ID="head" runat="server">
-    </asp:ContentPlaceHolder>
+    
+    
 </head>
 <body>
     <form id="form1" runat="server">
@@ -50,18 +50,9 @@
 
             <div class="headerbild"></div>
 
-            <div class="header" id="header">
+            <asp:ContentPlaceHolder ID="head" runat="server">
 
-                    <%--<a href ="Index.aspx">--%><img id="logotyp" src="/Images/logga.gif" alt="JE LOGO"/><%--</a>--%>
-
-            <div class="nav">
-				    <ul>
-					    <li id="navRutor"><a href="Index.aspx" class="current">Start</a></li>
-				    </ul>
-		    </div>
-
-            </div>
-
+            </asp:ContentPlaceHolder>
             <div class="main">
 
                         <asp:ContentPlaceHolder ID="main" runat="server">
