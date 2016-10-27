@@ -11,15 +11,28 @@ namespace IK073G_Projektuppgift
 {
     public partial class nyanställd : System.Web.UI.Page
     {
+        List<QA> AllaQALista = new List<QA>();
+        List<QA> Kategori1QALista = new List<QA>();
+        List<QA> Kategori2QALista = new List<QA>();
+        List<QA> Kategori3QALista = new List<QA>();
+
+        private bool kategori1;
+        private bool kategori2;
+        private bool kategori3;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            VisaAllt(XmlTillLista());
+            
         }
         public void VisaAllt(List<QA> QALista)
         {
 
             foreach (QA qa in QALista)
             {
+
+                //HtmlGenericControl divBild = new HtmlGenericControl("div class=bild");
+                //divBild.InnerText = qa.bild;
+                //bild.Controls.Add(divBild);
 
                 HtmlGenericControl divFråga = new HtmlGenericControl("div class=fråga");
                 frågeform.Controls.Add(divFråga);
@@ -28,10 +41,13 @@ namespace IK073G_Projektuppgift
                 kategoriFråga.InnerText = qa.kategori;
                 divFråga.Controls.Add(kategoriFråga);
 
-
                 HtmlGenericControl rubrikFråga = new HtmlGenericControl("p class=frågaRubrik");
                 rubrikFråga.InnerText = qa.fråga;
                 divFråga.Controls.Add(rubrikFråga);
+
+                HtmlGenericControl divText = new HtmlGenericControl("div class=text");
+                divText.InnerText = qa.text;
+                divFråga.Controls.Add(divText);
 
                 HtmlGenericControl svarsalternativDivFråga = new HtmlGenericControl("div class=svarsalternativ");
                 divFråga.Controls.Add(svarsalternativDivFråga);
@@ -71,8 +87,13 @@ namespace IK073G_Projektuppgift
         }
         public List<QA> XmlTillLista()
         {
-            List<QA> QALista = new List<QA>();
-            string path = Server.MapPath("Q&A.xml");
+            AllaQALista.Clear();
+            Kategori1QALista.Clear();
+            Kategori2QALista.Clear();
+            Kategori3QALista.Clear();
+
+
+            string path = Server.MapPath("../Q&A.xml");
             XmlDocument doc = new XmlDocument();
             doc.Load(path);
 
@@ -84,6 +105,8 @@ namespace IK073G_Projektuppgift
                 QA qa = new QA();
                 qa.kategori = node["Kategori"].InnerXml;
                 qa.typ = node["Typ"].InnerXml;
+                qa.text = node["Text"].InnerXml;
+                qa.bild = node["Bild"].InnerXml;
                 qa.fråga = node["Fråga"].InnerXml;
                 qa.svar1 = node["Svar1"].InnerXml;
                 qa.svar2 = node["Svar2"].InnerXml;
@@ -94,12 +117,61 @@ namespace IK073G_Projektuppgift
                 qa.rättSvar3 = node["RättSvar3"].InnerXml;
 
 
-                QALista.Add(qa);
+                AllaQALista.Add(qa);
             }
 
+            if (kategori1 == true)
+            {
+                for (int i = 0; i < AllaQALista.Count; i++)
+                {
+                    if (AllaQALista[i].kategori == "Produkter och hantering av kundens affärer")
+                    {
+
+                        Kategori1QALista.Add(AllaQALista[i]);
+                    }
+                }
+
+                return Kategori1QALista;
+            }
+            else if (kategori2 == true)
+            {
+                for (int i = 0; i < AllaQALista.Count; i++)
+                {
+                    if (AllaQALista[i].kategori == "Ekonomi – nationalekonomi, finansiell ekonomi och privatekonomi")
+                    {
+                        Kategori2QALista.Add(AllaQALista[i]);
+                    }
+                }
+
+                return Kategori2QALista;
+            }
+            else if (kategori3 == true)
+            {
+                for (int i = 0; i < AllaQALista.Count; i++)
+                {
+                    if (AllaQALista[i].kategori == "Etik och regelverk")
+                    {
+                        Kategori3QALista.Add(AllaQALista[i]);
+                    }
+                }
+
+                return Kategori3QALista;
+            }
+            else
+            {
+                return AllaQALista;
+            }
+        }
 
 
-            return QALista;
+
+        protected void startaNyttTest_Click(object sender, EventArgs e)
+        {
+            kategori1 = true;
+            kategori2 = false;
+            kategori3 = false;
+
+            VisaAllt(XmlTillLista());
         }
     }
 }

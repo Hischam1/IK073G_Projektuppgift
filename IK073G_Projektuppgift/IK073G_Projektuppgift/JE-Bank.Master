@@ -8,8 +8,41 @@
     <meta charset="utf-8"/>
     <link rel="stylesheet" href="mainStyle.css" type="text/css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <asp:ContentPlaceHolder ID="head" runat="server">
-    </asp:ContentPlaceHolder>
+
+    <script>
+        var header, nav, logotyp, yPos;
+
+        function yScroll(){
+	        header = document.getElementById('header');
+	        navRutor = document.getElementById('navRutor');
+	        logotyp = document.getElementById('logotyp');
+	        yPos = window.pageYOffset;
+
+	        if (yPos > 335)
+	        {
+	            header.style.height = "45px";
+	            header.style.backgroundColor = "rgba(220, 220, 220, 1)";
+	            logotyp.style.marginRight = ("75px");
+	            logotyp.style.marginLeft = ("75px");
+	            logotyp.style.height = "20px";
+	            logotyp.style.width = "90px";
+
+	        }
+	        else {
+	            header.style.height = "87px";
+	            header.style.backgroundColor = "rgba(246, 246, 246, 0.75)";
+	            logotyp.style.marginRight = ("0px");
+	            logotyp.style.marginLeft = ("43px");
+	            logotyp.style.height = "60px";
+	            logotyp.style.width = "200px";
+	            
+	        }
+        }
+        window.addEventListener("scroll", yScroll);
+    </script>
+
+    
+    
 </head>
 <body>
     <form id="form1" runat="server">
@@ -17,18 +50,9 @@
 
             <div class="headerbild"></div>
 
-            <div class="header">
+            <asp:ContentPlaceHolder ID="head" runat="server">
 
-                    <a href ="Index.aspx"><img src="/Images/logga.gif" alt="JE LOGO"/></a>
-
-            <div class="nav">
-				    <ul>
-					    <li><a href="Index.aspx" class="current">Start</a></li>
-				    </ul>
-		    </div>
-
-            </div>
-
+            </asp:ContentPlaceHolder>
             <div class="main">
 
                         <asp:ContentPlaceHolder ID="main" runat="server">
