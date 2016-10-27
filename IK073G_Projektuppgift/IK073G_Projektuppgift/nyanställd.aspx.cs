@@ -103,5 +103,3 @@ namespace IK073G_Projektuppgift
         }
     }
 }
-    }
-}
