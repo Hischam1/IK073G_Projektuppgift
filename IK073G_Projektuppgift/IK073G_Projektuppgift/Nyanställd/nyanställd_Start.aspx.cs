@@ -41,7 +41,7 @@ namespace IK073G_Projektuppgift
                 kategoriFråga.InnerText = qa.kategori;
                 divFråga.Controls.Add(kategoriFråga);
 
-                HtmlGenericControl rubrikFråga = new HtmlGenericControl("p class=frågaRubrik");
+                HtmlGenericControl rubrikFråga = new HtmlGenericControl("p class=frågaRubrik id=hej runat=server");
                 rubrikFråga.InnerText = qa.fråga;
                 divFråga.Controls.Add(rubrikFråga);
 
@@ -171,7 +171,43 @@ namespace IK073G_Projektuppgift
             kategori2 = false;
             kategori3 = false;
 
+            nästaSida1.Visible = true;
+            provText.Visible = false;
+            startaNyttTest.Visible = false;
+
             VisaAllt(XmlTillLista());
+        }
+
+        protected void nästaSida1_Click(object sender, EventArgs e)
+        {
+            
+            
+
+            kategori1 = false;
+            kategori2 = true;
+            kategori3 = false;
+
+            nästaSida1.Visible = false;
+            nästaSida2.Visible = true;
+
+            VisaAllt(XmlTillLista());
+        }
+
+        protected void nästaSida2_Click(object sender, EventArgs e)
+        {
+            kategori1 = false;
+            kategori2 = false;
+            kategori3 = true;
+
+            nästaSida2.Visible = false;
+            avslutaProv.Visible = true;
+
+            VisaAllt(XmlTillLista());
+        }
+
+        protected void avslutaProv_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

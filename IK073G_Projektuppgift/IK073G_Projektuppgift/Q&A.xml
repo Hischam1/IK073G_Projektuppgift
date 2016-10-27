@@ -249,12 +249,12 @@
         <Typ>EttRätt</Typ>
         <Text></Text>
         <Bild></Bild>
-        <Fråga>EJ KLAR?</Fråga>
-        <Svar1>Fonden har en hög riskjusterad avkastning</Svar1>
-        <Svar2>Fonden har hög marknadsrisk</Svar2>
-        <Svar3>Fonden utvecklas normalt bättre än sitt index</Svar3>
-        <Svar4>InFonden har företagsspecifik risk motsvarande 40 % mer än index</Svar4>
-        <RättSvar1>Fonden har hög marknadsrisk</RättSvar1>
+        <Fråga>Om en kund vill ge dig som anställd en gåva, vad gör du då?</Fråga>
+        <Svar1>Tackar och bockar</Svar1>
+        <Svar2>Delar med mig till resten av gänget</Svar2>
+        <Svar3>Tackar nej, då det kan uppfattas som en muta</Svar3>
+        <Svar4>Tar emot och kastar i papperskorgen</Svar4>
+        <RättSvar1>Tackar nej, då det kan uppfattas som en muta</RättSvar1>
         <RättSvar2></RättSvar2>
         <RättSvar3></RättSvar3>
       </Frågenummer>
@@ -264,12 +264,12 @@
         <Typ>EttRätt</Typ>
         <Text></Text>
         <Bild></Bild>
-        <Fråga>EJ KLAR</Fråga>
-        <Svar1>Fonden har en hög riskjusterad avkastning</Svar1>
-        <Svar2>Fonden har hög marknadsrisk</Svar2>
-        <Svar3>Fonden utvecklas normalt bättre än sitt index</Svar3>
-        <Svar4>InFonden har företagsspecifik risk motsvarande 40 % mer än index</Svar4>
-        <RättSvar1>Fonden har hög marknadsrisk</RättSvar1>
+        <Fråga>Vad gör du om en kund vill sätta in 30 miljoner cash på sitt konto?</Fråga>
+        <Svar1>Gör det, kunden har alltid rätt</Svar1>
+        <Svar2>Gör det men låter JE-Banken ta en viss procent</Svar2>
+        <Svar3>Gör det men tar en viss procent i egen ficka</Svar3>
+        <Svar4>Pratar genast med chefen då detta kan vara svarta pengar</Svar4>
+        <RättSvar1>Pratar genast med chefen då detta kan vara svarta pengar</RättSvar1>
         <RättSvar2></RättSvar2>
         <RättSvar3></RättSvar3>
       </Frågenummer>
@@ -291,16 +291,16 @@
 
       <Frågenummer id="20">
         <Kategori>Etik och regelverk</Kategori>
-        <Typ>EttRätt</Typ>
-        <Text></Text>
+        <Typ>FleraRätt</Typ>
+        <Text>Här är två svarsalternativ rätt</Text>
         <Bild></Bild>
-        <Fråga>EJ KLAR</Fråga>
-        <Svar1>Fonden har en hög riskjusterad avkastning</Svar1>
-        <Svar2>Fonden har hög marknadsrisk</Svar2>
-        <Svar3>Fonden utvecklas normalt bättre än sitt index</Svar3>
-        <Svar4>InFonden har företagsspecifik risk motsvarande 40 % mer än index</Svar4>
-        <RättSvar1>Fonden har hög marknadsrisk</RättSvar1>
-        <RättSvar2></RättSvar2>
+        <Fråga>En kollega ber dig att få ta del av inkomstuppgifter en från din kund, vad gör du?</Fråga>
+        <Svar1>Säger nej, då vi följer PUL</Svar1>
+        <Svar2>Meddelar genast chefen om kollegans beteende</Svar2>
+        <Svar3>Delar gladeligen med dig av alla uppgifter via mail</Svar3>
+        <Svar4>Gör ingenting</Svar4>
+        <RättSvar1>Säger nej, då vi följer PUL</RättSvar1>
+        <RättSvar2>Meddelar genast chefen om kollegans beteende</RättSvar2>
         <RättSvar3></RättSvar3>
       </Frågenummer>
 
@@ -309,7 +309,7 @@
         <Typ>BildFråga</Typ>
         <Text></Text>
         <Bild src="Images\Huvudkontor.jpg"></Bild>
-        <Fråga>EJ KLAR</Fråga>
+        <Fråga>Vad föreställer detta?</Fråga>
         <Svar1>Vita huset</Svar1>
         <Svar2>Globen</Svar2>
         <Svar3>JE-Bankens huvudkontor</Svar3>
@@ -321,21 +321,206 @@
 
       <Frågenummer id="22">
         <Kategori>Etik och regelverk</Kategori>
-        <Typ>FleraRätt</Typ>
+        <Typ>EttRätt</Typ>
         <Text>Här är det två svarsalternativ som är korrekt.</Text>
         <Bild></Bild>
-        <Fråga>EJ KLAR</Fråga>
-        <Svar1>Ryssland</Svar1>
-        <Svar2>Sverige</Svar2>
-        <Svar3>Danmark</Svar3>
-        <Svar4>Portugal</Svar4>
+        <Fråga>Hur behandlar vi alla kollegor på jobbet?</Fråga>
+        <Svar1>Alla har lika värde</Svar1>
+        <Svar2>Rikast är bäst</Svar2>
+        <Svar3>En lägre anställd har mindre värde</Svar3>
+        <Svar4>Nyanställda skrubbar toaletterna</Svar4>
         <RättSvar1>Sverige</RättSvar1>
         <RättSvar2>Danmark</RättSvar2>
         <RättSvar3></RättSvar3>
       </Frågenummer>
 
       <Frågenummer id="23">
-        <Kategori>EJ KLAR</Kategori>
+        <Kategori>Etik och regelverk</Kategori>
+        <Typ>EttRätt</Typ>
+        <Text></Text>
+        <Bild></Bild>
+        <Fråga>Om en kund inte kan svenska, får personen låna pengar av oss då?</Fråga>
+        <Svar1>Ja</Svar1>
+        <Svar2>Nej</Svar2>
+        <Svar3>Ja, om kunden uppfyller inkomstkraven</Svar3>
+        <Svar4>Öppet för diskussion</Svar4>
+        <RättSvar1>Fonden har hög marknadsrisk</RättSvar1>
+        <RättSvar2></RättSvar2>
+        <RättSvar3></RättSvar3>
+      </Frågenummer>
+
+      <Frågenummer id="24">
+        <Kategori>Etik och regelverk</Kategori>
+        <Typ>FleraRätt</Typ>
+        <Text></Text>
+        <Bild></Bild>
+        <Fråga>Chefen ber dig lägga in oskattade pengar åt honom, vad gör du?</Fråga>
+        <Svar1>Lyder order, en chef är alltid en chef</Svar1>
+        <Svar2>Ringer polisen</Svar2>
+        <Svar3>Nekar honom och riskerar att få sparken</Svar3>
+        <Svar4>Lyder honom, men tar en procent till dig själv under kuppen</Svar4>
+        <RättSvar1>Ringer polisen</RättSvar1>
+        <RättSvar2>Nekar honom och riskerar att få sparken</RättSvar2>
+        <RättSvar3></RättSvar3>
+      </Frågenummer>
+
+      <Frågenummer id="25">
+        <Kategori>Etik och regelverk</Kategori>
+        <Typ>EttRätt</Typ>
+        <Text>Här är tre svar korrekta</Text>
+        <Bild></Bild>
+        <Fråga>Hur behandlar vi kunder?</Fråga>
+        <Svar1>Med bästa möjliga uppförande</Svar1>
+        <Svar2>Varje kund är speciell för oss</Svar2>
+        <Svar3>Med mycket hög service</Svar3>
+        <Svar4>Ber dom komma någon annan dag ifall vi är trötta</Svar4>
+        <RättSvar1>Med bästa möjliga uppförande</RättSvar1>
+        <RättSvar2>Varje kund är speciell för oss</RättSvar2>
+        <RättSvar3>>Med mycket hög service</RättSvar3>
+      </Frågenummer>
+      
+
+    </FrågorLicensiering>
+
+    <FrågorÅKU>
+
+      <Frågenummer id="1">
+        <Kategori>Produkter och hantering av kundens affärer</Kategori>
+        <Typ>EttRätt</Typ>
+        <Text></Text>
+        <Bild></Bild>
+        <Fråga>Vad heter JE-Bankens kundsystem?</Fråga>
+        <Svar1>JE-Systemet</Svar1>
+        <Svar2>JE-Bank System</Svar2>
+        <Svar3>Kundhantering JE</Svar3>
+        <Svar4>Service appen</Svar4>
+        <RättSvar1>JE-Systemet</RättSvar1>
+        <RättSvar2></RättSvar2>
+        <RättSvar3></RättSvar3>
+      </Frågenummer>
+
+      <Frågenummer id="2">
+        <Kategori>Produkter och hantering av kundens affärer</Kategori>
+        <Typ>EttRätt</Typ>
+        <Text></Text>
+        <Bild></Bild>
+        <Fråga>Hur hanteras svar till kunder?</Fråga>
+        <Svar1>Via SMS</Svar1>
+        <Svar2>Via Mail</Svar2>
+        <Svar3>Via Telefon</Svar3>
+        <Svar4>Via Brev</Svar4>
+        <RättSvar1>Via Brev</RättSvar1>
+        <RättSvar2></RättSvar2>
+        <RättSvar3></RättSvar3>
+      </Frågenummer>
+
+      <Frågenummer id="3">
+        <Kategori>Produkter och hantering av kundens affärer</Kategori>
+        <Typ>BildFråga</Typ>
+        <Text></Text>
+        <Bild src="Images\Huvudkontor.jpg"></Bild>
+        <Fråga>Vilket hus är detta?</Fråga>
+        <Svar1>Vita huset</Svar1>
+        <Svar2>Globen</Svar2>
+        <Svar3>JE-Bankens huvudkontor</Svar3>
+        <Svar4>San Siro</Svar4>
+        <RättSvar1>JE-Bankens huvudkontor</RättSvar1>
+        <RättSvar2></RättSvar2>
+        <RättSvar3></RättSvar3>
+      </Frågenummer>
+
+      <Frågenummer id="4">
+        <Kategori>Produkter och hantering av kundens affärer</Kategori>
+        <Typ>EttRätt</Typ>
+        <Text></Text>
+        <Bild></Bild>
+        <Fråga>Vad heter JE-Bankens chef?</Fråga>
+        <Svar1>Maarten Schtekelenburg</Svar1>
+        <Svar2>Karl Von Anka</Svar2>
+        <Svar3>Leif Schnejder</Svar3>
+        <Svar4>Anna Zlibrienzska</Svar4>
+        <RättSvar1>Maarten Schtekelenburg</RättSvar1>
+        <RättSvar2></RättSvar2>
+        <RättSvar3></RättSvar3>
+      </Frågenummer>
+
+      <Frågenummer id="5">
+        <Kategori>Produkter och hantering av kundens affärer</Kategori>
+        <Typ>EttRätt</Typ>
+        <Text></Text>
+        <Bild></Bild>
+        <Fråga>Hur ofta ska man göra ÅKU?</Fråga>
+        <Svar1>Varje dag</Svar1>
+        <Svar2>Varje vecka</Svar2>
+        <Svar3>Varje månad</Svar3>
+        <Svar4>Varje år</Svar4>
+        <RättSvar1>Varje år</RättSvar1>
+        <RättSvar2></RättSvar2>
+        <RättSvar3></RättSvar3>
+      </Frågenummer>
+      
+       <Frågenummer id="9">
+        <Kategori>Ekonomi – nationalekonomi, finansiell ekonomi och privatekonomi</Kategori>
+        <Typ>EttRätt</Typ>
+        <Text></Text>
+        <Bild></Bild>
+        <Fråga>En kund vill att det betalas ut garanterat 100.000 kronor skattefritt om denne avlider. Vilken produkt bör du föreslå?</Fråga>
+        <Svar1>En fondkapitalförsäkring med återbetalningsskydd</Svar1>
+        <Svar2>En traditionellt förvaltad kapitalförsäkring</Svar2>
+        <Svar3>En fondpensionsförsäkring med återbetalningsskydd</Svar3>
+        <Svar4>En traditionellt förvaltad pensionsförsäkring</Svar4>
+        <RättSvar1>En traditionellt förvaltad pensionsförsäkring</RättSvar1>
+        <RättSvar2></RättSvar2>
+        <RättSvar3></RättSvar3>
+      </Frågenummer>
+
+      <Frågenummer id="10">
+        <Kategori>Ekonomi – nationalekonomi, finansiell ekonomi och privatekonomi</Kategori>
+        <Typ>EttRätt</Typ>
+        <Text></Text>
+        <Bild></Bild>
+        <Fråga>Hur länge utbetalas efterlevandepensionen i KAP-KL till en vuxen efterlevande?</Fråga>
+        <Svar1>5 år</Svar1>
+        <Svar2>10 år</Svar2>
+        <Svar3>20 år</Svar3>
+        <Svar4>Livsvarigt</Svar4>
+        <RättSvar1>5 år</RättSvar1>
+        <RättSvar2></RättSvar2>
+        <RättSvar3></RättSvar3>
+      </Frågenummer>
+
+      <Frågenummer id="11">
+        <Kategori>Ekonomi – nationalekonomi, finansiell ekonomi och privatekonomi</Kategori>
+        <Typ>EttRätt</Typ>
+        <Text></Text>
+        <Bild></Bild>
+        <Fråga>Vilket av följande beskriver ett avdragsgillt alternativ till en tjänstepensionsförsäkring för ett företag?</Fråga>
+        <Svar1>Inköp av aktieindexobligation</Svar1>
+        <Svar2>Avsättning till pensionsstiftelse</Svar2>
+        <Svar3>Inköp av aktiefonder som inte är via försäkring</Svar3>
+        <Svar4>Premiebetalning till företagsägd kapitalförsäkring</Svar4>
+        <RättSvar1>Avsättning till pensionsstiftelse</RättSvar1>
+        <RättSvar2></RättSvar2>
+        <RättSvar3></RättSvar3>
+      </Frågenummer>
+
+      <Frågenummer id="12">
+        <Kategori>Ekonomi – nationalekonomi, finansiell ekonomi och privatekonomi</Kategori>
+        <Typ>EttRätt</Typ>
+        <Text></Text>
+        <Bild></Bild>
+        <Fråga>När vi vill veta hur en fond har utvecklats i förhållande till ett lämpligt jämförelseindex är följande ett bra mått:</Fråga>
+        <Svar1>Jensen’s alfa</Svar1>
+        <Svar2>Sharpe-kvoten</Svar2>
+        <Svar3>Treynor-index</Svar3>
+        <Svar4>Informationskvoten</Svar4>
+        <RättSvar1>Informationskvoten</RättSvar1>
+        <RättSvar2></RättSvar2>
+        <RättSvar3></RättSvar3>
+      </Frågenummer>
+
+      <Frågenummer id="13">
+        <Kategori>Ekonomi – nationalekonomi, finansiell ekonomi och privatekonomi</Kategori>
         <Typ>EttRätt</Typ>
         <Text></Text>
         <Bild></Bild>
@@ -348,42 +533,81 @@
         <RättSvar2></RättSvar2>
         <RättSvar3></RättSvar3>
       </Frågenummer>
-
-      <Frågenummer id="24">
-        <Kategori>Etik och regelverk</Kategori>
-        <Typ>EttRätt</Typ>
-        <Text></Text>
-        <Bild></Bild>
-        <Fråga>EJ KLAR</Fråga>
-        <Svar1>Fonden har en hög riskjusterad avkastning</Svar1>
-        <Svar2>Fonden har hög marknadsrisk</Svar2>
-        <Svar3>Fonden utvecklas normalt bättre än sitt index</Svar3>
-        <Svar4>InFonden har företagsspecifik risk motsvarande 40 % mer än index</Svar4>
-        <RättSvar1>Fonden har hög marknadsrisk</RättSvar1>
-        <RättSvar2></RättSvar2>
-        <RättSvar3></RättSvar3>
-      </Frågenummer>
-
-      <Frågenummer id="25">
-        <Kategori>Etik och regelverk</Kategori>
-        <Typ>EttRätt</Typ>
-        <Text></Text>
-        <Bild></Bild>
-        <Fråga>EJ KLAR</Fråga>
-        <Svar1>Fonden har en hög riskjusterad avkastning</Svar1>
-        <Svar2>Fonden har hög marknadsrisk</Svar2>
-        <Svar3>Fonden utvecklas normalt bättre än sitt index</Svar3>
-        <Svar4>InFonden har företagsspecifik risk motsvarande 40 % mer än index</Svar4>
-        <RättSvar1>Fonden har hög marknadsrisk</RättSvar1>
-        <RättSvar2></RättSvar2>
-        <RättSvar3></RättSvar3>
-      </Frågenummer>
       
+      <Frågenummer id="17">
+        <Kategori>Etik och regelverk</Kategori>
+        <Typ>EttRätt</Typ>
+        <Text></Text>
+        <Bild></Bild>
+        <Fråga>Om en kund vill ge dig som anställd en gåva, vad gör du då?</Fråga>
+        <Svar1>Tackar och bockar</Svar1>
+        <Svar2>Delar med mig till resten av gänget</Svar2>
+        <Svar3>Tackar nej, då det kan uppfattas som en muta</Svar3>
+        <Svar4>Tar emot och kastar i papperskorgen</Svar4>
+        <RättSvar1>Tackar nej, då det kan uppfattas som en muta</RättSvar1>
+        <RättSvar2></RättSvar2>
+        <RättSvar3></RättSvar3>
+      </Frågenummer>
 
-    </FrågorLicensiering>
+      <Frågenummer id="18">
+        <Kategori>Etik och regelverk</Kategori>
+        <Typ>EttRätt</Typ>
+        <Text></Text>
+        <Bild></Bild>
+        <Fråga>Vad gör du om en kund vill sätta in 30 miljoner cash på sitt konto?</Fråga>
+        <Svar1>Gör det, kunden har alltid rätt</Svar1>
+        <Svar2>Gör det men låter JE-Banken ta en viss procent</Svar2>
+        <Svar3>Gör det men tar en viss procent i egen ficka</Svar3>
+        <Svar4>Pratar genast med chefen då detta kan vara svarta pengar</Svar4>
+        <RättSvar1>Pratar genast med chefen då detta kan vara svarta pengar</RättSvar1>
+        <RättSvar2></RättSvar2>
+        <RättSvar3></RättSvar3>
+      </Frågenummer>
 
-    <FrågorÅKU>
+      <Frågenummer id="19">
+        <Kategori>Etik och regelverk</Kategori>
+        <Typ>EttRätt</Typ>
+        <Text></Text>
+        <Bild></Bild>
+        <Fråga>Vad betyder inventering?</Fråga>
+        <Svar1>Tillställning</Svar1>
+        <Svar2>Förberedelse</Svar2>
+        <Svar3>Kartläggning</Svar3>
+        <Svar4>Skapelse</Svar4>
+        <RättSvar1>Kartläggning</RättSvar1>
+        <RättSvar2></RättSvar2>
+        <RättSvar3></RättSvar3>
+      </Frågenummer>
 
+      <Frågenummer id="20">
+        <Kategori>Etik och regelverk</Kategori>
+        <Typ>FleraRätt</Typ>
+        <Text>Här är två svarsalternativ rätt</Text>
+        <Bild></Bild>
+        <Fråga>En kollega ber dig att få ta del av inkomstuppgifter en från din kund, vad gör du?</Fråga>
+        <Svar1>Säger nej, då vi följer PUL</Svar1>
+        <Svar2>Meddelar genast chefen om kollegans beteende</Svar2>
+        <Svar3>Delar gladeligen med dig av alla uppgifter via mail</Svar3>
+        <Svar4>Gör ingenting</Svar4>
+        <RättSvar1>Säger nej, då vi följer PUL</RättSvar1>
+        <RättSvar2>Meddelar genast chefen om kollegans beteende</RättSvar2>
+        <RättSvar3></RättSvar3>
+      </Frågenummer>
+
+      <Frågenummer id="21">
+        <Kategori>Etik och regelverk</Kategori>
+        <Typ>BildFråga</Typ>
+        <Text></Text>
+        <Bild src="Images\Huvudkontor.jpg"></Bild>
+        <Fråga>Vad föreställer detta?</Fråga>
+        <Svar1>Vita huset</Svar1>
+        <Svar2>Globen</Svar2>
+        <Svar3>JE-Bankens huvudkontor</Svar3>
+        <Svar4>San Siro</Svar4>
+        <RättSvar1>JE-Bankens huvudkontor</RättSvar1>
+        <RättSvar2></RättSvar2>
+        <RättSvar3></RättSvar3>
+      </Frågenummer>
 
     </FrågorÅKU>
   </Frågor>

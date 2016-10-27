@@ -23,11 +23,14 @@
                              <li>Sidomeny</li>
 				         </ul>
                     </div>
-				        <div class="grid gridMiddle mobil" runat="server">
+				        <div id="gridMitten" class="grid gridMiddle mobil" runat="server">
 
-                            <p style="text-align:center; font-size: 16px;">Du har ett licensieringsprov att göra.</p>
+                            <p id="provText" runat="server" style="text-align:center; font-size: 16px;">Du har ett licensieringsprov att göra.</p>
                             <asp:Button ID="startaNyttTest" runat="server" Text="Starta prov" OnClick="startaNyttTest_Click" style="margin-left: 45%; margin-bottom: 2%;"/>
                             <div id="frågeform" runat="server"></div>
+                            <asp:Button ID="nästaSida1" runat="server" Text="Nästa Kategori" OnClick="nästaSida1_Click" Visible="false" style="margin-left: 45%; margin-bottom: 2%;"/>
+                            <asp:Button ID="nästaSida2" runat="server" Text="Nästa Kategori" OnClick="nästaSida2_Click" Visible="false" style="margin-left: 45%; margin-bottom: 2%;"/>
+                            <asp:Button ID="avslutaProv" runat="server" Text="Avsluta provet" OnClick="avslutaProv_Click" Visible="false" style="margin-left: 45%; margin-bottom: 2%;"/>
 
                         </div>
 				    <div class="grid gridRight mobil hidden">

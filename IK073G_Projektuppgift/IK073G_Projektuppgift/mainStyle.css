@@ -30,6 +30,21 @@ body {
     margin: 0 auto;
 }
 
+#main_väljPerson a{
+    padding: 0% 3%;
+    margin: 9%;
+    border-radius: 6px;
+    background-color:lightgrey;
+    text-decoration: none;
+    color: black;
+    }
+
+#main_väljPerson a:hover{
+
+        background-color:darkgray;
+    }
+
+
 .headerbildCurrent {
  /*Här ska det ligga en bild för aktuell sida, tillkommer senare*/
 }

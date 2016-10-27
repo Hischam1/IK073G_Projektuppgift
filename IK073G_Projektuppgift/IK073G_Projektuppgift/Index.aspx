@@ -21,7 +21,7 @@
                              <li>Sidomeny</li>
 				         </ul>
                     </div>
-				        <div class="grid gridMiddle mobil" runat="server" >
+				        <div id="väljPerson" class="grid gridMiddle mobil" runat="server" >
 
                             <a href="Nyanställd/nyanställd_Start.aspx">Nyanställd</a>
                             <a href="Anställd/anställd_Start.aspx">Anställd 1</a>
