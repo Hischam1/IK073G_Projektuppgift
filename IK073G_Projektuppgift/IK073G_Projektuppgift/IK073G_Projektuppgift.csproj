@@ -74,6 +74,8 @@
     <Content Include="Anställd\anställd_Start.aspx" />
     <Content Include="Images\Huvudkontor.jpg" />
     <Content Include="Images\headerbild.png" />
+    <Content Include="Images\muta.jpg" />
+    <Content Include="Images\wallstreet.jpg" />
     <Content Include="Index.aspx" />
     <Content Include="Images\logga.gif" />
     <Content Include="mainStyle.css" />

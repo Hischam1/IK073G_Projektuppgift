@@ -38,7 +38,7 @@
         <Kategori>Produkter och hantering av kundens affärer</Kategori>
         <Typ>BildFråga</Typ>
         <Text></Text>
-        <Bild src="Images\Huvudkontor.jpg"></Bild>
+        <Bild>../Images/Huvudkontor.jpg</Bild>
         <Fråga>Vilket hus är detta?</Fråga>
         <Svar1>Vita huset</Svar1>
         <Svar2>Globen</Svar2>
@@ -233,7 +233,7 @@
         <Kategori>Ekonomi – nationalekonomi, finansiell ekonomi och privatekonomi</Kategori>
         <Typ>BildFråga</Typ>
         <Text></Text>
-        <Bild src="Images\wallstreet.jpg"></Bild>
+        <Bild>../Images/wallstreet.jpg</Bild>
         <Fråga>Bilden visar ett av världens viktigaste finanscentrum, vilken plats visar bilden?</Fråga>
         <Svar1>NASAs huvudkontor</Svar1>
         <Svar2>Rosenbad</Svar2>
@@ -308,13 +308,13 @@
         <Kategori>Etik och regelverk</Kategori>
         <Typ>BildFråga</Typ>
         <Text></Text>
-        <Bild src="Images\Huvudkontor.jpg"></Bild>
-        <Fråga>Vad föreställer detta?</Fråga>
-        <Svar1>Vita huset</Svar1>
-        <Svar2>Globen</Svar2>
-        <Svar3>JE-Bankens huvudkontor</Svar3>
-        <Svar4>San Siro</Svar4>
-        <RättSvar1>JE-Bankens huvudkontor</RättSvar1>
+        <Bild>../Images/muta.jpg</Bild>
+        <Fråga>Vad gör du om du ser detta inträffa mellan en kollega och kunden?</Fråga>
+        <Svar1>Kontaktar chefen direkt</Svar1>
+        <Svar2>Tar saken i egna händer och skäller ut dom på plats</Svar2>
+        <Svar3>Frågar kollegan om du kan få en del</Svar3>
+        <Svar4>Hotar kunden att även ge dig annars avslöjar du dom</Svar4>
+        <RättSvar1>Kontaktar chefen direkt</RättSvar1>
         <RättSvar2></RättSvar2>
         <RättSvar3></RättSvar3>
       </Frågenummer>

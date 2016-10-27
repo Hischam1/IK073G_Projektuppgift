@@ -46,6 +46,10 @@ namespace IK073G_Projektuppgift
                 kategoriFråga.InnerText = qa.kategori;
                 divFråga.Controls.Add(kategoriFråga);
 
+                HtmlGenericControl bildFråga = new HtmlGenericControl("img src= '" + qa.bild + "' class=bildFråga width=20%");
+                //bildFråga.InnerText = qa.bild;
+                divFråga.Controls.Add(bildFråga);
+
                 HtmlGenericControl rubrikFråga = new HtmlGenericControl("p class=frågaRubrik id=hej runat=server");
                 rubrikFråga.InnerText = qa.fråga;
                 divFråga.Controls.Add(rubrikFråga);
