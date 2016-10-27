@@ -22,6 +22,24 @@ namespace IK073G_Projektuppgift {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl gridMitten;
         
         /// <summary>
+        /// namnet control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl namnet;
+        
+        /// <summary>
+        /// nyanställningsLista control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList nyanställningsLista;
+        
+        /// <summary>
         /// provText control.
         /// </summary>
         /// <remarks>

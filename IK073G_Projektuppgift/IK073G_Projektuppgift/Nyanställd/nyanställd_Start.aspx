@@ -24,7 +24,7 @@
 				         </ul>
                     </div>
 				        <div id="gridMitten" class="grid gridMiddle mobil" runat="server">
-
+                            <div id="namnet" runat="server" style="margin-left: 35%; margin-bottom: 2%;">Välj Person: <asp:DropDownList ID="nyanställningsLista" runat="server"></asp:DropDownList></div>
                             <p id="provText" runat="server" style="text-align:center; font-size: 16px;">Du har ett licensieringsprov att göra.</p>
                             <asp:Button ID="startaNyttTest" runat="server" Text="Starta prov" OnClick="startaNyttTest_Click" style="margin-left: 45%; margin-bottom: 2%;"/>
                             <div id="frågeform" runat="server"></div>

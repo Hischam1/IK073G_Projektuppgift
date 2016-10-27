@@ -16,13 +16,16 @@ namespace IK073G_Projektuppgift.Anställd
         List<QA> Kategori2QALista = new List<QA>();
         List<QA> Kategori3QALista = new List<QA>();
 
+        Postgres p = new Postgres();
+
         private bool kategori1;
         private bool kategori2;
         private bool kategori3;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            anställningsLista.DataSource = p.HämtaAnställda();
+            anställningsLista.DataBind();
         }
 
         public void VisaAllt(List<QA> QALista)

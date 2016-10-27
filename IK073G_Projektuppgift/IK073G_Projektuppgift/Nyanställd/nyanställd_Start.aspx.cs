@@ -16,13 +16,18 @@ namespace IK073G_Projektuppgift
         List<QA> Kategori2QALista = new List<QA>();
         List<QA> Kategori3QALista = new List<QA>();
 
+        string valtNamn;
+        Postgres p = new Postgres();
+
         private bool kategori1;
         private bool kategori2;
         private bool kategori3;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            nyanställningsLista.DataSource = p.HämtaNyanställda();
+            nyanställningsLista.DataBind();
+           
         }
         public void VisaAllt(List<QA> QALista)
         {
@@ -171,9 +176,12 @@ namespace IK073G_Projektuppgift
             kategori2 = false;
             kategori3 = false;
 
+            
             nästaSida1.Visible = true;
             provText.Visible = false;
             startaNyttTest.Visible = false;
+            nyanställningsLista.Visible = false;
+            namnet.InnerHtml = nyanställningsLista.SelectedItem.Value;
 
             VisaAllt(XmlTillLista());
         }
