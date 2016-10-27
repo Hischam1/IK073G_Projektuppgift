@@ -140,6 +140,33 @@ namespace IK073G_Projektuppgift
             }
             return AnställdLista;
         }
+        public List<Person> HämtaAdmin()
+        {
+            string sql = "select * from person WHERE admin = true ORDER BY förnamn";
+
+            tabell.Clear();
+            tabell = sqlFråga(sql);
+            List<Person> AdminLista = new List<Person>();
+            Person p;
+
+            foreach (DataRow rad in tabell.Rows)
+            {
+                p = new Person();
+
+                p.anställningsID = (int)rad[0];
+                p.förnamn = rad[1].ToString();
+                p.efternamn = rad[2].ToString();
+                p.telefonnummer = rad[3].ToString();
+                p.nyanställd = (bool)rad[4];
+                p.anställd = (bool)rad[5];
+                p.admin = (bool)rad[6];
+
+                AdminLista.Add(p);
+
+
+            }
+            return AdminLista;
+        }
 
     }
 }

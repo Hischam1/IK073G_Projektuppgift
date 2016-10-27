@@ -17,4 +17,18 @@
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="main" runat="server">
+          <div class="clearfix">
+                    <div class="grid subnavigering mobil hidden">
+                         <ul>
+                             <li>Sidomeny</li>
+				         </ul>
+                    </div>
+                         <div id="gridMitten" class="grid gridMiddle mobil" runat="server">
+                              <div id="namnet" runat="server" style="margin-left: 35%; margin-bottom: 2%;">Välj Person: <asp:DropDownList ID="AdminLista" runat="server"></asp:DropDownList></div>
+
+                        </div>
+                       <div class="grid gridRight mobil hidden">
+                        <p>höger meny</p>
+                    </div>
+            </div>
 </asp:Content>
