@@ -31,8 +31,10 @@ namespace IK073G_Projektuppgift
         }
         public void VisaAllt(List<QA> QALista)
         {
-
-            foreach (QA qa in QALista)
+            Random r = new Random();
+            var blandadLista = QALista.OrderBy(c => r.Next()).ToList();
+                        
+            foreach (QA qa in blandadLista)
             {
 
                 //HtmlGenericControl divBild = new HtmlGenericControl("div class=bild");

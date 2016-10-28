@@ -167,6 +167,33 @@ namespace IK073G_Projektuppgift
             }
             return AdminLista;
         }
+        public List<Prov> HämtaProvResultat()
+        {
+            string sql = "select förnamn, efternamn, prov_typ, prov_datum, prov_status, prov_antal_rätt, prov_totaltid_minuter from prov, person WHERE prov.provdeltagare = person.anställnings_id ORDER BY person.förnamn";
+
+            tabell.Clear();
+            tabell = sqlFråga(sql);
+            List<Prov> ProvResultatLista = new List<Prov>();
+            Prov p;
+
+            foreach (DataRow rad in tabell.Rows)
+            {
+                p = new Prov();
+
+                p.förnamn = rad[0].ToString();
+                p.efternamn = rad[1].ToString();
+                p.provTyp = rad[2].ToString();
+                p.datum = (DateTime)rad[3];
+                p.provStatus = rad[4].ToString();
+                p.antalRätt = (int)rad[5];
+                p.totalTid = (int)rad[6];
+
+                ProvResultatLista.Add(p);
+
+
+            }
+            return ProvResultatLista;
+        }
 
     }
 }

@@ -30,13 +30,11 @@ namespace IK073G_Projektuppgift.Anställd
 
         public void VisaAllt(List<QA> QALista)
         {
+            Random r = new Random();
+            var blandadLista = QALista.OrderBy(c => r.Next()).ToList();
 
-            foreach (QA qa in QALista)
+            foreach (QA qa in blandadLista)
             {
-
-                //HtmlGenericControl divBild = new HtmlGenericControl("div class=bild");
-                //divBild.InnerText = qa.bild;
-                //bild.Controls.Add(divBild);
 
                 HtmlGenericControl divFråga = new HtmlGenericControl("div class=fråga");
                 frågeform.Controls.Add(divFråga);
@@ -44,6 +42,10 @@ namespace IK073G_Projektuppgift.Anställd
                 HtmlGenericControl kategoriFråga = new HtmlGenericControl("p class=frågaKategori");
                 kategoriFråga.InnerText = qa.kategori;
                 divFråga.Controls.Add(kategoriFråga);
+
+                HtmlGenericControl bildFråga = new HtmlGenericControl("img src= '" + qa.bild + "' class=bildFråga width=20%");
+                //bildFråga.InnerText = qa.bild;
+                divFråga.Controls.Add(bildFråga);
 
                 HtmlGenericControl rubrikFråga = new HtmlGenericControl("p class=frågaRubrik id=hej runat=server");
                 rubrikFråga.InnerText = qa.fråga;
