@@ -7,8 +7,8 @@ namespace IK073G_Projektuppgift
 {
     public class Prov
     {
-        public int provId { get; set; }
-        public int provDeltagare { get; set; }
+        //public int provId { get; set; }
+        //public int provDeltagare { get; set; }
         public string förnamn { get; set; }
         public string efternamn { get; set; }
         public string provTyp { get; set; }

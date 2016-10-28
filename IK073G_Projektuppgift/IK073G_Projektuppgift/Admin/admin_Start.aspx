@@ -25,7 +25,7 @@
                     </div>
                          <div id="gridMitten" class="grid gridMiddle mobil" runat="server">
                               <div id="namnet" runat="server" style="margin-left: 35%; margin-bottom: 2%;">Välj Person: <asp:DropDownList ID="AdminLista" runat="server"></asp:DropDownList></div>
-                             <asp:GridView ID="GridViewDeltagare" runat="server" style="margin-left: 20%; margin-bottom: 2%;" CellPadding="4" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None">
+                             <asp:GridView ID="GridViewDeltagare" runat="server" style="margin-left: 20%; margin-bottom: 2%;" CellPadding="4" ForeColor="#333333" GridLines="None">
                                  <AlternatingRowStyle BackColor="White" />
                                  <EditRowStyle BackColor="#2461BF" />
                                  <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
