@@ -27,8 +27,16 @@
                             <div id="namnet" runat="server" style="margin-left: 35%; margin-bottom: 2%;">Välj Person: <asp:DropDownList ID="nyanställningsLista" runat="server"></asp:DropDownList></div>
                             <p id="provText" runat="server" style="text-align:center; font-size: 16px;">Du har ett licensieringsprov att göra.</p>
                             <asp:Button ID="startaNyttTest" runat="server" Text="Starta prov" OnClick="startaNyttTest_Click" style="margin-left: 45%; margin-bottom: 2%;"/>
-                            <div id="frågeform" runat="server"></div>
-                            <asp:Button ID="nästaSida1" runat="server" Text="Nästa Kategori" OnClick="nästaSida1_Click" Visible="false" style="margin-left: 45%; margin-bottom: 2%;"/>
+                            <div id="frågeform" runat="server">
+                                <div class="fråga" runat="server">
+                                <asp:CheckBox ID="CheckBox1" runat="server" />
+                                <asp:CheckBox ID="CheckBox2" runat="server" />
+                                <asp:CheckBox ID="CheckBox3" runat="server" />
+                                <asp:CheckBox ID="CheckBox4" runat="server" />
+                                    </div>
+
+                            </div>
+                            <asp:Button ID="nästaSida1" runat="server" Text="Nästa Fråga" OnClick="nästaSida1_Click" Visible="false" style="margin-left: 45%; margin-bottom: 2%;"/>
                             <asp:Button ID="avslutaProv" runat="server" Text="Avsluta provet" OnClick="avslutaProv_Click" Visible="false" style="margin-left: 45%; margin-bottom: 2%;"/>
 
                         </div>

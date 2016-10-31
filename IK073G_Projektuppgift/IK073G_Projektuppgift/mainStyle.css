@@ -216,7 +216,7 @@ body {
     display: inline;
 }
 
-.fråga {
+#frågeform {
     padding: 5px;
     margin: 5px;
     background-color: white;
