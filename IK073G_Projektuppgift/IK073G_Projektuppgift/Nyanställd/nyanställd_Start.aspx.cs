@@ -15,8 +15,9 @@ namespace IK073G_Projektuppgift
         List<QA> Kategori1QALista = new List<QA>();
         List<QA> Kategori2QALista = new List<QA>();
         List<QA> Kategori3QALista = new List<QA>();
+        List<QA> PåbörjadFråga = new List<QA>();
+        List<QA> BesvaradeFrågor = new List<QA>();
 
-        string valtNamn;
         Postgres p = new Postgres();
 
         private bool kategori1;
@@ -25,9 +26,13 @@ namespace IK073G_Projektuppgift
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            nyanställningsLista.DataSource = p.HämtaNyanställda();
-            nyanställningsLista.DataBind();
-           
+            if (!IsPostBack)
+            {
+                nyanställningsLista.DataSource = p.HämtaNyanställda();
+                nyanställningsLista.DataBind();
+            }
+            XmlTillLista();
+
         }
         public void VisaAllt(List<QA> QALista)
         {
@@ -36,10 +41,6 @@ namespace IK073G_Projektuppgift
                         
             foreach (QA qa in blandadLista)
             {
-
-                //HtmlGenericControl divBild = new HtmlGenericControl("div class=bild");
-                //divBild.InnerText = qa.bild;
-                //bild.Controls.Add(divBild);
 
                 HtmlGenericControl divFråga = new HtmlGenericControl("div class=fråga");
                 frågeform.Controls.Add(divFråga);
@@ -81,7 +82,7 @@ namespace IK073G_Projektuppgift
 
                 HtmlGenericControl svar3Fråga = new HtmlGenericControl("li class=svar3");
                 svarsalternativDivFråga.Controls.Add(svar3Fråga);
-                HtmlGenericControl checkBox3Fråga = new HtmlGenericControl("input type = checkbox name = svar3");
+                HtmlGenericControl checkBox3Fråga = new HtmlGenericControl("input type = checkbox name = svar3" );
                 svar3Fråga.Controls.Add(checkBox3Fråga);
                 HtmlGenericControl svar3TextFråga = new HtmlGenericControl("p");
                 svar3TextFråga.InnerText = qa.svar3;
@@ -131,93 +132,100 @@ namespace IK073G_Projektuppgift
                 AllaQALista.Add(qa);
             }
 
-            if (kategori1 == true)
-            {
-                for (int i = 0; i < AllaQALista.Count; i++)
-                {
-                    if (AllaQALista[i].kategori == "Produkter och hantering av kundens affärer")
-                    {
+            return AllaQALista;
 
-                        Kategori1QALista.Add(AllaQALista[i]);
-                    }
-                }
+        }
 
-                return Kategori1QALista;
-            }
-            else if (kategori2 == true)
-            {
-                for (int i = 0; i < AllaQALista.Count; i++)
-                {
-                    if (AllaQALista[i].kategori == "Ekonomi – nationalekonomi, finansiell ekonomi och privatekonomi")
-                    {
-                        Kategori2QALista.Add(AllaQALista[i]);
-                    }
-                }
+//            if (kategori1 == true)
+//            {
+//                for (int i = 0; i<AllaQALista.Count; i++)
+//                {
+//                    if (AllaQALista[i].kategori == "Produkter och hantering av kundens affärer")
+//                    {
 
-                return Kategori2QALista;
-            }
-            else if (kategori3 == true)
-            {
-                for (int i = 0; i < AllaQALista.Count; i++)
-                {
-                    if (AllaQALista[i].kategori == "Etik och regelverk")
-                    {
-                        Kategori3QALista.Add(AllaQALista[i]);
-                    }
-                }
+//                        Kategori1QALista.Add(AllaQALista[i]);
 
-                return Kategori3QALista;
-            }
-            else
+//                    }
+//}
+
+//                return Kategori1QALista;
+
+//            }
+//            else if (kategori2 == true)
+//            {
+//                for (int i = 0; i<AllaQALista.Count; i++)
+//                {
+//                    if (AllaQALista[i].kategori == "Ekonomi – nationalekonomi, finansiell ekonomi och privatekonomi")
+//                    {
+//                        Kategori2QALista.Add(AllaQALista[i]);
+//                    }
+//                }
+
+//                return Kategori2QALista;
+//            }
+//            else if (kategori3 == true)
+//            {
+//                for (int i = 0; i<AllaQALista.Count; i++)
+//                {
+//                    if (AllaQALista[i].kategori == "Etik och regelverk")
+//                    {
+//                        Kategori3QALista.Add(AllaQALista[i]);
+//                    }
+//                }
+
+//                return Kategori3QALista;
+//            }
+//            else
+//            {
+//                return AllaQALista;
+//            }
+
+        public void TaUtEnFråga()
+        {
+            if (PåbörjadFråga.Count < 1)
             {
-                return AllaQALista;
+                Random rnd = new Random();
+
+                int randomIndex = rnd.Next(10);
+
+                PåbörjadFråga.Add(AllaQALista[randomIndex]);
+                AllaQALista.RemoveAt(randomIndex);
             }
         }
 
 
-
         protected void startaNyttTest_Click(object sender, EventArgs e)
         {
+
             kategori1 = true;
             kategori2 = false;
             kategori3 = false;
 
-            
             nästaSida1.Visible = true;
             provText.Visible = false;
             startaNyttTest.Visible = false;
             nyanställningsLista.Visible = false;
             namnet.InnerHtml = nyanställningsLista.SelectedItem.Value;
 
-            VisaAllt(XmlTillLista());
+            TaUtEnFråga();
+
+            VisaAllt(PåbörjadFråga);
         }
 
         protected void nästaSida1_Click(object sender, EventArgs e)
         {
-            
-            
+            //BesvaradeFrågor.Add(PåbörjadFråga[0]);
+            PåbörjadFråga.Clear();
 
             kategori1 = false;
             kategori2 = true;
             kategori3 = false;
 
-            nästaSida1.Visible = false;
-            nästaSida2.Visible = true;
+            TaUtEnFråga();
 
-            VisaAllt(XmlTillLista());
+            VisaAllt(PåbörjadFråga);
         }
 
-        protected void nästaSida2_Click(object sender, EventArgs e)
-        {
-            kategori1 = false;
-            kategori2 = false;
-            kategori3 = true;
-
-            nästaSida2.Visible = false;
-            avslutaProv.Visible = true;
-
-            VisaAllt(XmlTillLista());
-        }
 
         protected void avslutaProv_Click(object sender, EventArgs e)
         {
