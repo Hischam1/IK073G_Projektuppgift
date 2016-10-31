@@ -76,15 +76,6 @@ namespace IK073G_Projektuppgift {
         protected global::System.Web.UI.WebControls.Button nästaSida1;
         
         /// <summary>
-        /// nästaSida2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button nästaSida2;
-        
-        /// <summary>
         /// avslutaProv control.
         /// </summary>
         /// <remarks>
