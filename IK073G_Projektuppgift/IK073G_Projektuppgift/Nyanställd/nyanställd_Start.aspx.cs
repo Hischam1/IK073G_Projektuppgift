@@ -97,16 +97,13 @@ namespace IK073G_Projektuppgift
             Random rnd = new Random();
             int randomIndex = rnd.Next(0, AllaFrågor.Count);
 
-            CheckBox1.ID = AllaFrågor[randomIndex].svar1;
             CheckBox1.Text = AllaFrågor[randomIndex].svar1;
-            CheckBox2.ID = AllaFrågor[randomIndex].svar2;
             CheckBox2.Text = AllaFrågor[randomIndex].svar2;
-            CheckBox3.ID = AllaFrågor[randomIndex].svar3;
             CheckBox3.Text = AllaFrågor[randomIndex].svar3;
-            CheckBox4.ID = AllaFrågor[randomIndex].svar4;
             CheckBox4.Text = AllaFrågor[randomIndex].svar4;
 
             aktuellFråga = AllaFrågor[randomIndex];
+            Session["AktuellFråga"] = aktuellFråga;
             PåbörjadFråga.Add(AllaFrågor[randomIndex]);
             namnet.InnerHtml = randomIndex.ToString() + " " + AllaFrågor.Count.ToString() + " " + AllaFrågor[randomIndex].rättSvar1;
             AllaFrågor.RemoveAt(randomIndex);
@@ -120,6 +117,10 @@ namespace IK073G_Projektuppgift
 
             TaUtEnFråga();
             VisaAllt(PåbörjadFråga);
+            if (Session["AktuellFråga"] != null)
+            {
+                aktuellFråga = (QA)Session["AktuellFråga"];
+            }
             //kategori1 = true;
             //kategori2 = false;
             //kategori3 = false;
@@ -134,6 +135,8 @@ namespace IK073G_Projektuppgift
 
         protected void nästaSida1_Click(object sender, EventArgs e)
         {
+            hej.InnerHtml = "aa";
+
             //BesvaradeFrågor.Add(PåbörjadFråga[0]);
             PåbörjadFråga.Clear();
             aktuellFråga = null;
@@ -142,14 +145,16 @@ namespace IK073G_Projektuppgift
 
             VisaAllt(PåbörjadFråga);
 
-            if (CheckBox1.Checked == true)
-            {
-                hej.InnerHtml = "Rätt";
-            }
-            if (CheckBox2.Checked == true && CheckBox2.ID == aktuellFråga.rättSvar1)
-            {
-                hej.InnerHtml = "Rätt";
-            }
+
+                if (CheckBox1.Checked && CheckBox1.Text == aktuellFråga.rättSvar1)
+                {
+                    hej.InnerHtml = "Rätt";
+                }
+
+                if (CheckBox2.Checked)
+                {
+                    hej.InnerHtml = "Rätt";
+                }
 
         }
 

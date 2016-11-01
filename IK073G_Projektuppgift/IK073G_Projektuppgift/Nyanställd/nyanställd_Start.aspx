@@ -19,7 +19,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="main" runat="server">
         <div class="clearfix">
-                    <div class="grid subnavigering mobil hidden">
+                    <div class="grid subnavigering mobil hidden" >
                          <ul>
                              <li>Sidomeny</li>
 				         </ul>
