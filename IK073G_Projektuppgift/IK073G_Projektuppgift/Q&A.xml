@@ -36,7 +36,7 @@
 
       <Frågenummer id="3">
         <Kategori>Produkter och hantering av kundens affärer</Kategori>
-        <Typ>BildFråga</Typ>
+        <Typ>EttRätt</Typ>
         <Text></Text>
         <Bild>../Images/Huvudkontor.jpg</Bild>
         <Fråga>Vilket hus är detta?</Fråga>
@@ -81,7 +81,7 @@
 
       <Frågenummer id="6">
         <Kategori>Produkter och hantering av kundens affärer</Kategori>
-        <Typ>FleraRätt</Typ>
+        <Typ>TvåRätt</Typ>
         <Text>Här är det två svarsalternativ som är korrekt.</Text>
         <Bild></Bild>
         <Fråga>Hur hanteras kundens personuppgifter</Fråga>
@@ -111,7 +111,7 @@
 
       <Frågenummer id="8">
         <Kategori>Produkter och hantering av kundens affärer</Kategori>
-        <Typ>FleraRätt</Typ>
+        <Typ>TvåRätt</Typ>
         <Text>Här är det två svarsalternativ som är korrekt.</Text>
         <Bild></Bild>
         <Fråga>I vilka av följande länder finns JE-Banken?</Fråga>
@@ -231,7 +231,7 @@
 
       <Frågenummer id="16">
         <Kategori>Ekonomi – nationalekonomi, finansiell ekonomi och privatekonomi</Kategori>
-        <Typ>BildFråga</Typ>
+        <Typ>EttRätt</Typ>
         <Text></Text>
         <Bild>../Images/wallstreet.jpg</Bild>
         <Fråga>Bilden visar ett av världens viktigaste finanscentrum, vilken plats visar bilden?</Fråga>
@@ -291,7 +291,7 @@
 
       <Frågenummer id="20">
         <Kategori>Etik och regelverk</Kategori>
-        <Typ>FleraRätt</Typ>
+        <Typ>TvåRätt</Typ>
         <Text>Här är två svarsalternativ rätt</Text>
         <Bild></Bild>
         <Fråga>En kollega ber dig att få ta del av inkomstuppgifter en från din kund, vad gör du?</Fråga>
@@ -306,7 +306,7 @@
 
       <Frågenummer id="21">
         <Kategori>Etik och regelverk</Kategori>
-        <Typ>BildFråga</Typ>
+        <Typ>EttRätt</Typ>
         <Text></Text>
         <Bild>../Images/muta.jpg</Bild>
         <Fråga>Vad gör du om du ser detta inträffa mellan en kollega och kunden?</Fråga>
@@ -329,8 +329,8 @@
         <Svar2>Rikast är bäst</Svar2>
         <Svar3>En lägre anställd har mindre värde</Svar3>
         <Svar4>Nyanställda skrubbar toaletterna</Svar4>
-        <RättSvar1>Sverige</RättSvar1>
-        <RättSvar2>Danmark</RättSvar2>
+        <RättSvar1>Alla har lika värde</RättSvar1>
+        <RättSvar2></RättSvar2>
         <RättSvar3></RättSvar3>
       </Frågenummer>
 
@@ -351,7 +351,7 @@
 
       <Frågenummer id="24">
         <Kategori>Etik och regelverk</Kategori>
-        <Typ>FleraRätt</Typ>
+        <Typ>TvåRätt</Typ>
         <Text></Text>
         <Bild></Bild>
         <Fråga>Chefen ber dig lägga in oskattade pengar åt honom, vad gör du?</Fråga>
@@ -376,7 +376,7 @@
         <Svar4>Ber dom komma någon annan dag ifall vi är trötta</Svar4>
         <RättSvar1>Med bästa möjliga uppförande</RättSvar1>
         <RättSvar2>Varje kund är speciell för oss</RättSvar2>
-        <RättSvar3>>Med mycket hög service</RättSvar3>
+        <RättSvar3>Med mycket hög service</RättSvar3>
       </Frågenummer>
       
 
@@ -416,7 +416,7 @@
 
       <Frågenummer id="3">
         <Kategori>Produkter och hantering av kundens affärer</Kategori>
-        <Typ>BildFråga</Typ>
+        <Typ>EttRätt</Typ>
         <Text></Text>
         <Bild>../Images/Huvudkontor.jpg</Bild>
         <Fråga>Vilket hus är detta?</Fråga>
@@ -581,7 +581,7 @@
 
       <Frågenummer id="20">
         <Kategori>Etik och regelverk</Kategori>
-        <Typ>FleraRätt</Typ>
+        <Typ>TvåRätt</Typ>
         <Text>Här är två svarsalternativ rätt</Text>
         <Bild></Bild>
         <Fråga>En kollega ber dig att få ta del av inkomstuppgifter en från din kund, vad gör du?</Fråga>
@@ -596,7 +596,7 @@
 
       <Frågenummer id="21">
         <Kategori>Etik och regelverk</Kategori>
-        <Typ>BildFråga</Typ>
+        <Typ>EttRätt</Typ>
         <Text></Text>
         <Bild>../Images/muta.jpg</Bild>
         <Fråga>Vad gör du om du ser detta inträffa mellan en kollega och kunden?</Fråga>

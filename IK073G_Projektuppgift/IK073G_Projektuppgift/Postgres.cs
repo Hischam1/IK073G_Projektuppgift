@@ -194,6 +194,39 @@ namespace IK073G_Projektuppgift
             }
             return ProvResultatLista;
         }
+        public void LäggTillProv(int provID, int provDeltagareID, string provTyp, DateTime datum, string provStatus, int antalRätt, int provTotalTidMinuter)
+        {
+            string meddelande;
+            try
+            {
+                string sql = "insert into prov (prov_id, provdeltagare, prov_typ, prov_datum, prov_status, prov_antal_rätt, prov_totaltid_minuter)"
+                   + " values (@prov_id, @provdeltagare, @prov_typ, @prov_datum, @prov_status, @prov_antal_rätt, @prov_totaltid_minuter)";
 
+                cmd = new NpgsqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@prov_id", provID);
+                cmd.Parameters.AddWithValue("@provdeltagare", provDeltagareID);
+                cmd.Parameters.AddWithValue("@prov_typ", provTyp);
+                cmd.Parameters.AddWithValue("@prov_datum", datum);
+                cmd.Parameters.AddWithValue("@prov_status", provStatus);
+                cmd.Parameters.AddWithValue("@prov_antal_rätt", antalRätt);
+                cmd.Parameters.AddWithValue("@prov_totaltid_minuter", provTotalTidMinuter);
+
+
+                dr = cmd.ExecuteReader();
+                dr.Close();
+            }
+            catch (NpgsqlException ex)
+            {
+                meddelande = ex.Message;
+                if (meddelande.Contains("23505"))
+                {
+                    meddelande = "fel";
+                }
+                
+            }
+
+            conn.Close();
+
+        }
     }
 }

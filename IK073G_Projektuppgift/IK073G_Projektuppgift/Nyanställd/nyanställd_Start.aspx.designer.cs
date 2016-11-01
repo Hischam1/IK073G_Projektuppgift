@@ -13,15 +13,6 @@ namespace IK073G_Projektuppgift {
     public partial class nyanställd {
         
         /// <summary>
-        /// hej control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl hej;
-        
-        /// <summary>
         /// gridMitten control.
         /// </summary>
         /// <remarks>
@@ -74,6 +65,24 @@ namespace IK073G_Projektuppgift {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl frågeform;
+        
+        /// <summary>
+        /// frågenummer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl frågenummer;
+        
+        /// <summary>
+        /// fråga control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl fråga;
         
         /// <summary>
         /// CheckBox1 control.
