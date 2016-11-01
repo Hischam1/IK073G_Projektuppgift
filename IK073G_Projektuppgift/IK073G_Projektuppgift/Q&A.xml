@@ -329,8 +329,8 @@
         <Svar2>Rikast är bäst</Svar2>
         <Svar3>En lägre anställd har mindre värde</Svar3>
         <Svar4>Nyanställda skrubbar toaletterna</Svar4>
-        <RättSvar1>Sverige</RättSvar1>
-        <RättSvar2>Danmark</RättSvar2>
+        <RättSvar1>Alla har lika värde</RättSvar1>
+        <RättSvar2></RättSvar2>
         <RättSvar3></RättSvar3>
       </Frågenummer>
 
@@ -376,7 +376,7 @@
         <Svar4>Ber dom komma någon annan dag ifall vi är trötta</Svar4>
         <RättSvar1>Med bästa möjliga uppförande</RättSvar1>
         <RättSvar2>Varje kund är speciell för oss</RättSvar2>
-        <RättSvar3>>Med mycket hög service</RättSvar3>
+        <RättSvar3>Med mycket hög service</RättSvar3>
       </Frågenummer>
       
 

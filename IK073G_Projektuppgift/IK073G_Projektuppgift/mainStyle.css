@@ -208,15 +208,16 @@ body {
     visibility:hidden;
     
 }
-.svarsalternativ li{
+#svarsalternativ li{
     list-style-type: none;
 }
 
-.svarsalternativ li p{
+#svarsalternativ li label{
     display: inline;
+    margin-left: 1%;
 }
 
-#frågeform {
+#main_frågeform {
     padding: 5px;
     margin: 5px;
     background-color: white;
