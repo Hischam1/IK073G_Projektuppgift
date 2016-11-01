@@ -6,6 +6,7 @@
                     <%--<a href ="Index.aspx">--%><img id="logotyp" src="/Images/logga.gif" alt="JE LOGO"/><%--</a>--%>
 
                 <div class="nav">
+                    <div id="hej" runat="server">aa</div>
 				        <ul id="navRutor">
 					        <li ><a href="#" class="current">Prov</a></li>
                             <li ><a href="#">Mitt konto</a></li>
@@ -34,13 +35,13 @@
                                 <asp:CheckBox ID="CheckBox3" runat="server" />
                                 <asp:CheckBox ID="CheckBox4" runat="server" />
                                     </div>
-
-                            </div>
+                                                            </div>
                             <asp:Button ID="nästaSida1" runat="server" Text="Nästa Fråga" OnClick="nästaSida1_Click" Visible="false" style="margin-left: 45%; margin-bottom: 2%;"/>
                             <asp:Button ID="avslutaProv" runat="server" Text="Avsluta provet" OnClick="avslutaProv_Click" Visible="false" style="margin-left: 45%; margin-bottom: 2%;"/>
-
+                            
                         </div>
 				    <div class="grid gridRight mobil hidden">
+                        
                         <p>höger meny</p>
                     </div>
                 </div>

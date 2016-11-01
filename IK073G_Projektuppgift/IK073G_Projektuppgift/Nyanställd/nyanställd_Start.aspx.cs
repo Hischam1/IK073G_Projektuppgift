@@ -108,7 +108,7 @@ namespace IK073G_Projektuppgift
 
             aktuellFråga = AllaFrågor[randomIndex];
             PåbörjadFråga.Add(AllaFrågor[randomIndex]);
-            //namnet.InnerHtml = randomIndex.ToString() + " " + AllaFrågor.Count.ToString() + " " + AllaFrågor[randomIndex].rättSvar1;
+            namnet.InnerHtml = randomIndex.ToString() + " " + AllaFrågor.Count.ToString() + " " + AllaFrågor[randomIndex].rättSvar1;
             AllaFrågor.RemoveAt(randomIndex);
 
         }
@@ -134,25 +134,22 @@ namespace IK073G_Projektuppgift
 
         protected void nästaSida1_Click(object sender, EventArgs e)
         {
-
-            if (CheckBox1.Checked == true && CheckBox1.Text == PåbörjadFråga[0].svar1)
-            {
-                namnet.InnerHtml = "Rätt";
-            }
-            if (CheckBox2.Checked == true && CheckBox2.Text == aktuellFråga.rättSvar1)
-            {
-                namnet.InnerHtml = "Rätt";
-            }
-
             //BesvaradeFrågor.Add(PåbörjadFråga[0]);
-            //PåbörjadFråga.Clear();
+            PåbörjadFråga.Clear();
+            aktuellFråga = null;
 
-            //TaUtEnFråga();
+            TaUtEnFråga();
 
-            //VisaAllt(PåbörjadFråga);
+            VisaAllt(PåbörjadFråga);
 
-
-            AllaFrågor.Remove(aktuellFråga);
+            if (CheckBox1.Checked == true)
+            {
+                hej.InnerHtml = "Rätt";
+            }
+            if (CheckBox2.Checked == true && CheckBox2.ID == aktuellFråga.rättSvar1)
+            {
+                hej.InnerHtml = "Rätt";
+            }
 
         }
 
