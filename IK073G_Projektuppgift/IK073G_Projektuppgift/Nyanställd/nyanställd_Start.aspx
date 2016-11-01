@@ -30,6 +30,7 @@
                             <asp:Button ID="startaNyttTest" runat="server" Text="Starta prov" OnClick="startaNyttTest_Click"  style="margin-left: 45%; margin-bottom: 2%;"/>
                             <div id="frågeform" runat="server">
                                 <h4 id="frågenummer" runat="server" Visible="false"></h4>
+                                <h4 id="kategorier" runat="server" Visible="false"></h4>
                                 <div id="fråga" runat="server">
 
                                     </div>
@@ -44,7 +45,7 @@
                                                             </div>
                             <asp:Button ID="nästaSida1" runat="server" Text="Nästa Fråga" OnClick="nästaSida1_Click" Visible="false" style="margin-left: 45%; margin-bottom: 2%;"/>
                             <asp:Button ID="avslutaProv" runat="server" Text="Avsluta provet" OnClick="avslutaProv_Click" Visible="false" style="margin-left: 45%; margin-bottom: 2%;"/>
-                            
+                           
                         </div>
 				    <div class="grid gridRight mobil hidden">
                         

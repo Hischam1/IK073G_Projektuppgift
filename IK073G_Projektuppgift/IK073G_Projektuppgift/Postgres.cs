@@ -194,13 +194,13 @@ namespace IK073G_Projektuppgift
             }
             return ProvResultatLista;
         }
-        public void LäggTillProv(int provID, int provDeltagareID, string provTyp, DateTime datum, string provStatus, int antalRätt, int provTotalTidMinuter)
+        public void LäggTillProv(int provID, int provDeltagareID, string provTyp, DateTime datum, string provStatus, int antalRätt, int provTotalTidMinuter, int kat1, int kat2, int kat3)
         {
             string meddelande;
             try
             {
-                string sql = "insert into prov (prov_id, provdeltagare, prov_typ, prov_datum, prov_status, prov_antal_rätt, prov_totaltid_minuter)"
-                   + " values (@prov_id, @provdeltagare, @prov_typ, @prov_datum, @prov_status, @prov_antal_rätt, @prov_totaltid_minuter)";
+                string sql = "insert into prov (prov_id, provdeltagare, prov_typ, prov_datum, prov_status, prov_antal_rätt, prov_totaltid_minuter, prov_kat1_rätt, prov_kat2_rätt, prov_kat3_rätt)"
+                   + " values (@prov_id, @provdeltagare, @prov_typ, @prov_datum, @prov_status, @prov_antal_rätt, @prov_totaltid_minuter, @prov_kat1_rätt, @prov_kat2_rätt, @prov_kat3_rätt)";
 
                 cmd = new NpgsqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@prov_id", provID);
@@ -210,6 +210,9 @@ namespace IK073G_Projektuppgift
                 cmd.Parameters.AddWithValue("@prov_status", provStatus);
                 cmd.Parameters.AddWithValue("@prov_antal_rätt", antalRätt);
                 cmd.Parameters.AddWithValue("@prov_totaltid_minuter", provTotalTidMinuter);
+                cmd.Parameters.AddWithValue("@prov_kat1_rätt", kat1);
+                cmd.Parameters.AddWithValue("@prov_kat2_rätt", kat2);
+                cmd.Parameters.AddWithValue("@prov_kat3_rätt", kat3);
 
 
                 dr = cmd.ExecuteReader();

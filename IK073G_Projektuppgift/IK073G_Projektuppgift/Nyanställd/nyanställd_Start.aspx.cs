@@ -26,7 +26,7 @@ namespace IK073G_Projektuppgift
         int fråganummer = 1;
 
 
-    protected void Page_Load(object sender, EventArgs e)
+        protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
@@ -58,7 +58,7 @@ namespace IK073G_Projektuppgift
         {
             Random r = new Random();
             var blandadLista = QALista.OrderBy(c => r.Next()).ToList();
-                        
+
             foreach (QA qa in blandadLista)
             {
 
@@ -120,7 +120,7 @@ namespace IK073G_Projektuppgift
             CheckBox2.Checked = false;
             CheckBox3.Checked = false;
             CheckBox4.Checked = false;
-     
+
             Random rnd = new Random();
             int randomIndex = rnd.Next(0, AllaFrågor.Count);
 
@@ -164,7 +164,7 @@ namespace IK073G_Projektuppgift
             TaUtEnFråga();
             VisaAllt(PåbörjadFråga);
 
-           
+
 
             if (Session["AktuellFråga"] != null)
             {
@@ -188,6 +188,9 @@ namespace IK073G_Projektuppgift
 
         protected void nästaSida1_Click(object sender, EventArgs e)
         {
+            CheckBox[] checkArray = new CheckBox[] { CheckBox1, CheckBox2, CheckBox3, CheckBox4 };
+            int kollaCheckbox = new int();
+
             if (Session["fråganummer"] != null)
             {
                 fråganummer = (int)Session["fråganummer"];
@@ -198,105 +201,220 @@ namespace IK073G_Projektuppgift
                 aktuellFråga = (QA)Session["AktuellFråga"];
             }
 
-
-
-            if (CheckBox1.Checked == true)
+            foreach (CheckBox checkbox in checkArray)
             {
-                if (CheckBox1.Text == aktuellFråga.rättSvar1)
+                if (checkbox.Checked == true)
                 {
-                    namnet.InnerHtml = "Rätt, checkbox1";
-                    resultat+=1;
-                    allaResultat[0] += 3;
-                    allaResultat[1] += 2;
-
+                    kollaCheckbox += 1;
                 }
-                else if (CheckBox1.Text == aktuellFråga.rättSvar2)
-                {
-                    namnet.InnerHtml = "Rätt, checkbox1";
-                    resultat += 1;
-                }
-                else if (CheckBox1.Text == aktuellFråga.rättSvar3)
-                {
-                    namnet.InnerHtml = "Rätt, checkbox1";
-                    resultat += 1;
-                }
-                else
-                {
-                    namnet.InnerHtml = "Checkbox1 är checked men inte rättsvar";
-                }
-                provText.InnerHtml = resultat.ToString() + " = " + allaResultat[0].ToString() + " = " + allaResultat[1].ToString();
-            }
-            else if (CheckBox2.Checked == true)
-            {
-                if (CheckBox2.Text == aktuellFråga.rättSvar1)
-                {
-                    namnet.InnerHtml = "Rätt, checkbox2";
-                    resultat += 1;
-                }
-                else if (CheckBox2.Text == aktuellFråga.rättSvar2)
-                {
-                    namnet.InnerHtml = "Rätt, checkbox2";
-                    resultat += 1;
-                }
-                else if (CheckBox2.Text == aktuellFråga.rättSvar3)
-                {
-                    namnet.InnerHtml = "Rätt, checkbox2";
-                    resultat += 1;
-                }
-                else
-                {
-                    namnet.InnerHtml = "Checkbox2 är checked men inte rättsvar";
-                }
-                provText.InnerHtml = resultat.ToString();
-            }
-            else if (CheckBox3.Checked == true)
-            {
-                if (CheckBox3.Text == aktuellFråga.rättSvar1)
-                {
-                    namnet.InnerHtml = "Rätt, checkbox3";
-                    resultat += 1;
-                }
-                else if (CheckBox3.Text == aktuellFråga.rättSvar2)
-                {
-                    namnet.InnerHtml = "Rätt, checkbox3";
-                    resultat += 1;
-                }
-                else if (CheckBox3.Text == aktuellFråga.rättSvar3)
-                {
-                    namnet.InnerHtml = "Rätt, checkbox3";
-                    resultat += 1;
-                    
-                }
-                else
-                {
-                    namnet.InnerHtml = "Checkbox3 är checked men inte rättsvar";
-                }
-                provText.InnerHtml = resultat.ToString();
-            }
-            else if (CheckBox4.Checked == true)
-            {
-                if (CheckBox4.Text == aktuellFråga.rättSvar1)
-                {
-                    namnet.InnerHtml = "Rätt, checkbox4";
-                    resultat += 1;
-                }
-                else if (CheckBox4.Text == aktuellFråga.rättSvar2)
-                {
-                    namnet.InnerHtml = "Rätt, checkbox4";
-                    resultat += 1;
-                }
-                else if (CheckBox4.Text == aktuellFråga.rättSvar3)
-                {
-                    namnet.InnerHtml = "Rätt, checkbox4";
-                    resultat += 1;
-                }
-                else
-                {
-                    namnet.InnerHtml = "Checkbox4 är checked men inte rättsvar";
-                }
-                provText.InnerHtml = resultat.ToString();
             }
 
+            if (kollaCheckbox > 1 /*|| kollaCheckbox == 0*/)
+            {
+                provText.InnerHtml = "Markera rätt antal checkboxar";
+
+                //if (Session["PåbörjadFråga"] != null)
+                //{
+                //    PåbörjadFråga = (List<QA>)Session["PåbörjadFråga"];
+                //}
+                //provText.InnerHtml = "Inget svarsalternativ är markerat \n Markera ett svarsalternativ";
+                //VisaAllt(PåbörjadFråga);
+            }
+            else
+            {
+
+            if (aktuellFråga.typ == "EttRätt")
+            {
+                if (CheckBox1.Checked == true)
+                {
+                    if (CheckBox1.Text == aktuellFråga.rättSvar1)
+                    {
+                        if (aktuellFråga.kategori == "Produkter och hantering av kundens affärer")
+                        {
+                            resultat += 1;
+                            allaResultat[0] += 1; // TotalResultat
+                            allaResultat[1] += 1; // Kategori 1
+                        }
+                        else if (aktuellFråga.kategori == "Ekonomi – nationalekonomi, finansiell ekonomi och privatekonomi")
+                        {
+                            resultat += 1;
+                            allaResultat[0] += 1; // TotalResultat
+                            allaResultat[2] += 1; // Kategori 2
+                        }
+                        else if (aktuellFråga.kategori == "Etik och regelverk")
+                        {
+                            resultat += 1;
+                            allaResultat[0] += 1; // TotalResultat
+                            allaResultat[3] += 1; // Kategori 3
+                        }
+                    }
+                    provText.InnerHtml = resultat.ToString() + " = " + allaResultat[0].ToString() + " = " + allaResultat[1].ToString() + " = " + allaResultat[2].ToString() + " = " + allaResultat[3].ToString();
+                }
+                else if (CheckBox2.Checked == true)
+                {
+                    if (CheckBox2.Text == aktuellFråga.rättSvar1)
+                    {
+                        if (aktuellFråga.kategori == "Produkter och hantering av kundens affärer")
+                        {
+                            resultat += 1;
+                            allaResultat[0] += 1; // TotalResultat
+                            allaResultat[1] += 1; // Kategori 1
+                        }
+                        else if (aktuellFråga.kategori == "Ekonomi – nationalekonomi, finansiell ekonomi och privatekonomi")
+                        {
+                            resultat += 1;
+                            allaResultat[0] += 1; // TotalResultat
+                            allaResultat[2] += 1; // Kategori 2
+                        }
+                        else if (aktuellFråga.kategori == "Etik och regelverk")
+                        {
+                            resultat += 1;
+                            allaResultat[0] += 1; // TotalResultat
+                            allaResultat[3] += 1; // Kategori 3
+                        }
+                    }
+                    provText.InnerHtml = resultat.ToString() + " = " + allaResultat[0].ToString() + " = " + allaResultat[1].ToString() + " = " + allaResultat[2].ToString() + " = " + allaResultat[3].ToString();
+                }
+                else if (CheckBox3.Checked == true)
+                {
+                    if (CheckBox3.Text == aktuellFråga.rättSvar1)
+                    {
+                        if (aktuellFråga.kategori == "Produkter och hantering av kundens affärer")
+                        {
+                            resultat += 1;
+                            allaResultat[0] += 1; // TotalResultat
+                            allaResultat[1] += 1; // Kategori 1
+                        }
+                        else if (aktuellFråga.kategori == "Ekonomi – nationalekonomi, finansiell ekonomi och privatekonomi")
+                        {
+                            resultat += 1;
+                            allaResultat[0] += 1; // TotalResultat
+                            allaResultat[2] += 1; // Kategori 2
+                        }
+                        else if (aktuellFråga.kategori == "Etik och regelverk")
+                        {
+                            resultat += 1;
+                            allaResultat[0] += 1; // TotalResultat
+                            allaResultat[3] += 1; // Kategori 3
+                        }
+                    }
+                    provText.InnerHtml = resultat.ToString() + " = " + allaResultat[0].ToString() + " = " + allaResultat[1].ToString() + " = " + allaResultat[2].ToString() + " = " + allaResultat[3].ToString();
+                }
+                else if (CheckBox4.Checked == true)
+                {
+                    if (CheckBox4.Text == aktuellFråga.rättSvar1)
+                    {
+                        if (aktuellFråga.kategori == "Produkter och hantering av kundens affärer")
+                        {
+                            resultat += 1;
+                            allaResultat[0] += 1; // TotalResultat
+                            allaResultat[1] += 1; // Kategori 1
+                        }
+                        else if (aktuellFråga.kategori == "Ekonomi – nationalekonomi, finansiell ekonomi och privatekonomi")
+                        {
+                            resultat += 1;
+                            allaResultat[0] += 1; // TotalResultat
+                            allaResultat[2] += 1; // Kategori 2
+                        }
+                        else if (aktuellFråga.kategori == "Etik och regelverk")
+                        {
+                            resultat += 1;
+                            allaResultat[0] += 1; // TotalResultat
+                            allaResultat[3] += 1; // Kategori 3
+                        }
+                    }
+                    provText.InnerHtml = resultat.ToString() + " = " + allaResultat[0].ToString() + " = " + allaResultat[1].ToString() + " = " + allaResultat[2].ToString() + " = " + allaResultat[3].ToString();
+                }
+            }
+
+            }
+
+            //else if (aktuellFråga.typ == "TvåRätt")
+            //    {
+
+            //    if (CheckBox1.Checked == true)
+            //    {
+            //        if (CheckBox1.Text == aktuellFråga.rättSvar1 || CheckBox1.Text == aktuellFråga.rättSvar2)
+            //        {
+            //            if (CheckBox2.Checked == true)
+            //            {
+            //                if (CheckBox2.Text == aktuellFråga.rättSvar1 || CheckBox2.Text == aktuellFråga.rättSvar2)
+            //                {
+            //                    if (aktuellFråga.kategori == "Produkter och hantering av kundens affärer")
+            //                    {
+            //                        resultat += 1;
+            //                        allaResultat[0] += 1; // TotalResultat
+            //                        allaResultat[1] += 1; // Kategori 1
+            //                    }
+            //                    else if (aktuellFråga.kategori == "Ekonomi – nationalekonomi, finansiell ekonomi och privatekonomi")
+            //                    {
+            //                        resultat += 1;
+            //                        allaResultat[0] += 1; // TotalResultat
+            //                        allaResultat[2] += 1; // Kategori 2
+            //                    }
+            //                    else if (aktuellFråga.kategori == "Etik och regelverk")
+            //                    {
+            //                        resultat += 1;
+            //                        allaResultat[0] += 1; // TotalResultat
+            //                        allaResultat[3] += 1; // Kategori 3
+            //                    }
+            //                }
+            //            }
+            //            if (CheckBox3.Checked == true)
+            //            {
+            //                if (CheckBox3.Text == aktuellFråga.rättSvar1 || CheckBox3.Text == aktuellFråga.rättSvar2)
+            //                {
+            //                    if (aktuellFråga.kategori == "Produkter och hantering av kundens affärer")
+            //                    {
+            //                        resultat += 1;
+            //                        allaResultat[0] += 1; // TotalResultat
+            //                        allaResultat[1] += 1; // Kategori 1
+            //                    }
+            //                    else if (aktuellFråga.kategori == "Ekonomi – nationalekonomi, finansiell ekonomi och privatekonomi")
+            //                    {
+            //                        resultat += 1;
+            //                        allaResultat[0] += 1; // TotalResultat
+            //                        allaResultat[2] += 1; // Kategori 2
+            //                    }
+            //                    else if (aktuellFråga.kategori == "Etik och regelverk")
+            //                    {
+            //                        resultat += 1;
+            //                        allaResultat[0] += 1; // TotalResultat
+            //                        allaResultat[3] += 1; // Kategori 3
+            //                    }
+            //                }
+            //            }
+            //            if (CheckBox4.Checked == true)
+            //            {
+            //                if (CheckBox4.Text == aktuellFråga.rättSvar1 || CheckBox4.Text == aktuellFråga.rättSvar2)
+            //                {
+            //                    if (aktuellFråga.kategori == "Produkter och hantering av kundens affärer")
+            //                    {
+            //                        resultat += 1;
+            //                        allaResultat[0] += 1; // TotalResultat
+            //                        allaResultat[1] += 1; // Kategori 1
+            //                    }
+            //                    else if (aktuellFråga.kategori == "Ekonomi – nationalekonomi, finansiell ekonomi och privatekonomi")
+            //                    {
+            //                        resultat += 1;
+            //                        allaResultat[0] += 1; // TotalResultat
+            //                        allaResultat[2] += 1; // Kategori 2
+            //                    }
+            //                    else if (aktuellFråga.kategori == "Etik och regelverk")
+            //                    {
+            //                        resultat += 1;
+            //                        allaResultat[0] += 1; // TotalResultat
+            //                        allaResultat[3] += 1; // Kategori 3
+            //                    }
+            //                }
+            //            }
+
+            //        }
+            //    }
+
+            //    provText.InnerHtml = "Japp";
+
+            //    }
 
 
 
@@ -306,60 +424,76 @@ namespace IK073G_Projektuppgift
                 {
                     PåbörjadFråga = (List<QA>)Session["PåbörjadFråga"];
                 }
-                provText.InnerHtml = "Dra åt helvete! \n Markera ett svarsalternativ";
+                provText.InnerHtml = "Inget svarsalternativ är markerat \n Markera ett svarsalternativ";
                 VisaAllt(PåbörjadFråga);
             }
             else
             {
                 if (AllaFrågor.Count != 0)
-                {
-                    if (AllaFrågor.Count == 1)
                     {
-                        nästaSida1.Text = "Avsluta prov";
+                        if (AllaFrågor.Count == 1)
+                        {
+                            nästaSida1.Text = "Avsluta prov";
+                        }
+                        Session["resultat"] = resultat;
+                        Session["AllaResultat"] = allaResultat;
+                        fråganummer += 1;
+                        Session["fråganummer"] = fråganummer;
+                        TaUtEnFråga();
+                        VisaAllt(PåbörjadFråga);
+                        frågenummer.InnerHtml = "Fråga: " + fråganummer + " av 25";
                     }
-                    Session["resultat"] = resultat;
-                    Session["AllaResultat"] = allaResultat;
-                    fråganummer += 1;
-                    Session["fråganummer"] = fråganummer;
-                    TaUtEnFråga();
-                    VisaAllt(PåbörjadFråga);
-                    frågenummer.InnerHtml = "Fråga: " + fråganummer + " av 25";
-                }
-
-                else
-                {
-                    CheckBox1.Visible = false; CheckBox2.Visible = false; CheckBox3.Visible = false; CheckBox4.Visible = false;
-                    frågenummer.InnerText = "Nu är du klar med provet. Tryck på rätta för att få reda på ditt resultat";
-                    nästaSida1.Visible = false;
-                    avslutaProv.Visible = true;
-                    avslutaProv.Text = "Rätta";
-                }
-
-            }
-
-         }
-        
+                    else
+                    {
+                        CheckBox1.Visible = false; CheckBox2.Visible = false; CheckBox3.Visible = false; CheckBox4.Visible = false;
+                        frågenummer.InnerText = "Nu är du klar med provet. Tryck på rätta för att få reda på ditt resultat";
+                        nästaSida1.Visible = false;
+                        avslutaProv.Visible = true;
+                        avslutaProv.Text = "Rätta";
+                    }
+        }
+    }
 
         protected void avslutaProv_Click(object sender, EventArgs e)
         {
             Postgres p = new Postgres();
             Random rnd = new Random();
             int provId = rnd.Next(1, 1000);
+
             string godkänd;
-            double procent = (double)resultat / 25 * 100;
+
+            double procent = (double)allaResultat[0] / 25 * 100;
 
             if (procent > 69)
             {
                 godkänd = "GODKÄND";
+                p.LäggTillProv(provId, aktuellPerson.anställningsID, "LICENS", DateTime.Today, godkänd, resultat, 22, allaResultat[1], allaResultat[2], allaResultat[3]);
             }
             else
             {
                 godkänd = "ICKE GODKÄND";
+
             }
 
-            frågenummer.InnerText = "Ditt resultat är " + resultat + " av 25 poäng vilket betyder " + procent + "%";
+            frågenummer.InnerText = "Ditt totalresultat är " + resultat + " av 25 poäng vilket betyder " + procent + "%";
+            kategorier.InnerHtml = "Kategori 1: " + allaResultat[1].ToString() + "Kategori 2: " + allaResultat[2].ToString() + "Kategori 3: " + allaResultat[3].ToString();
 
-            p.LäggTillProv(provId, aktuellPerson.anställningsID, "LICENS", DateTime.Today, godkänd, resultat, 22);
+            
+
+            //double procent = (double)resultat / 25 * 100;
+
+            //if (procent > 69)
+            //{
+            //    godkänd = "GODKÄND";
+            //}
+            //else
+            //{
+            //    godkänd = "ICKE GODKÄND";
+            //}
+
+            //frågenummer.InnerText = "Ditt resultat är " + resultat + " av 25 poäng vilket betyder " + procent + "%";
+
+            //p.LäggTillProv(provId, aktuellPerson.anställningsID, "LICENS", DateTime.Today, godkänd, resultat, 22);
         }
     }
 }

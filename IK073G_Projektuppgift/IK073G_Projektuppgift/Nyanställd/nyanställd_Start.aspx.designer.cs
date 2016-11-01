@@ -76,6 +76,15 @@ namespace IK073G_Projektuppgift {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl frågenummer;
         
         /// <summary>
+        /// kategorier control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl kategorier;
+        
+        /// <summary>
         /// fråga control.
         /// </summary>
         /// <remarks>
