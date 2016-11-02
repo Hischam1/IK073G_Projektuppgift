@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Xml;
 using System.Web.UI.HtmlControls;
+using System.Xml.Linq;
 
 namespace IK073G_Projektuppgift
 {
@@ -24,6 +25,8 @@ namespace IK073G_Projektuppgift
         int resultat;
         int[] allaResultat = new int[4];
         int fråganummer = 1;
+        string användarenSvar1;
+        string användarenSvar2;
 
 
         protected void Page_Load(object sender, EventArgs e)
@@ -105,7 +108,6 @@ namespace IK073G_Projektuppgift
                 qa.svar4 = node["Svar4"].InnerXml;
                 qa.rättSvar1 = node["RättSvar1"].InnerXml;
                 qa.rättSvar2 = node["RättSvar2"].InnerXml;
-                qa.rättSvar3 = node["RättSvar3"].InnerXml;
 
 
                 AllaQALista.Add(qa);
@@ -249,6 +251,8 @@ namespace IK073G_Projektuppgift
                                     allaResultat[0] += 1; // TotalResultat
                                     allaResultat[3] += 1; // Kategori 3
                                 }
+                                användarenSvar1 = checkbox.Text;
+                                Session["användarenSvar1"] = användarenSvar1;
                             }
                             provText.InnerHtml = allaResultat[0].ToString() + " = " + allaResultat[1].ToString() + " = " + allaResultat[2].ToString() + " = " + allaResultat[3].ToString();
                             AvslutAvFråga();
@@ -292,6 +296,7 @@ namespace IK073G_Projektuppgift
                             if (checkbox.Text == aktuellFråga.rättSvar1 || checkbox.Text == aktuellFråga.rättSvar2)
                             {
                                 tvåRätt += 1;
+
                             }
                         }
                     }
@@ -313,6 +318,12 @@ namespace IK073G_Projektuppgift
                             allaResultat[0] += 1; // TotalResultat
                             allaResultat[3] += 1; // Kategori 3
                         }
+
+                        användarenSvar1 = aktuellFråga.rättSvar1;
+                        Session["användarenSvar1"] = användarenSvar1;
+
+                        användarenSvar2 = aktuellFråga.rättSvar2;
+                        Session["användarenSvar2"] = användarenSvar2;
                     }
                     provText.InnerHtml = allaResultat[0].ToString() + " = " + allaResultat[1].ToString() + " = " + allaResultat[2].ToString() + " = " + allaResultat[3].ToString();
                     AvslutAvFråga();
@@ -369,6 +380,46 @@ namespace IK073G_Projektuppgift
 
         public void AvslutAvFråga()
         {
+            if (Session["användarenSvar1"] != null)
+            {
+                användarenSvar1 = (string)Session["användarenSvar1"];
+            }
+            if (Session["användarenSvar2"] != null)
+            {
+                användarenSvar2 = (string)Session["användarenSvar2"];
+            }
+
+
+            string path = Server.MapPath("../aktuelltprov.xml");
+
+            try
+            {
+                XDocument prov = XDocument.Load(path);
+
+                XElement xmlElement = new XElement("Frågenummer",
+                    new XElement("Kategori", aktuellFråga.kategori),
+                    new XElement("Typ", aktuellFråga.typ),
+                    new XElement("Bild", aktuellFråga.bild),
+                    new XElement("Fråga", aktuellFråga.fråga),
+                    new XElement("Svar1", aktuellFråga.svar1),
+                    new XElement("Svar2", aktuellFråga.svar2),
+                    new XElement("Svar3", aktuellFråga.svar3),
+                    new XElement("Svar4", aktuellFråga.svar4),
+                    new XElement("RättSvar1", aktuellFråga.rättSvar1),
+                    new XElement("RättSvar2", aktuellFråga.rättSvar2),
+                    new XElement("användarenSvar1", användarenSvar1),
+                    new XElement("användarenSvar2", användarenSvar2)
+                    );
+                prov.Element("Frågor").Add(xmlElement);
+                prov.Save(path);
+            }
+            catch
+            {
+
+            }
+
+
+
             if (AllaFrågor.Count != 0)
             {
                 if (AllaFrågor.Count == 1)

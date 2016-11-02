@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Xml;
 using System.Web.UI.HtmlControls;
+using System.Xml.Linq;
 
 namespace IK073G_Projektuppgift.Anställd
 {
@@ -105,7 +106,6 @@ namespace IK073G_Projektuppgift.Anställd
                 qa.svar4 = node["Svar4"].InnerXml;
                 qa.rättSvar1 = node["RättSvar1"].InnerXml;
                 qa.rättSvar2 = node["RättSvar2"].InnerXml;
-                qa.rättSvar3 = node["RättSvar3"].InnerXml;
 
 
                 AllaQALista.Add(qa);

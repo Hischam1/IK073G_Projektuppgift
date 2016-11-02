@@ -71,6 +71,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Admin\admin_Start.aspx" />
+    <Content Include="aktuelltprov.xml" />
     <Content Include="Anställd\anställd_Start.aspx" />
     <Content Include="Images\Huvudkontor.jpg" />
     <Content Include="Images\headerbild.png" />

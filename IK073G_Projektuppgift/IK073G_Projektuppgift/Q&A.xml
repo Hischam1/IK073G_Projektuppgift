@@ -16,7 +16,6 @@
         <Svar4>Service appen</Svar4>
         <RättSvar1>JE-Systemet</RättSvar1>
         <RättSvar2></RättSvar2>
-        <RättSvar3></RättSvar3>
       </Frågenummer>
 
       <Frågenummer id="2">
@@ -31,7 +30,6 @@
         <Svar4>Via Brev</Svar4>
         <RättSvar1>Via Brev</RättSvar1>
         <RättSvar2></RättSvar2>
-        <RättSvar3></RättSvar3>
       </Frågenummer>
 
       <Frågenummer id="3">
@@ -46,7 +44,6 @@
         <Svar4>San Siro</Svar4>
         <RättSvar1>JE-Bankens huvudkontor</RättSvar1>
         <RättSvar2></RättSvar2>
-        <RättSvar3></RättSvar3>
       </Frågenummer>
 
       <Frågenummer id="4">
@@ -61,7 +58,6 @@
         <Svar4>Anna Zlibrienzska</Svar4>
         <RättSvar1>Maarten Schtekelenburg</RättSvar1>
         <RättSvar2></RättSvar2>
-        <RättSvar3></RättSvar3>
       </Frågenummer>
 
       <Frågenummer id="5">
@@ -76,7 +72,6 @@
         <Svar4>Varje år</Svar4>
         <RättSvar1>Varje år</RättSvar1>
         <RättSvar2></RättSvar2>
-        <RättSvar3></RättSvar3>
       </Frågenummer>
 
       <Frågenummer id="6">
@@ -91,7 +86,6 @@
         <Svar4>Bara chefen får veta</Svar4>
         <RättSvar1>Med största möjliga sekretess</RättSvar1>
         <RättSvar2>Offentligt för JE-Bankens anställda</RättSvar2>
-        <RättSvar3></RättSvar3>
       </Frågenummer>
 
       <Frågenummer id="7">
@@ -106,7 +100,6 @@
         <Svar4>Förtidspension</Svar4>
         <RättSvar1>Sjukbidrag</RättSvar1>
         <RättSvar2></RättSvar2>
-        <RättSvar3></RättSvar3>
       </Frågenummer>
 
       <Frågenummer id="8">
@@ -121,7 +114,6 @@
         <Svar4>Portugal</Svar4>
         <RättSvar1>Sverige</RättSvar1>
         <RättSvar2>Danmark</RättSvar2>
-        <RättSvar3></RättSvar3>
       </Frågenummer>
 
       <Frågenummer id="9">
@@ -136,7 +128,6 @@
         <Svar4>En traditionellt förvaltad pensionsförsäkring</Svar4>
         <RättSvar1>En traditionellt förvaltad pensionsförsäkring</RättSvar1>
         <RättSvar2></RättSvar2>
-        <RättSvar3></RättSvar3>
       </Frågenummer>
 
       <Frågenummer id="10">
@@ -151,7 +142,6 @@
         <Svar4>Livsvarigt</Svar4>
         <RättSvar1>5 år</RättSvar1>
         <RättSvar2></RättSvar2>
-        <RättSvar3></RättSvar3>
       </Frågenummer>
 
       <Frågenummer id="11">
@@ -166,7 +156,6 @@
         <Svar4>Premiebetalning till företagsägd kapitalförsäkring</Svar4>
         <RättSvar1>Avsättning till pensionsstiftelse</RättSvar1>
         <RättSvar2></RättSvar2>
-        <RättSvar3></RättSvar3>
       </Frågenummer>
 
       <Frågenummer id="12">
@@ -181,7 +170,6 @@
         <Svar4>Informationskvoten</Svar4>
         <RättSvar1>Informationskvoten</RättSvar1>
         <RättSvar2></RättSvar2>
-        <RättSvar3></RättSvar3>
       </Frågenummer>
 
       <Frågenummer id="13">
@@ -196,7 +184,6 @@
         <Svar4>InFonden har företagsspecifik risk motsvarande 40 % mer än index</Svar4>
         <RättSvar1>Fonden har hög marknadsrisk</RättSvar1>
         <RättSvar2></RättSvar2>
-        <RättSvar3></RättSvar3>
       </Frågenummer>
 
       <Frågenummer id="14">
@@ -211,7 +198,6 @@
         <Svar4>Efterskänka skuld</Svar4>
         <RättSvar1>Ge fullmakt åt</RättSvar1>
         <RättSvar2></RättSvar2>
-        <RättSvar3></RättSvar3>
       </Frågenummer>
 
       <Frågenummer id="15">
@@ -226,7 +212,6 @@
         <Svar4>Överblivna mynt</Svar4>
         <RättSvar1>Flyttbar egendom</RättSvar1>
         <RättSvar2></RättSvar2>
-        <RättSvar3></RättSvar3>
       </Frågenummer>
 
       <Frågenummer id="16">
@@ -241,7 +226,6 @@
         <Svar4>Petronas Towers</Svar4>
         <RättSvar1>Wall street</RättSvar1>
         <RättSvar2></RättSvar2>
-        <RättSvar3></RättSvar3>
       </Frågenummer>
 
       <Frågenummer id="17">
@@ -256,7 +240,6 @@
         <Svar4>Tar emot och kastar i papperskorgen</Svar4>
         <RättSvar1>Tackar nej, då det kan uppfattas som en muta</RättSvar1>
         <RättSvar2></RättSvar2>
-        <RättSvar3></RättSvar3>
       </Frågenummer>
 
       <Frågenummer id="18">
@@ -271,7 +254,6 @@
         <Svar4>Pratar genast med chefen då detta kan vara svarta pengar</Svar4>
         <RättSvar1>Pratar genast med chefen då detta kan vara svarta pengar</RättSvar1>
         <RättSvar2></RättSvar2>
-        <RättSvar3></RättSvar3>
       </Frågenummer>
 
       <Frågenummer id="19">
@@ -286,7 +268,6 @@
         <Svar4>Skapelse</Svar4>
         <RättSvar1>Kartläggning</RättSvar1>
         <RättSvar2></RättSvar2>
-        <RättSvar3></RättSvar3>
       </Frågenummer>
 
       <Frågenummer id="20">
@@ -301,7 +282,6 @@
         <Svar4>Gör ingenting</Svar4>
         <RättSvar1>Säger nej, då vi följer PUL</RättSvar1>
         <RättSvar2>Meddelar genast chefen om kollegans beteende</RättSvar2>
-        <RättSvar3></RättSvar3>
       </Frågenummer>
 
       <Frågenummer id="21">
@@ -316,7 +296,6 @@
         <Svar4>Hotar kunden att även ge dig annars avslöjar du dom</Svar4>
         <RättSvar1>Kontaktar chefen direkt</RättSvar1>
         <RättSvar2></RättSvar2>
-        <RättSvar3></RättSvar3>
       </Frågenummer>
 
       <Frågenummer id="22">
@@ -331,7 +310,6 @@
         <Svar4>Nyanställda skrubbar toaletterna</Svar4>
         <RättSvar1>Alla har lika värde</RättSvar1>
         <RättSvar2></RättSvar2>
-        <RättSvar3></RättSvar3>
       </Frågenummer>
 
       <Frågenummer id="23">
@@ -346,7 +324,6 @@
         <Svar4>Öppet för diskussion</Svar4>
         <RättSvar1>Fonden har hög marknadsrisk</RättSvar1>
         <RättSvar2></RättSvar2>
-        <RättSvar3></RättSvar3>
       </Frågenummer>
 
       <Frågenummer id="24">
@@ -361,7 +338,6 @@
         <Svar4>Lyder honom, men tar en procent till dig själv under kuppen</Svar4>
         <RättSvar1>Ringer polisen</RättSvar1>
         <RättSvar2>Nekar honom och riskerar att få sparken</RättSvar2>
-        <RättSvar3></RättSvar3>
       </Frågenummer>
 
       <Frågenummer id="25">
@@ -376,7 +352,6 @@
         <Svar4>Ber dom komma någon annan dag ifall vi är trötta</Svar4>
         <RättSvar1>Med bästa möjliga uppförande</RättSvar1>
         <RättSvar2>Varje kund är speciell för oss</RättSvar2>
-        <RättSvar3></RättSvar3>
       </Frågenummer>
       
 
@@ -396,7 +371,6 @@
         <Svar4>Service appen</Svar4>
         <RättSvar1>JE-Systemet</RättSvar1>
         <RättSvar2></RättSvar2>
-        <RättSvar3></RättSvar3>
       </Frågenummer>
 
       <Frågenummer id="2">
@@ -411,7 +385,6 @@
         <Svar4>Via Brev</Svar4>
         <RättSvar1>Via Brev</RättSvar1>
         <RättSvar2></RättSvar2>
-        <RättSvar3></RättSvar3>
       </Frågenummer>
 
       <Frågenummer id="3">
@@ -426,7 +399,6 @@
         <Svar4>San Siro</Svar4>
         <RättSvar1>JE-Bankens huvudkontor</RättSvar1>
         <RättSvar2></RättSvar2>
-        <RättSvar3></RättSvar3>
       </Frågenummer>
 
       <Frågenummer id="4">
@@ -441,7 +413,6 @@
         <Svar4>Anna Zlibrienzska</Svar4>
         <RättSvar1>Maarten Schtekelenburg</RättSvar1>
         <RättSvar2></RättSvar2>
-        <RättSvar3></RättSvar3>
       </Frågenummer>
 
       <Frågenummer id="5">
@@ -456,7 +427,6 @@
         <Svar4>Varje år</Svar4>
         <RättSvar1>Varje år</RättSvar1>
         <RättSvar2></RättSvar2>
-        <RättSvar3></RättSvar3>
       </Frågenummer>
       
        <Frågenummer id="9">
@@ -471,7 +441,6 @@
         <Svar4>En traditionellt förvaltad pensionsförsäkring</Svar4>
         <RättSvar1>En traditionellt förvaltad pensionsförsäkring</RättSvar1>
         <RättSvar2></RättSvar2>
-        <RättSvar3></RättSvar3>
       </Frågenummer>
 
       <Frågenummer id="10">
@@ -486,7 +455,6 @@
         <Svar4>Livsvarigt</Svar4>
         <RättSvar1>5 år</RättSvar1>
         <RättSvar2></RättSvar2>
-        <RättSvar3></RättSvar3>
       </Frågenummer>
 
       <Frågenummer id="11">
@@ -501,7 +469,6 @@
         <Svar4>Premiebetalning till företagsägd kapitalförsäkring</Svar4>
         <RättSvar1>Avsättning till pensionsstiftelse</RättSvar1>
         <RättSvar2></RättSvar2>
-        <RättSvar3></RättSvar3>
       </Frågenummer>
 
       <Frågenummer id="12">
@@ -516,7 +483,6 @@
         <Svar4>Informationskvoten</Svar4>
         <RättSvar1>Informationskvoten</RättSvar1>
         <RättSvar2></RättSvar2>
-        <RättSvar3></RättSvar3>
       </Frågenummer>
 
       <Frågenummer id="13">
@@ -531,7 +497,6 @@
         <Svar4>InFonden har företagsspecifik risk motsvarande 40 % mer än index</Svar4>
         <RättSvar1>Fonden har hög marknadsrisk</RättSvar1>
         <RättSvar2></RättSvar2>
-        <RättSvar3></RättSvar3>
       </Frågenummer>
       
       <Frågenummer id="17">
@@ -546,7 +511,6 @@
         <Svar4>Tar emot och kastar i papperskorgen</Svar4>
         <RättSvar1>Tackar nej, då det kan uppfattas som en muta</RättSvar1>
         <RättSvar2></RättSvar2>
-        <RättSvar3></RättSvar3>
       </Frågenummer>
 
       <Frågenummer id="18">
@@ -561,7 +525,6 @@
         <Svar4>Pratar genast med chefen då detta kan vara svarta pengar</Svar4>
         <RättSvar1>Pratar genast med chefen då detta kan vara svarta pengar</RättSvar1>
         <RättSvar2></RättSvar2>
-        <RättSvar3></RättSvar3>
       </Frågenummer>
 
       <Frågenummer id="19">
@@ -576,7 +539,6 @@
         <Svar4>Skapelse</Svar4>
         <RättSvar1>Kartläggning</RättSvar1>
         <RättSvar2></RättSvar2>
-        <RättSvar3></RättSvar3>
       </Frågenummer>
 
       <Frågenummer id="20">
@@ -591,7 +553,6 @@
         <Svar4>Gör ingenting</Svar4>
         <RättSvar1>Säger nej, då vi följer PUL</RättSvar1>
         <RättSvar2>Meddelar genast chefen om kollegans beteende</RättSvar2>
-        <RättSvar3></RättSvar3>
       </Frågenummer>
 
       <Frågenummer id="21">
@@ -606,7 +567,6 @@
         <Svar4>Hotar kunden att även ge dig annars avslöjar du dom</Svar4>
         <RättSvar1>Kontaktar chefen direkt</RättSvar1>
         <RättSvar2></RättSvar2>
-        <RättSvar3></RättSvar3>
       </Frågenummer>
 
     </FrågorÅKU>
