@@ -30,7 +30,10 @@
                             <asp:Button ID="startaNyttTest" runat="server" Text="Starta prov" OnClick="startaNyttTest_Click"  style="margin-left: 45%; margin-bottom: 2%;"/>
                             <div id="frågeform" runat="server">
                                 <h4 id="frågenummer" runat="server" Visible="false"></h4>
-                                <h4 id="kategorier" runat="server" Visible="false"></h4>
+                                <h2 id="status" runat="server" Visible="false"></h2>
+                                <h4 id="kategori1" runat="server" Visible="false"></h4>
+                                <h4 id="kategori2" runat="server" Visible="false"></h4>
+                                <h4 id="kategori3" runat="server" Visible="false"></h4>
                                 <div id="fråga" runat="server">
 
                                     </div>

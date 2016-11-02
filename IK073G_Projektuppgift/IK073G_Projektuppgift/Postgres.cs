@@ -85,7 +85,10 @@ namespace IK073G_Projektuppgift
                 conn.Close();
             }
         }
-
+        public void StängConnection()
+        {
+            conn.Close();
+        }
         public List<Person> HämtaNyanställda()
         {
             string sql = "select * from person WHERE nyanställd = true ORDER BY förnamn";

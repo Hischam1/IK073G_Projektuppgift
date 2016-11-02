@@ -84,7 +84,7 @@
         <Typ>TvåRätt</Typ>
         <Text>Här är det två svarsalternativ som är korrekt.</Text>
         <Bild></Bild>
-        <Fråga>Hur hanteras kundens personuppgifter</Fråga>
+        <Fråga>Hur hanteras kundens personuppgifter?</Fråga>
         <Svar1>Med största möjliga sekretess</Svar1>
         <Svar2>Offentligt för allmänheten</Svar2>
         <Svar3>Offentligt för JE-Bankens anställda</Svar3>
@@ -322,7 +322,7 @@
       <Frågenummer id="22">
         <Kategori>Etik och regelverk</Kategori>
         <Typ>EttRätt</Typ>
-        <Text>Här är det två svarsalternativ som är korrekt.</Text>
+        <Text></Text>
         <Bild></Bild>
         <Fråga>Hur behandlar vi alla kollegor på jobbet?</Fråga>
         <Svar1>Alla har lika värde</Svar1>
@@ -352,7 +352,7 @@
       <Frågenummer id="24">
         <Kategori>Etik och regelverk</Kategori>
         <Typ>TvåRätt</Typ>
-        <Text></Text>
+        <Text>Här är det två svarsalternativ som är korrekt.</Text>
         <Bild></Bild>
         <Fråga>Chefen ber dig lägga in oskattade pengar åt honom, vad gör du?</Fråga>
         <Svar1>Lyder order, en chef är alltid en chef</Svar1>
@@ -366,8 +366,8 @@
 
       <Frågenummer id="25">
         <Kategori>Etik och regelverk</Kategori>
-        <Typ>EttRätt</Typ>
-        <Text>Här är tre svar korrekta</Text>
+        <Typ>TvåRätt</Typ>
+        <Text>Här är det två svarsalternativ som är korrekt.</Text>
         <Bild></Bild>
         <Fråga>Hur behandlar vi kunder?</Fråga>
         <Svar1>Med bästa möjliga uppförande</Svar1>
@@ -376,7 +376,7 @@
         <Svar4>Ber dom komma någon annan dag ifall vi är trötta</Svar4>
         <RättSvar1>Med bästa möjliga uppförande</RättSvar1>
         <RättSvar2>Varje kund är speciell för oss</RättSvar2>
-        <RättSvar3>Med mycket hög service</RättSvar3>
+        <RättSvar3></RättSvar3>
       </Frågenummer>
       
 
