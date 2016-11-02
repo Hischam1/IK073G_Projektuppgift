@@ -116,6 +116,40 @@ namespace IK073G_Projektuppgift
             return AllaQALista;
 
         }
+        public List<QA> XmlTillLista2(XmlDocument xmldoc)
+        {
+            AllaQALista.Clear();
+
+            //string path = Server.MapPath("../Q&A.xml");
+            XmlDocument doc = xmldoc;
+            //doc.Load(path);
+
+            XmlNodeList allaFrågorOchSvar = doc.SelectNodes("/Frågor/Frågenummer");
+
+
+            foreach (XmlNode node in allaFrågorOchSvar)
+            {
+                QA qa = new QA();
+                qa.kategori = node["Kategori"].InnerXml;
+                qa.typ = node["Typ"].InnerXml;
+                qa.bild = node["Bild"].InnerXml;
+                qa.fråga = node["Fråga"].InnerXml;
+                qa.svar1 = node["Svar1"].InnerXml;
+                qa.svar2 = node["Svar2"].InnerXml;
+                qa.svar3 = node["Svar3"].InnerXml;
+                qa.svar4 = node["Svar4"].InnerXml;
+                qa.rättSvar1 = node["RättSvar1"].InnerXml;
+                qa.rättSvar2 = node["RättSvar2"].InnerXml; 
+                //qa.rättSvar2 = node["användarenSvar2"].InnerXml;
+                //qa.rättSvar2 = node["användarenSvar2"].InnerXml;
+
+
+                AllaQALista.Add(qa);
+            }
+
+            return AllaQALista;
+
+        }
         public void TaUtEnFråga()
         {
 
@@ -334,46 +368,51 @@ namespace IK073G_Projektuppgift
 
         protected void avslutaProv_Click(object sender, EventArgs e)
         {
-            Postgres p = new Postgres();
-            Random rnd = new Random();
-            int provId = rnd.Next(1, 1000);
+            XmlDocument docc = new XmlDocument();
+            docc = DatabasTillXml();
 
-            string godkänd;
+            VisaAllt(XmlTillLista2(docc));
 
-            double procent = (double)allaResultat[0] / 25 * 100;
-            double procentKat1 = (double)allaResultat[1] / 8 * 100;
-            double procentKat2 = (double)allaResultat[2] / 8 * 100;
-            double procentKat3 = (double)allaResultat[3] / 9 * 100;
+            //Postgres p = new Postgres();
+            //Random rnd = new Random();
+            //int provId = rnd.Next(1, 1000);
 
-            kategori1.Visible = true;
-            kategori2.Visible = true;
-            kategori3.Visible = true;
-            status.Visible = true;
+            //string godkänd;
 
+            //double procent = (double)allaResultat[0] / 25 * 100;
+            //double procentKat1 = (double)allaResultat[1] / 8 * 100;
+            //double procentKat2 = (double)allaResultat[2] / 8 * 100;
+            //double procentKat3 = (double)allaResultat[3] / 9 * 100;
 
-
-            if (procent > 69 && procentKat1 > 59 && procentKat2 > 59 && procentKat3 > 59)
-            {
-                godkänd = "GODKÄND";
-                frågenummer.InnerText = "Ditt totalresultat är " + allaResultat[0].ToString() + " av 25 poäng vilket är " + procent + "%";
-                status.InnerHtml = godkänd;
-                kategori1.InnerHtml = "Kategori 1: " + allaResultat[1].ToString() + " av 8 poäng vilket är " + procentKat1 + "%";
-                kategori2.InnerHtml = "Kategori 2: " + allaResultat[2].ToString() + " av 8 poäng vilket är " + procentKat2 + "%";
-                kategori3.InnerHtml = "Kategori 3: " + allaResultat[3].ToString() + " av 9 poäng vilket är " + procentKat3 + "%";
-            }
-            else
-            {
-                godkänd = "ICKE GODKÄND";
-                frågenummer.InnerText = "Ditt totalresultat är " + allaResultat[0].ToString() + " av 25 poäng vilket är " + procent + "%";
-                status.InnerHtml = godkänd;
-                kategori1.InnerHtml = "Kategori 1: " + allaResultat[1].ToString() + " av 8 poäng vilket är " + procentKat1 + "%";
-                kategori2.InnerHtml = "Kategori 2: " + allaResultat[2].ToString() + " av 8 poäng vilket är " + procentKat2 + "%";
-                kategori3.InnerHtml = "Kategori 3: " + allaResultat[3].ToString() + " av 9 poäng vilket är " + procentKat3 + "%";
-            }
+            //kategori1.Visible = true;
+            //kategori2.Visible = true;
+            //kategori3.Visible = true;
+            //status.Visible = true;
 
 
-            p.LäggTillProv(provId, aktuellPerson.anställningsID, "LICENS", DateTime.Today, godkänd, allaResultat[0], 22, allaResultat[1], allaResultat[2], allaResultat[3]);
-            p.StängConnection();
+
+            //if (procent > 69 && procentKat1 > 59 && procentKat2 > 59 && procentKat3 > 59)
+            //{
+            //    godkänd = "GODKÄND";
+            //    frågenummer.InnerText = "Ditt totalresultat är " + allaResultat[0].ToString() + " av 25 poäng vilket är " + procent + "%";
+            //    status.InnerHtml = godkänd;
+            //    kategori1.InnerHtml = "Kategori 1: " + allaResultat[1].ToString() + " av 8 poäng vilket är " + procentKat1 + "%";
+            //    kategori2.InnerHtml = "Kategori 2: " + allaResultat[2].ToString() + " av 8 poäng vilket är " + procentKat2 + "%";
+            //    kategori3.InnerHtml = "Kategori 3: " + allaResultat[3].ToString() + " av 9 poäng vilket är " + procentKat3 + "%";
+            //}
+            //else
+            //{
+            //    godkänd = "ICKE GODKÄND";
+            //    frågenummer.InnerText = "Ditt totalresultat är " + allaResultat[0].ToString() + " av 25 poäng vilket är " + procent + "%";
+            //    status.InnerHtml = godkänd;
+            //    kategori1.InnerHtml = "Kategori 1: " + allaResultat[1].ToString() + " av 8 poäng vilket är " + procentKat1 + "%";
+            //    kategori2.InnerHtml = "Kategori 2: " + allaResultat[2].ToString() + " av 8 poäng vilket är " + procentKat2 + "%";
+            //    kategori3.InnerHtml = "Kategori 3: " + allaResultat[3].ToString() + " av 9 poäng vilket är " + procentKat3 + "%";
+            //}
+
+
+            //p.LäggTillProv(provId, aktuellPerson.anställningsID, "LICENS", DateTime.Today, godkänd, allaResultat[0], 22, allaResultat[1], allaResultat[2], allaResultat[3]);
+            //p.StängConnection();
 
 
         }
@@ -418,11 +457,6 @@ namespace IK073G_Projektuppgift
 
             }
 
-            Postgres p = new Postgres();
-            p.LäggTillXMLString(XmlTillDataBas());
-            p.StängConnection();
-
-
             if (AllaFrågor.Count != 0)
             {
                 if (AllaFrågor.Count == 1)
@@ -443,7 +477,11 @@ namespace IK073G_Projektuppgift
                 nästaSida1.Visible = false;
                 avslutaProv.Visible = true;
                 avslutaProv.Text = "Rätta";
-                
+
+                Postgres p = new Postgres();
+                p.LäggTillXMLString(XmlTillDataBas());
+                p.StängConnection();                
+
             }
         }
 
@@ -451,12 +489,22 @@ namespace IK073G_Projektuppgift
         {
             string path = Server.MapPath("../aktuelltprov.xml");
 
-            XDocument doc = XDocument.Load(path);
+            XDocument doc = XDocument.Load(path, LoadOptions.None);
 
             string xmlstring = doc.ToString();
 
             return xmlstring;
+         }
 
+        public XmlDocument DatabasTillXml()
+        {
+            XmlDocument doc = new XmlDocument();
+            Postgres p = new Postgres();
+
+            p.HämtaXmlFrånDatabas(doc);
+
+
+            return doc;
         }
     }
 }

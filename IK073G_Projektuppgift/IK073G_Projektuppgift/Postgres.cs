@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using Npgsql;
 using System.Data;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace IK073G_Projektuppgift
 {
@@ -261,5 +263,47 @@ namespace IK073G_Projektuppgift
             conn.Close();
 
         }
+        public void HämtaXmlFrånDatabas(XmlDocument doc)
+        {
+            string meddelande;
+            try
+            {
+                string sql = "select * from xmltest";
+
+
+                cmd = new NpgsqlCommand(sql, conn);
+                //cmd.Parameters.AddWithValue("xmlstring", "hejjj");
+
+                dr = cmd.ExecuteReader();
+
+
+                if (dr.Read())
+                {
+                    if (dr["xmlstring"].ToString() != "")
+                    {
+                        doc.LoadXml(dr["xmlstring"].ToString());
+                    }
+                    else
+                    {
+                        string path = HttpContext.Current.Server.MapPath("aktuelltprov.xml");
+                    }
+                }
+
+                dr.Close();
+            }
+            catch (NpgsqlException ex)
+            {
+                meddelande = ex.Message;
+                if (meddelande.Contains("23505"))
+                {
+                    meddelande = "fel";
+                }
+
+            }
+
+            conn.Close();
+
+        }
+
     }
 }
