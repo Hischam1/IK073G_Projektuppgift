@@ -11,23 +11,51 @@ namespace IK073G_Projektuppgift.Anställd
 {
     public partial class anställd_Start : System.Web.UI.Page
     {
+        List<QA> AllaFrågor = new List<QA>();
         List<QA> AllaQALista = new List<QA>();
-        List<QA> Kategori1QALista = new List<QA>();
-        List<QA> Kategori2QALista = new List<QA>();
-        List<QA> Kategori3QALista = new List<QA>();
+        List<QA> PåbörjadFråga = new List<QA>();
+        List<QA> BesvaradeFrågor = new List<QA>();
+        List<Person> AllaAnställda = new List<Person>();
+        QA aktuellFråga = new QA();
+        Person aktuellPerson = new Person();
 
         Postgres p = new Postgres();
 
-        private bool kategori1;
-        private bool kategori2;
-        private bool kategori3;
+        int resultat;
+        int[] allaResultat = new int[4];
+        int fråganummer = 1;
+
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            anställningsLista.DataSource = p.HämtaAnställda();
-            anställningsLista.DataBind();
-        }
+            if (!IsPostBack)
+            {
 
+                AllaAnställda = p.HämtaAnställda();
+                anställningsLista.DataSource = AllaAnställda;
+                anställningsLista.DataBind();
+                Session["AllaAnställda"] = AllaAnställda;
+            }
+
+            p.StängConnection();
+
+            if (Session["AllaFrågor"] != null)
+            {
+                AllaFrågor = (List<QA>)Session["AllaFrågor"];
+            }
+            if (Session["AktuellPerson"] != null)
+            {
+                aktuellPerson = (Person)Session["AktuellPerson"];
+            }
+            if (Session["resultat"] != null)
+            {
+                resultat = (int)Session["resultat"];
+            }
+            if (Session["AllaResultat"] != null)
+            {
+                allaResultat = (int[])Session["AllaResultat"];
+            }
+        }
         public void VisaAllt(List<QA> QALista)
         {
             Random r = new Random();
@@ -36,69 +64,25 @@ namespace IK073G_Projektuppgift.Anställd
             foreach (QA qa in blandadLista)
             {
 
-                HtmlGenericControl divFråga = new HtmlGenericControl("div class=fråga");
-                frågeform.Controls.Add(divFråga);
-
                 HtmlGenericControl kategoriFråga = new HtmlGenericControl("p class=frågaKategori");
                 kategoriFråga.InnerText = qa.kategori;
-                divFråga.Controls.Add(kategoriFråga);
+                fråga.Controls.Add(kategoriFråga);
 
                 HtmlGenericControl bildFråga = new HtmlGenericControl("img src= '" + qa.bild + "' class=bildFråga width=20%");
-                //bildFråga.InnerText = qa.bild;
-                divFråga.Controls.Add(bildFråga);
+                fråga.Controls.Add(bildFråga);
 
                 HtmlGenericControl rubrikFråga = new HtmlGenericControl("p class=frågaRubrik id=hej runat=server");
                 rubrikFråga.InnerText = qa.fråga;
-                divFråga.Controls.Add(rubrikFråga);
+                fråga.Controls.Add(rubrikFråga);
 
                 HtmlGenericControl divText = new HtmlGenericControl("div class=text");
                 divText.InnerText = qa.text;
-                divFråga.Controls.Add(divText);
-
-                HtmlGenericControl svarsalternativDivFråga = new HtmlGenericControl("div class=svarsalternativ");
-                divFråga.Controls.Add(svarsalternativDivFråga);
-
-                HtmlGenericControl svar1Fråga = new HtmlGenericControl("li class=svar1");
-                svarsalternativDivFråga.Controls.Add(svar1Fråga);
-                HtmlGenericControl checkBox1Fråga = new HtmlGenericControl("input type = checkbox name = svar1");
-                svar1Fråga.Controls.Add(checkBox1Fråga);
-                HtmlGenericControl svar1TextFråga = new HtmlGenericControl("p");
-                svar1TextFråga.InnerText = qa.svar1;
-                svar1Fråga.Controls.Add(svar1TextFråga);
-
-                HtmlGenericControl svar2Fråga = new HtmlGenericControl("li class=svar2");
-                svarsalternativDivFråga.Controls.Add(svar2Fråga);
-                HtmlGenericControl checkBox2Fråga = new HtmlGenericControl("input type = checkbox name = svar2");
-                svar2Fråga.Controls.Add(checkBox2Fråga);
-                HtmlGenericControl svar2TextFråga = new HtmlGenericControl("p");
-                svar2TextFråga.InnerText = qa.svar2;
-                svar2Fråga.Controls.Add(svar2TextFråga);
-
-                HtmlGenericControl svar3Fråga = new HtmlGenericControl("li class=svar3");
-                svarsalternativDivFråga.Controls.Add(svar3Fråga);
-                HtmlGenericControl checkBox3Fråga = new HtmlGenericControl("input type = checkbox name = svar3");
-                svar3Fråga.Controls.Add(checkBox3Fråga);
-                HtmlGenericControl svar3TextFråga = new HtmlGenericControl("p");
-                svar3TextFråga.InnerText = qa.svar3;
-                svar3Fråga.Controls.Add(svar3TextFråga);
-
-                HtmlGenericControl svar4Fråga = new HtmlGenericControl("li class=svar4");
-                svarsalternativDivFråga.Controls.Add(svar4Fråga);
-                HtmlGenericControl checkBox4Fråga = new HtmlGenericControl("input type = checkbox name = svar4");
-                svar4Fråga.Controls.Add(checkBox4Fråga);
-                HtmlGenericControl svar4TextFråga = new HtmlGenericControl("p");
-                svar4TextFråga.InnerText = qa.svar4;
-                svar4Fråga.Controls.Add(svar4TextFråga);
+                fråga.Controls.Add(divText);
             }
         }
-
         public List<QA> XmlTillLista()
         {
             AllaQALista.Clear();
-            Kategori1QALista.Clear();
-            Kategori2QALista.Clear();
-            Kategori3QALista.Clear();
-
 
             string path = Server.MapPath("../Q&A.xml");
             XmlDocument doc = new XmlDocument();
@@ -127,90 +111,285 @@ namespace IK073G_Projektuppgift.Anställd
                 AllaQALista.Add(qa);
             }
 
-            if (kategori1 == true)
-            {
-                for (int i = 0; i < AllaQALista.Count; i++)
-                {
-                    if (AllaQALista[i].kategori == "Produkter och hantering av kundens affärer")
-                    {
+            return AllaQALista;
 
-                        Kategori1QALista.Add(AllaQALista[i]);
-                    }
-                }
+        }
+        public void TaUtEnFråga()
+        {
 
-                return Kategori1QALista;
-            }
-            else if (kategori2 == true)
-            {
-                for (int i = 0; i < AllaQALista.Count; i++)
-                {
-                    if (AllaQALista[i].kategori == "Ekonomi – nationalekonomi, finansiell ekonomi och privatekonomi")
-                    {
-                        Kategori2QALista.Add(AllaQALista[i]);
-                    }
-                }
+            aktuellFråga = null;
+            CheckBox1.Checked = false;
+            CheckBox2.Checked = false;
+            CheckBox3.Checked = false;
+            CheckBox4.Checked = false;
 
-                return Kategori2QALista;
-            }
-            else if (kategori3 == true)
-            {
-                for (int i = 0; i < AllaQALista.Count; i++)
-                {
-                    if (AllaQALista[i].kategori == "Etik och regelverk")
-                    {
-                        Kategori3QALista.Add(AllaQALista[i]);
-                    }
-                }
+            Random rnd = new Random();
+            int randomIndex = rnd.Next(0, AllaFrågor.Count);
 
-                return Kategori3QALista;
-            }
-            else
-            {
-                return AllaQALista;
-            }
+            CheckBox1.Text = AllaFrågor[randomIndex].svar1;
+            CheckBox2.Text = AllaFrågor[randomIndex].svar2;
+            CheckBox3.Text = AllaFrågor[randomIndex].svar3;
+            CheckBox4.Text = AllaFrågor[randomIndex].svar4;
+
+            aktuellFråga = AllaFrågor[randomIndex];
+            Session["AktuellFråga"] = aktuellFråga;
+
+            PåbörjadFråga.Add(AllaFrågor[randomIndex]);
+            Session["PåbörjadFråga"] = PåbörjadFråga;
+            //namnet.InnerHtml = randomIndex.ToString() + " " + AllaFrågor.Count.ToString() + " " + AllaFrågor[randomIndex].rättSvar1;
+            AllaFrågor.RemoveAt(randomIndex);
+
         }
 
         protected void startaNyttTest_Click(object sender, EventArgs e)
         {
-            kategori1 = true;
-            kategori2 = false;
-            kategori3 = false;
+            AllaFrågor = XmlTillLista();
+            Session["AllaFrågor"] = AllaFrågor;
+
+            if (Session["AllaAnställda"] != null)
+            {
+                AllaAnställda = (List<Person>)Session["AllaAnställda"];
+            }
+
+            for (int i = 0; i < AllaAnställda.Count; i++)
+            {
+                if (AllaAnställda[i].förnamn + " " + AllaAnställda[i].efternamn == anställningsLista.SelectedValue.ToString())
+                {
+                    aktuellPerson = AllaAnställda[i];
+                }
+            }
+
+            Session["AktuellPerson"] = aktuellPerson;
+
+            provText.InnerHtml = aktuellPerson.förnamn;
+
+            TaUtEnFråga();
+            VisaAllt(PåbörjadFråga);
+
+
+
+            if (Session["AktuellFråga"] != null)
+            {
+                aktuellFråga = (QA)Session["AktuellFråga"];
+            }
 
             nästaSida1.Visible = true;
-            provText.Visible = false;
+            CheckBox1.Visible = true;
+            CheckBox2.Visible = true;
+            CheckBox3.Visible = true;
+            CheckBox4.Visible = true;
+            frågenummer.Visible = true;
+            //provText.Visible = false;
             startaNyttTest.Visible = false;
+            anställningsLista.Visible = false;
+            namnet.Visible = false;
+            //provText.InnerHtml = "";
+            frågenummer.InnerHtml = "Fråga: " + fråganummer + " av 15";
 
-            VisaAllt(XmlTillLista());
         }
 
         protected void nästaSida1_Click(object sender, EventArgs e)
         {
+            CheckBox[] checkArray = new CheckBox[] { CheckBox1, CheckBox2, CheckBox3, CheckBox4 };
 
-            kategori1 = false;
-            kategori2 = true;
-            kategori3 = false;
+            if (Session["fråganummer"] != null)
+            {
+                fråganummer = (int)Session["fråganummer"];
+            }
 
-            nästaSida1.Visible = false;
-            nästaSida2.Visible = true;
+            if (Session["AktuellFråga"] != null)
+            {
+                aktuellFråga = (QA)Session["AktuellFråga"];
+            }
 
-            VisaAllt(XmlTillLista());
-        }
 
-        protected void nästaSida2_Click(object sender, EventArgs e)
-        {
-            kategori1 = false;
-            kategori2 = false;
-            kategori3 = true;
+            if (aktuellFråga.typ == "EttRätt")
+            {
+                int kollaCheckbox = 0;
 
-            nästaSida2.Visible = false;
-            avslutaProv.Visible = true;
+                for (int i = 0; i < checkArray.Length; i++)
+                {
+                    if (checkArray[i].Checked == true)
+                    {
+                        kollaCheckbox += 1;
+                    }
+                }
 
-            VisaAllt(XmlTillLista());
+                if (kollaCheckbox > 1 || kollaCheckbox < 1)
+                {
+                    if (Session["PåbörjadFråga"] != null)
+                    {
+                        PåbörjadFråga = (List<QA>)Session["PåbörjadFråga"];
+                    }
+                    provText.InnerHtml = "Du har angett fel antal svarsalternativ.";
+
+                    VisaAllt(PåbörjadFråga);
+
+                }
+                else
+                {
+                    foreach (CheckBox checkbox in checkArray)
+                    {
+                        if (checkbox.Checked == true)
+                        {
+                            if (checkbox.Text == aktuellFråga.rättSvar1)
+                            {
+                                if (aktuellFråga.kategori == "Produkter och hantering av kundens affärer")
+                                {
+                                    allaResultat[0] += 1; // TotalResultat
+                                    allaResultat[1] += 1; // Kategori 1
+                                }
+                                else if (aktuellFråga.kategori == "Ekonomi – nationalekonomi, finansiell ekonomi och privatekonomi")
+                                {
+                                    allaResultat[0] += 1; // TotalResultat
+                                    allaResultat[2] += 1; // Kategori 2
+                                }
+                                else if (aktuellFråga.kategori == "Etik och regelverk")
+                                {
+                                    allaResultat[0] += 1; // TotalResultat
+                                    allaResultat[3] += 1; // Kategori 3
+                                }
+                            }
+                            provText.InnerHtml = allaResultat[0].ToString() + " = " + allaResultat[1].ToString() + " = " + allaResultat[2].ToString() + " = " + allaResultat[3].ToString();
+                            AvslutAvFråga();
+                        }
+                    }
+                }
+
+            }
+
+            else if (aktuellFråga.typ == "TvåRätt")
+            {
+                int kollaCheckbox = 0;
+
+                for (int i = 0; i < checkArray.Length; i++)
+                {
+                    if (checkArray[i].Checked == true)
+                    {
+                        kollaCheckbox += 1;
+                    }
+                }
+
+                if (kollaCheckbox > 2 || kollaCheckbox < 2)
+                {
+                    if (Session["PåbörjadFråga"] != null)
+                    {
+                        PåbörjadFråga = (List<QA>)Session["PåbörjadFråga"];
+                    }
+                    provText.InnerHtml = "Du har angett fel antal svarsalternativ.";
+
+                    VisaAllt(PåbörjadFråga);
+
+                }
+                else
+                {
+                    int tvåRätt = 0;
+
+                    foreach (CheckBox checkbox in checkArray)
+                    {
+                        if (checkbox.Checked == true)
+                        {
+                            if (checkbox.Text == aktuellFråga.rättSvar1 || checkbox.Text == aktuellFråga.rättSvar2)
+                            {
+                                tvåRätt += 1;
+                            }
+                        }
+                    }
+                    if (tvåRätt == 2)
+                    {
+                        if (aktuellFråga.kategori == "Produkter och hantering av kundens affärer")
+                        {
+                            allaResultat[0] += 1; // TotalResultat
+                            allaResultat[1] += 1; // Kategori 1
+                        }
+                        else if (aktuellFråga.kategori == "Ekonomi – nationalekonomi, finansiell ekonomi och privatekonomi")
+                        {
+                            resultat += 1;
+                            allaResultat[0] += 1; // TotalResultat
+                            allaResultat[2] += 1; // Kategori 2
+                        }
+                        else if (aktuellFråga.kategori == "Etik och regelverk")
+                        {
+                            allaResultat[0] += 1; // TotalResultat
+                            allaResultat[3] += 1; // Kategori 3
+                        }
+                    }
+                    provText.InnerHtml = allaResultat[0].ToString() + " = " + allaResultat[1].ToString() + " = " + allaResultat[2].ToString() + " = " + allaResultat[3].ToString();
+                    AvslutAvFråga();
+                }
+
+            }
         }
 
         protected void avslutaProv_Click(object sender, EventArgs e)
         {
+            Postgres p = new Postgres();
+            Random rnd = new Random();
+            int provId = rnd.Next(1, 1000);
 
+            string godkänd;
+
+            double procent = (double)allaResultat[0] / 15 * 100;
+            double procentKat1 = (double)allaResultat[1] / 5 * 100;
+            double procentKat2 = (double)allaResultat[2] / 5 * 100;
+            double procentKat3 = (double)allaResultat[3] / 5 * 100;
+
+            kategori1.Visible = true;
+            kategori2.Visible = true;
+            kategori3.Visible = true;
+            status.Visible = true;
+
+
+
+            if (procent > 69 && procentKat1 > 59 && procentKat2 > 59 && procentKat3 > 59)
+            {
+                godkänd = "GODKÄND";
+                frågenummer.InnerText = "Ditt totalresultat är " + allaResultat[0].ToString() + " av 15 poäng vilket är " + procent + "%";
+                status.InnerHtml = godkänd;
+                kategori1.InnerHtml = "Kategori 1: " + allaResultat[1].ToString() + " av 5 poäng vilket är " + procentKat1 + "%";
+                kategori2.InnerHtml = "Kategori 2: " + allaResultat[2].ToString() + " av 5 poäng vilket är " + procentKat2 + "%";
+                kategori3.InnerHtml = "Kategori 3: " + allaResultat[3].ToString() + " av 5 poäng vilket är " + procentKat3 + "%";
+            }
+            else
+            {
+                godkänd = "ICKE GODKÄND";
+                frågenummer.InnerText = "Ditt totalresultat är " + allaResultat[0].ToString() + " av 15 poäng vilket är " + procent + "%";
+                status.InnerHtml = godkänd;
+                kategori1.InnerHtml = "Kategori 1: " + allaResultat[1].ToString() + " av 5 poäng vilket är " + procentKat1 + "%";
+                kategori2.InnerHtml = "Kategori 2: " + allaResultat[2].ToString() + " av 5 poäng vilket är " + procentKat2 + "%";
+                kategori3.InnerHtml = "Kategori 3: " + allaResultat[3].ToString() + " av 5 poäng vilket är " + procentKat3 + "%";
+            }
+
+
+            p.LäggTillProv(provId, aktuellPerson.anställningsID, "ÅKU", DateTime.Today, godkänd, allaResultat[0], 22, allaResultat[1], allaResultat[2], allaResultat[3]);
+            p.StängConnection();
+
+
+        }
+
+        public void AvslutAvFråga()
+        {
+            if (AllaFrågor.Count != 0)
+            {
+                if (AllaFrågor.Count == 1)
+                {
+                    nästaSida1.Text = "Avsluta prov";
+                }
+                Session["AllaResultat"] = allaResultat;
+                fråganummer += 1;
+                Session["fråganummer"] = fråganummer;
+                TaUtEnFråga();
+                VisaAllt(PåbörjadFråga);
+                frågenummer.InnerHtml = "Fråga: " + fråganummer + " av 15";
+            }
+            else
+            {
+                CheckBox1.Visible = false; CheckBox2.Visible = false; CheckBox3.Visible = false; CheckBox4.Visible = false;
+                frågenummer.InnerText = "Nu är du klar med provet. Tryck på rätta för att få reda på ditt resultat";
+                nästaSida1.Visible = false;
+                avslutaProv.Visible = true;
+                avslutaProv.Text = "Rätta";
+            }
         }
     }
 }

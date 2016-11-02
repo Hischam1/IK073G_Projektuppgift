@@ -361,7 +361,7 @@ namespace IK073G_Projektuppgift
             }
 
 
-            p.LäggTillProv(provId, aktuellPerson.anställningsID, "LICENS", DateTime.Today, godkänd, resultat, 22, allaResultat[1], allaResultat[2], allaResultat[3]);
+            p.LäggTillProv(provId, aktuellPerson.anställningsID, "LICENS", DateTime.Today, godkänd, allaResultat[0], 22, allaResultat[1], allaResultat[2], allaResultat[3]);
             p.StängConnection();
 
 

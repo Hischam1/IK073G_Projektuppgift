@@ -24,7 +24,7 @@
 				        <div id="väljPerson" class="grid gridMiddle mobil" runat="server" >
 
                             <a href="Nyanställd/nyanställd_Start.aspx">Nyanställd</a>
-                            <a href="Anställd/anställd_Start.aspx">Anställd 1</a>
+                            <a href="Anställd/anställd_Start.aspx">Anställd</a>
                             <a href="Admin/admin_Start.aspx">Admin</a>
 
                             <div id="bild" runat="server"></div>
