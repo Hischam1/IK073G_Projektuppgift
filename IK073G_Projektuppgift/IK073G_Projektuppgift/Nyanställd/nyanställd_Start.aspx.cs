@@ -418,6 +418,9 @@ namespace IK073G_Projektuppgift
 
             }
 
+            Postgres p = new Postgres();
+            p.LäggTillXMLString(XmlTillDataBas());
+            p.StängConnection();
 
 
             if (AllaFrågor.Count != 0)
@@ -440,7 +443,20 @@ namespace IK073G_Projektuppgift
                 nästaSida1.Visible = false;
                 avslutaProv.Visible = true;
                 avslutaProv.Text = "Rätta";
+                
             }
+        }
+
+        public string XmlTillDataBas()
+        {
+            string path = Server.MapPath("../aktuelltprov.xml");
+
+            XDocument doc = XDocument.Load(path);
+
+            string xmlstring = doc.ToString();
+
+            return xmlstring;
+
         }
     }
 }

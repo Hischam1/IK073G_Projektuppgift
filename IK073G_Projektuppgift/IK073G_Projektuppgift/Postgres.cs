@@ -234,5 +234,32 @@ namespace IK073G_Projektuppgift
             conn.Close();
 
         }
+        public void LäggTillXMLString(string XmlString)
+        {
+            string meddelande;
+            try
+            {
+                string sql = "insert into XMLtest (xmlstring)"
+                   + " values (@xmlstring)";
+
+                cmd = new NpgsqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@xmlstring", XmlString);
+
+                dr = cmd.ExecuteReader();
+                dr.Close();
+            }
+            catch (NpgsqlException ex)
+            {
+                meddelande = ex.Message;
+                if (meddelande.Contains("23505"))
+                {
+                    meddelande = "fel";
+                }
+
+            }
+
+            conn.Close();
+
+        }
     }
 }
