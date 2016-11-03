@@ -17,6 +17,7 @@ namespace IK073G_Projektuppgift
         private NpgsqlDataReader dr;
         private DataTable tabell;
         public Person aktuellPerson;
+        
 
         //Kontaktar databasen.
         public Postgres()
@@ -199,13 +200,13 @@ namespace IK073G_Projektuppgift
             }
             return ProvResultatLista;
         }
-        public void LäggTillProv(int provID, int provDeltagareID, string provTyp, DateTime datum, string provStatus, int antalRätt, int provTotalTidMinuter, int kat1, int kat2, int kat3)
+        public void LäggTillProv(int provID, int provDeltagareID, string provTyp, DateTime datum, string provStatus, int antalRätt, int provTotalTidMinuter, int kat1, int kat2, int kat3, string xmlstring)
         {
             string meddelande;
             try
             {
-                string sql = "insert into prov (prov_id, provdeltagare, prov_typ, prov_datum, prov_status, prov_antal_rätt, prov_totaltid_minuter, prov_kat1_rätt, prov_kat2_rätt, prov_kat3_rätt)"
-                   + " values (@prov_id, @provdeltagare, @prov_typ, @prov_datum, @prov_status, @prov_antal_rätt, @prov_totaltid_minuter, @prov_kat1_rätt, @prov_kat2_rätt, @prov_kat3_rätt)";
+                string sql = "insert into prov (prov_id, provdeltagare, prov_typ, prov_datum, prov_status, prov_antal_rätt, prov_totaltid_minuter, prov_kat1_rätt, prov_kat2_rätt, prov_kat3_rätt, xmlprov)"
+                   + " values (@prov_id, @provdeltagare, @prov_typ, @prov_datum, @prov_status, @prov_antal_rätt, @prov_totaltid_minuter, @prov_kat1_rätt, @prov_kat2_rätt, @prov_kat3_rätt, @xmlprov)";
 
                 cmd = new NpgsqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@prov_id", provID);
@@ -218,6 +219,7 @@ namespace IK073G_Projektuppgift
                 cmd.Parameters.AddWithValue("@prov_kat1_rätt", kat1);
                 cmd.Parameters.AddWithValue("@prov_kat2_rätt", kat2);
                 cmd.Parameters.AddWithValue("@prov_kat3_rätt", kat3);
+                cmd.Parameters.AddWithValue("@xmlprov", xmlstring);
 
 
                 dr = cmd.ExecuteReader();
@@ -263,12 +265,12 @@ namespace IK073G_Projektuppgift
             conn.Close();
 
         }
-        public void HämtaXmlFrånDatabas(XmlDocument doc)
+        public void HämtaXmlFrånDatabas(XmlDocument doc, int idnummer, int provId)
         {
             string meddelande;
             try
             {
-                string sql = "select * from xmltest";
+                string sql = "select xmlprov from prov where prov.provdeltagare = '" + idnummer + "' AND prov.prov_id = '" + provId + "'";
 
 
                 cmd = new NpgsqlCommand(sql, conn);
@@ -279,14 +281,14 @@ namespace IK073G_Projektuppgift
 
                 if (dr.Read())
                 {
-                    if (dr["xmlstring"].ToString() != "")
+                    if (dr["xmlprov"].ToString() != "")
                     {
-                        doc.LoadXml(dr["xmlstring"].ToString());
+                        doc.LoadXml(dr["xmlprov"].ToString());
                     }
-                    else
-                    {
-                        string path = HttpContext.Current.Server.MapPath("aktuelltprov.xml");
-                    }
+                    //else
+                    //{
+                    //    string path = HttpContext.Current.Server.MapPath("aktuelltprov.xml");
+                    //}
                 }
 
                 dr.Close();
@@ -302,6 +304,73 @@ namespace IK073G_Projektuppgift
             }
 
             conn.Close();
+
+        }
+        public void HämtaXmlFrånDatabas2(XmlDocument doc, int idnummer)
+        {
+            string meddelande;
+            try
+            {
+                string sql = "select xmlprov from prov where prov.provdeltagare = '" + idnummer + "' order by prov_datum desc";
+
+
+                cmd = new NpgsqlCommand(sql, conn);
+                //cmd.Parameters.AddWithValue("xmlstring", "hejjj");
+
+                dr = cmd.ExecuteReader();
+
+
+                if (dr.Read())
+                {
+                    if (dr["xmlprov"].ToString() != "")
+                    {
+                        doc.LoadXml(dr["xmlprov"].ToString());
+                    }
+                    //else
+                    //{
+                    //    string path = HttpContext.Current.Server.MapPath("aktuelltprov.xml");
+                    //}
+                }
+
+                dr.Close();
+            }
+            catch (NpgsqlException ex)
+            {
+                meddelande = ex.Message;
+                if (meddelande.Contains("23505"))
+                {
+                    meddelande = "fel";
+                }
+
+            }
+
+            conn.Close();
+
+        }
+        public Prov HämtaResultat(int personId)
+        {
+
+                string sql = "select prov_typ, prov_datum, prov_status, prov_antal_rätt, prov_kat1_rätt, prov_kat2_rätt, prov_kat3_rätt from prov where prov.provdeltagare = '" + personId + "'";
+
+            tabell.Clear();
+            tabell = sqlFråga(sql);
+        
+            Prov p = new Prov();
+
+            foreach (DataRow rad in tabell.Rows)
+            {
+
+                p.provTyp = rad[0].ToString();
+                p.datum = (DateTime)rad[1];
+                p.provStatus = rad[2].ToString();
+                p.antalRätt = (int)rad[3];
+                p.kat1Rätt = (int)rad[4];
+                p.kat2Rätt = (int)rad[5];
+                p.kat3Rätt = (int)rad[6];
+
+            }
+
+            return p;
 
         }
 

@@ -7,8 +7,8 @@
 
                 <div class="nav">
 				        <ul id="navRutor">
-					        <li ><a href="#" class="current">Prov</a></li>
-                            <li ><a href="#">Mitt konto</a></li>
+					        <li ><a href="nyanställd_Start.aspx" class="current">Prov</a></li>
+                            <li ><a href="nyanställd_MittKonto.aspx">Mitt konto</a></li>
                             <li id="loggaut" ><a href="../Index.aspx"" >Logga ut</a></li>
 				        </ul>
 		        </div>
@@ -48,7 +48,9 @@
                                                             </div>
                             <asp:Button ID="nästaSida1" runat="server" Text="Nästa Fråga" OnClick="nästaSida1_Click" Visible="false" style="margin-left: 45%; margin-bottom: 2%;"/>
                             <asp:Button ID="avslutaProv" runat="server" Text="Avsluta provet" OnClick="avslutaProv_Click" Visible="false" style="margin-left: 45%; margin-bottom: 2%;"/>
-                           
+                            <asp:Button ID="seDetaljer" runat="server" Text="Se detaljer" OnClick="seDetaljer_Click" Visible="false" style="margin-left: 45%; margin-bottom: 2%;"/>                          
+                            <asp:Button ID="görOm" runat="server" Text="Gör om test" OnClientClick="window.open('nyanställd_Start.aspx', 'nyanställd_Start');" Visible="false" style="margin-left: 45%; margin-bottom: 2%;"/>           
+                            <asp:Button ID="avslutaAllt" runat="server" Text="Avsluta" OnClick="avslutaAllt_Click" OnClientClick="window.open('../Index.aspx', 'Index');" Visible="false" style="margin-left: 45%; margin-bottom: 2%;"/>
                         </div>
 				    <div class="grid gridRight mobil hidden">
                         

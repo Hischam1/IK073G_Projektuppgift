@@ -72,6 +72,7 @@
   <ItemGroup>
     <Content Include="Admin\admin_Start.aspx" />
     <Content Include="aktuelltprov.xml" />
+    <Content Include="Anställd\anställd_MittKonto.aspx" />
     <Content Include="Anställd\anställd_Start.aspx" />
     <Content Include="Images\Huvudkontor.jpg" />
     <Content Include="Images\headerbild.png" />
@@ -80,6 +81,7 @@
     <Content Include="Index.aspx" />
     <Content Include="Images\logga.gif" />
     <Content Include="mainStyle.css" />
+    <Content Include="Nyanställd\nyanställd_MittKonto.aspx" />
     <Content Include="Nyanställd\nyanställd_Start.aspx" />
     <Content Include="packages.config" />
     <Content Include="JE-Bank.Master" />
@@ -103,6 +105,13 @@
     <Compile Include="Admin\admin_Start.aspx.designer.cs">
       <DependentUpon>admin_Start.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Anställd\anställd_MittKonto.aspx.cs">
+      <DependentUpon>anställd_MittKonto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Anställd\anställd_MittKonto.aspx.designer.cs">
+      <DependentUpon>anställd_MittKonto.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Anställd\anställd_Start.aspx.cs">
       <DependentUpon>anställd_Start.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -123,6 +132,13 @@
     </Compile>
     <Compile Include="JE-Bank.Master.designer.cs">
       <DependentUpon>JE-Bank.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Nyanställd\nyanställd_MittKonto.aspx.cs">
+      <DependentUpon>nyanställd_MittKonto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Nyanställd\nyanställd_MittKonto.aspx.designer.cs">
+      <DependentUpon>nyanställd_MittKonto.aspx</DependentUpon>
     </Compile>
     <Compile Include="Nyanställd\nyanställd_Start.aspx.cs">
       <DependentUpon>nyanställd_Start.aspx</DependentUpon>

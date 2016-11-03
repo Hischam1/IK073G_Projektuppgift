@@ -15,10 +15,10 @@ namespace IK073G_Projektuppgift
         List<QA> AllaFrågor = new List<QA>();
         List<QA> AllaQALista = new List<QA>();
         List<QA> PåbörjadFråga = new List<QA>();
-        List<QA> BesvaradeFrågor = new List<QA>();
         List<Person> AllaNyAnställda = new List<Person>();
         QA aktuellFråga = new QA();
         Person aktuellPerson = new Person();
+        int nuvarandeProvId = new int();
 
         Postgres p = new Postgres();
 
@@ -27,17 +27,23 @@ namespace IK073G_Projektuppgift
         int fråganummer = 1;
         string användarenSvar1;
         string användarenSvar2;
+        string användarenSvar3;
+        XDocument aktuelltProv = new XDocument();     
+
 
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-
                 AllaNyAnställda = p.HämtaNyanställda();
                 nyanställningsLista.DataSource = AllaNyAnställda;
                 nyanställningsLista.DataBind();
                 Session["AllaNyanställda"] = AllaNyAnställda;
+
+                XElement xmlElement = new XElement("Frågor");
+                aktuelltProv.Add(xmlElement);
+                Session["aktuelltProv"] = aktuelltProv;
             }
 
             p.StängConnection();
@@ -83,6 +89,70 @@ namespace IK073G_Projektuppgift
                 fråga.Controls.Add(divText);
             }
         }
+        public void VisaResultat(List<QA> QALista)
+        {
+
+            foreach (QA qa in QALista)
+            {
+                HtmlGenericControl varjeFråga = new HtmlGenericControl("div id=varjeFråga");
+                fråga.Controls.Add(varjeFråga);
+
+                HtmlGenericControl kategoriFråga = new HtmlGenericControl("p class=frågaKategori");
+                kategoriFråga.InnerText = qa.kategori;
+                varjeFråga.Controls.Add(kategoriFråga);
+
+                HtmlGenericControl bildFråga = new HtmlGenericControl("img src= '" + qa.bild + "' class=bildFråga width=20%");
+                varjeFråga.Controls.Add(bildFråga);
+
+                HtmlGenericControl rubrikFråga = new HtmlGenericControl("p class=frågaRubrik id=hej runat=server");
+                rubrikFråga.InnerText = qa.fråga;
+                varjeFråga.Controls.Add(rubrikFråga);
+
+                HtmlGenericControl divText = new HtmlGenericControl("div class=text");
+                divText.InnerText = qa.text;
+                varjeFråga.Controls.Add(divText);
+
+                HtmlGenericControl ul = new HtmlGenericControl("ul");
+                varjeFråga.Controls.Add(ul);
+
+                HtmlGenericControl li1 = new HtmlGenericControl("li");
+                ul.Controls.Add(li1);
+
+                HtmlGenericControl li2 = new HtmlGenericControl("li");
+                ul.Controls.Add(li2);
+
+                HtmlGenericControl li3 = new HtmlGenericControl("li");
+                ul.Controls.Add(li3);
+
+                HtmlGenericControl li4 = new HtmlGenericControl("li");
+                ul.Controls.Add(li4);
+
+                HtmlGenericControl checkboxSvar1 = new HtmlGenericControl("input type = checkbox");
+                checkboxSvar1.InnerText = qa.svar1;
+                li1.Controls.Add(checkboxSvar1);
+
+                HtmlGenericControl checkboxSvar2 = new HtmlGenericControl("input type = checkbox");
+                checkboxSvar2.InnerText = qa.svar2;
+                li2.Controls.Add(checkboxSvar2);
+
+                HtmlGenericControl checkboxSvar3 = new HtmlGenericControl("input type = checkbox");
+                checkboxSvar3.InnerText = qa.svar3;
+                li3.Controls.Add(checkboxSvar3);
+
+                HtmlGenericControl checkboxSvar4 = new HtmlGenericControl("input type = checkbox");
+                checkboxSvar4.InnerText = qa.svar4;
+                li4.Controls.Add(checkboxSvar4);
+
+                HtmlGenericControl rättaSvar = new HtmlGenericControl("div id=rättaSvar");
+                rättaSvar.InnerText = "Korrekta svar: " + qa.rättSvar1 + " - " + qa.rättSvar2;
+                varjeFråga.Controls.Add(rättaSvar);
+
+                HtmlGenericControl användarensSvar = new HtmlGenericControl("div id=användarensSvar");
+                användarensSvar.InnerText = "Dina svar: " + qa.användarensSvar1 + " - " + qa.användarensSvar2 + " - " + qa.användarensSvar3;
+                varjeFråga.Controls.Add(användarensSvar);
+
+            }
+        }
         public List<QA> XmlTillLista()
         {
             AllaQALista.Clear();
@@ -120,10 +190,7 @@ namespace IK073G_Projektuppgift
         {
             AllaQALista.Clear();
 
-            //string path = Server.MapPath("../Q&A.xml");
             XmlDocument doc = xmldoc;
-            //doc.Load(path);
-
             XmlNodeList allaFrågorOchSvar = doc.SelectNodes("/Frågor/Frågenummer");
 
 
@@ -139,9 +206,10 @@ namespace IK073G_Projektuppgift
                 qa.svar3 = node["Svar3"].InnerXml;
                 qa.svar4 = node["Svar4"].InnerXml;
                 qa.rättSvar1 = node["RättSvar1"].InnerXml;
-                qa.rättSvar2 = node["RättSvar2"].InnerXml; 
-                //qa.rättSvar2 = node["användarenSvar2"].InnerXml;
-                //qa.rättSvar2 = node["användarenSvar2"].InnerXml;
+                qa.rättSvar2 = node["RättSvar2"].InnerXml;
+                qa.användarensSvar1 = node["användarenSvar1"].InnerXml;
+                qa.användarensSvar2 = node["användarenSvar2"].InnerXml;
+                qa.användarensSvar3 = node["användarenSvar3"].InnerXml;
 
 
                 AllaQALista.Add(qa);
@@ -150,6 +218,21 @@ namespace IK073G_Projektuppgift
             return AllaQALista;
 
         }
+        //public void RensaXML()
+        //{
+        //    string path = Server.MapPath("../aktuelltprov.xml");
+        //    XmlDocument doc = new XmlDocument();
+        //    doc.Load(path);
+
+        //    XmlNodeList allaFrågorOchSvar = doc.SelectNodes("/Frågor/Frågenummer");
+
+        //    foreach (XmlNode node in allaFrågorOchSvar)
+        //    {
+        //        node.ParentNode.RemoveChild(node);
+        //    }
+        //    doc.Save(path);
+        //}
+
         public void TaUtEnFråga()
         {
 
@@ -172,7 +255,6 @@ namespace IK073G_Projektuppgift
 
             PåbörjadFråga.Add(AllaFrågor[randomIndex]);
             Session["PåbörjadFråga"] = PåbörjadFråga;
-            //namnet.InnerHtml = randomIndex.ToString() + " " + AllaFrågor.Count.ToString() + " " + AllaFrågor[randomIndex].rättSvar1;
             AllaFrågor.RemoveAt(randomIndex);
 
         }
@@ -196,13 +278,10 @@ namespace IK073G_Projektuppgift
             }
 
             Session["AktuellPerson"] = aktuellPerson;
-
             provText.InnerHtml = aktuellPerson.förnamn;
 
             TaUtEnFråga();
             VisaAllt(PåbörjadFråga);
-
-
 
             if (Session["AktuellFråga"] != null)
             {
@@ -238,6 +317,20 @@ namespace IK073G_Projektuppgift
                 aktuellFråga = (QA)Session["AktuellFråga"];
             }
 
+            if (Session["användarenSvar1"] != null)
+            {
+                användarenSvar1 = (string)Session["användarenSvar1"];
+            }
+
+            if (Session["användarenSvar2"] != null)
+            {
+                användarenSvar2 = (string)Session["användarenSvar2"];
+            }
+
+            if (Session["användarenSvar3"] != null)
+            {
+                användarenSvar3 = (string)Session["användarenSvar3"];
+            }
 
             if (aktuellFråga.typ == "EttRätt")
             {
@@ -264,6 +357,8 @@ namespace IK073G_Projektuppgift
                 }
                 else
                 {
+                    provText.InnerHtml = "";
+
                     foreach (CheckBox checkbox in checkArray)
                     {
                         if (checkbox.Checked == true)
@@ -285,10 +380,10 @@ namespace IK073G_Projektuppgift
                                     allaResultat[0] += 1; // TotalResultat
                                     allaResultat[3] += 1; // Kategori 3
                                 }
-                                användarenSvar1 = checkbox.Text;
-                                Session["användarenSvar1"] = användarenSvar1;
                             }
-                            provText.InnerHtml = allaResultat[0].ToString() + " = " + allaResultat[1].ToString() + " = " + allaResultat[2].ToString() + " = " + allaResultat[3].ToString();
+
+                            användarenSvar1 = checkbox.Text;
+                            Session["användarenSvar1"] = användarenSvar1;         
                             AvslutAvFråga();
                         }
                     }
@@ -299,12 +394,24 @@ namespace IK073G_Projektuppgift
             else if (aktuellFråga.typ == "TvåRätt")
             {
                 int kollaCheckbox = 0;
+                string[] användarenSvar1och2 = new string[4];
 
                 for (int i = 0; i < checkArray.Length; i++)
                 {
                     if (checkArray[i].Checked == true)
                     {
                         kollaCheckbox += 1;
+                        användarenSvar1och2[i] = checkArray[i].Text;
+                    }
+                }
+
+                List<string> rättaSvar = new List<string>();
+
+                foreach (string svar in användarenSvar1och2)
+                {
+                    if (svar != null)
+                    {
+                        rättaSvar.Add(svar);
                     }
                 }
 
@@ -322,6 +429,13 @@ namespace IK073G_Projektuppgift
                 else
                 {
                     int tvåRätt = 0;
+
+                    användarenSvar2 = rättaSvar[0];
+                    användarenSvar3 = rättaSvar[1];
+
+                    Session["användarenSvar2"] = användarenSvar2;
+                    Session["användarenSvar3"] = användarenSvar3;
+
 
                     foreach (CheckBox checkbox in checkArray)
                     {
@@ -352,68 +466,60 @@ namespace IK073G_Projektuppgift
                             allaResultat[0] += 1; // TotalResultat
                             allaResultat[3] += 1; // Kategori 3
                         }
-
-                        användarenSvar1 = aktuellFråga.rättSvar1;
-                        Session["användarenSvar1"] = användarenSvar1;
-
-                        användarenSvar2 = aktuellFråga.rättSvar2;
-                        Session["användarenSvar2"] = användarenSvar2;
                     }
-                    provText.InnerHtml = allaResultat[0].ToString() + " = " + allaResultat[1].ToString() + " = " + allaResultat[2].ToString() + " = " + allaResultat[3].ToString();
+                                      
                     AvslutAvFråga();
                 }
-
             }
     }
 
         protected void avslutaProv_Click(object sender, EventArgs e)
         {
-            XmlDocument docc = new XmlDocument();
-            docc = DatabasTillXml();
+            Postgres p = new Postgres();
 
-            VisaAllt(XmlTillLista2(docc));
+            seDetaljer.Visible = true;
+            avslutaProv.Visible = false;
 
-            //Postgres p = new Postgres();
-            //Random rnd = new Random();
-            //int provId = rnd.Next(1, 1000);
+            Random rnd = new Random();
+            nuvarandeProvId = rnd.Next(1, 1000);
 
-            //string godkänd;
-
-            //double procent = (double)allaResultat[0] / 25 * 100;
-            //double procentKat1 = (double)allaResultat[1] / 8 * 100;
-            //double procentKat2 = (double)allaResultat[2] / 8 * 100;
-            //double procentKat3 = (double)allaResultat[3] / 9 * 100;
-
-            //kategori1.Visible = true;
-            //kategori2.Visible = true;
-            //kategori3.Visible = true;
-            //status.Visible = true;
+            Session["provId"] = nuvarandeProvId;
 
 
+            string godkänd;
 
-            //if (procent > 69 && procentKat1 > 59 && procentKat2 > 59 && procentKat3 > 59)
-            //{
-            //    godkänd = "GODKÄND";
-            //    frågenummer.InnerText = "Ditt totalresultat är " + allaResultat[0].ToString() + " av 25 poäng vilket är " + procent + "%";
-            //    status.InnerHtml = godkänd;
-            //    kategori1.InnerHtml = "Kategori 1: " + allaResultat[1].ToString() + " av 8 poäng vilket är " + procentKat1 + "%";
-            //    kategori2.InnerHtml = "Kategori 2: " + allaResultat[2].ToString() + " av 8 poäng vilket är " + procentKat2 + "%";
-            //    kategori3.InnerHtml = "Kategori 3: " + allaResultat[3].ToString() + " av 9 poäng vilket är " + procentKat3 + "%";
-            //}
-            //else
-            //{
-            //    godkänd = "ICKE GODKÄND";
-            //    frågenummer.InnerText = "Ditt totalresultat är " + allaResultat[0].ToString() + " av 25 poäng vilket är " + procent + "%";
-            //    status.InnerHtml = godkänd;
-            //    kategori1.InnerHtml = "Kategori 1: " + allaResultat[1].ToString() + " av 8 poäng vilket är " + procentKat1 + "%";
-            //    kategori2.InnerHtml = "Kategori 2: " + allaResultat[2].ToString() + " av 8 poäng vilket är " + procentKat2 + "%";
-            //    kategori3.InnerHtml = "Kategori 3: " + allaResultat[3].ToString() + " av 9 poäng vilket är " + procentKat3 + "%";
-            //}
+            double procent = (double)allaResultat[0] / 25 * 100;
+            double procentKat1 = (double)allaResultat[1] / 8 * 100;
+            double procentKat2 = (double)allaResultat[2] / 8 * 100;
+            double procentKat3 = (double)allaResultat[3] / 9 * 100;
 
+            kategori1.Visible = true;
+            kategori2.Visible = true;
+            kategori3.Visible = true;
+            status.Visible = true;
 
-            //p.LäggTillProv(provId, aktuellPerson.anställningsID, "LICENS", DateTime.Today, godkänd, allaResultat[0], 22, allaResultat[1], allaResultat[2], allaResultat[3]);
-            //p.StängConnection();
+            if (procent > 69 && procentKat1 > 59 && procentKat2 > 59 && procentKat3 > 59)
+            {
+                godkänd = "GODKÄND";
+                frågenummer.InnerText = "Ditt totalresultat är " + allaResultat[0].ToString() + " av 25 poäng vilket är " + procent + "%";
+                status.InnerHtml = godkänd;
+                kategori1.InnerHtml = "Kategori 1: " + allaResultat[1].ToString() + " av 8 poäng vilket är " + procentKat1 + "%";
+                kategori2.InnerHtml = "Kategori 2: " + allaResultat[2].ToString() + " av 8 poäng vilket är " + procentKat2 + "%";
+                kategori3.InnerHtml = "Kategori 3: " + allaResultat[3].ToString() + " av 9 poäng vilket är " + procentKat3 + "%";
+            }
+            else
+            {
+                godkänd = "ICKE GODKÄND";
+                frågenummer.InnerText = "Ditt totalresultat är " + allaResultat[0].ToString() + " av 25 poäng vilket är " + procent + "%";
+                status.InnerHtml = godkänd;
+                kategori1.InnerHtml = "Kategori 1: " + allaResultat[1].ToString() + " av 8 poäng vilket är " + procentKat1 + "%";
+                kategori2.InnerHtml = "Kategori 2: " + allaResultat[2].ToString() + " av 8 poäng vilket är " + procentKat2 + "%";
+                kategori3.InnerHtml = "Kategori 3: " + allaResultat[3].ToString() + " av 9 poäng vilket är " + procentKat3 + "%";
+                görOm.Visible = true;
+            }
 
+            p.LäggTillProv(nuvarandeProvId, aktuellPerson.anställningsID, "LICENS", DateTime.Today, godkänd, allaResultat[0], 22, allaResultat[1], allaResultat[2], allaResultat[3], XmlTillDataBas());
+            p.StängConnection();
 
         }
 
@@ -427,13 +533,19 @@ namespace IK073G_Projektuppgift
             {
                 användarenSvar2 = (string)Session["användarenSvar2"];
             }
-
+            if (Session["användarenSvar3"] != null)
+            {
+                användarenSvar3 = (string)Session["användarenSvar3"];
+            }
+            if (Session["aktuelltProv"] != null)
+            {
+                aktuelltProv = (XDocument)Session["aktuelltProv"];
+            }
 
             string path = Server.MapPath("../aktuelltprov.xml");
 
             try
             {
-                XDocument prov = XDocument.Load(path);
 
                 XElement xmlElement = new XElement("Frågenummer",
                     new XElement("Kategori", aktuellFråga.kategori),
@@ -447,15 +559,41 @@ namespace IK073G_Projektuppgift
                     new XElement("RättSvar1", aktuellFråga.rättSvar1),
                     new XElement("RättSvar2", aktuellFråga.rättSvar2),
                     new XElement("användarenSvar1", användarenSvar1),
-                    new XElement("användarenSvar2", användarenSvar2)
-                    );
-                prov.Element("Frågor").Add(xmlElement);
-                prov.Save(path);
+                    new XElement("användarenSvar2", användarenSvar2),
+                    new XElement("användarenSvar3", användarenSvar3));
+
+                aktuelltProv.Element("Frågor").Add(xmlElement);
+                //aktuelltProv.Save(aktuelltProv.ToString());
+
+                //XDocument prov = XDocument.Load(path);
+
+                //XElement xmlElement = new XElement("Frågenummer",
+                //    new XElement("Kategori", aktuellFråga.kategori),
+                //    new XElement("Typ", aktuellFråga.typ),
+                //    new XElement("Bild", aktuellFråga.bild),
+                //    new XElement("Fråga", aktuellFråga.fråga),
+                //    new XElement("Svar1", aktuellFråga.svar1),
+                //    new XElement("Svar2", aktuellFråga.svar2),
+                //    new XElement("Svar3", aktuellFråga.svar3),
+                //    new XElement("Svar4", aktuellFråga.svar4),
+                //    new XElement("RättSvar1", aktuellFråga.rättSvar1),
+                //    new XElement("RättSvar2", aktuellFråga.rättSvar2),
+                //    new XElement("användarenSvar1", användarenSvar1),
+                //    new XElement("användarenSvar2", användarenSvar2),
+                //    new XElement("användarenSvar3", användarenSvar3)
+
+                //    );
+                //prov.Element("Frågor").Add(xmlElement);
+                //prov.Save(path);
+
+
             }
             catch
             {
 
             }
+
+
 
             if (AllaFrågor.Count != 0)
             {
@@ -478,33 +616,69 @@ namespace IK073G_Projektuppgift
                 avslutaProv.Visible = true;
                 avslutaProv.Text = "Rätta";
 
-                Postgres p = new Postgres();
-                p.LäggTillXMLString(XmlTillDataBas());
-                p.StängConnection();                
+                //Postgres p = new Postgres();
+                //p.LäggTillXMLString(XmlTillDataBas());
+                //p.StängConnection();                
 
             }
+            användarenSvar1 = "";
+            Session["användarenSvar1"] = användarenSvar1;
+            användarenSvar2 = "";
+            Session["användarenSvar2"] = användarenSvar1;
+            användarenSvar3 = "";
+            Session["användarenSvar3"] = användarenSvar1;
+
+
         }
 
         public string XmlTillDataBas()
         {
-            string path = Server.MapPath("../aktuelltprov.xml");
+            if (Session["aktuelltProv"] != null)
+            {
+                aktuelltProv = (XDocument)Session["aktuelltProv"];
+            }
 
-            XDocument doc = XDocument.Load(path, LoadOptions.None);
+            //string path = Server.MapPath("../aktuelltprov.xml");
 
-            string xmlstring = doc.ToString();
+            //XDocument doc = XDocument.Load(path, LoadOptions.None);
+
+            //string xmlstring = doc.ToString();
+
+            //return xmlstring;
+
+            string xmlstring = aktuelltProv.ToString();
 
             return xmlstring;
          }
 
         public XmlDocument DatabasTillXml()
         {
-            XmlDocument doc = new XmlDocument();
+            XmlDocument visaAktuelltProv = new XmlDocument();
             Postgres p = new Postgres();
 
-            p.HämtaXmlFrånDatabas(doc);
+            if (Session["provId"] != null)
+            {
+                nuvarandeProvId = (int)Session["provId"];
+            }
+
+            p.HämtaXmlFrånDatabas(visaAktuelltProv, aktuellPerson.anställningsID, nuvarandeProvId);
+
+            return visaAktuelltProv;
+        }
+
+        protected void seDetaljer_Click(object sender, EventArgs e)
+        {
 
 
-            return doc;
+            VisaResultat(XmlTillLista2(DatabasTillXml()));
+
+            avslutaAllt.Visible = true;
+            seDetaljer.Visible = false;
+        }
+
+        protected void avslutaAllt_Click(object sender, EventArgs e)
+        {
+            //RensaXML();
         }
     }
 }
