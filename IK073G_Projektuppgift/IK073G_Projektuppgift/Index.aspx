@@ -10,7 +10,6 @@
 					    <li ><a href="Index.aspx" class="current">Start</a></li>
 				    </ul>
 		    </div>
-                    <asp:Timer ID="Timer1" runat="server">Hej</asp:Timer>
             </div>
 
 </asp:Content>

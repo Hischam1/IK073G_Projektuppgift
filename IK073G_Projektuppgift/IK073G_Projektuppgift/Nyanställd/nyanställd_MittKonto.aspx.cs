@@ -105,8 +105,6 @@ namespace IK073G_Projektuppgift.Nyanställd
         }
         public void VisaResultat(List<QA> QALista)
         {
-            //Random r = new Random();
-            //var blandadLista = QALista.OrderBy(c => r.Next()).ToList();
 
             foreach (QA qa in QALista)
             {
@@ -173,9 +171,7 @@ namespace IK073G_Projektuppgift.Nyanställd
         {
             AllaQALista.Clear();
 
-            //string path = Server.MapPath("../Q&A.xml");
             XmlDocument doc = xmldoc;
-            //doc.Load(path);
 
             XmlNodeList allaFrågorOchSvar = doc.SelectNodes("/Frågor/Frågenummer");
 

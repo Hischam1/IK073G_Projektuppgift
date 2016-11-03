@@ -20,10 +20,5 @@ namespace IK073G_Projektuppgift
         public int kat3Rätt { get; set; }
         public int totalTid { get; set; }
 
-        //public override string ToString()
-        //{
-        //    return provId + " " + provDeltagare + " " + provTyp;
-        //}
-
     }
 }
