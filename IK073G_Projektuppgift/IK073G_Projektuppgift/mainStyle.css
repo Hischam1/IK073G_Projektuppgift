@@ -177,11 +177,6 @@ body {
     
 }
 
-.aktieslagSortering{
-    margin: 5px auto;
-    max-width: 70%;
-    text-align: center;
-}
 
 .subnavigering ul li{
     list-style-type: square;
@@ -208,20 +203,59 @@ body {
     visibility:hidden;
     
 }
-#svarsalternativ li{
-    list-style-type: none;
-}
 
-#svarsalternativ li label{
-    display: inline;
-    margin-left: 1%;
-}
 
 #main_frågeform {
     padding: 5px;
     margin: 5px;
     background-color: white;
-    border-radius: 20px;
+    border-radius: 5px;
+    border: 1px inset rgba(40, 40, 40, 0.90);
+}
+
+#main_frågeform h4{
+    margin: 0 auto;
+    max-width: 60%;
+    text-align: center;
+}
+
+#main_fråga p {
+    margin: 2% auto;
+    max-width: 100%;
+    text-align: center;
+}
+#main_fråga .frågaKategori {
+    font-style:italic;
+    font-size: smaller
+}
+#main_fråga .frågaRubrik {
+    
+    font-size: medium;
+    margin-bottom: 4%;
+}
+#svarsalternativ ul{
+        margin: 0 auto;
+        margin-left: 30%;
+        padding: 0;
+}
+#svarsalternativ li{
+    list-style-type: none;
+    border
+
+}
+#svarsalternativ li label:hover {
+    background-color: rgba(170, 170, 170, 0.5)
+    
+}
+#svarsalternativ li input:hover {
+    background-color: rgba(170, 170, 170, 0.5)
+}
+
+#svarsalternativ li label{
+    display: inline;
+    margin-left: 1%;
+    max-width: 1px;
+    border-radius: 3px;
 }
 
 #varjeFråga{

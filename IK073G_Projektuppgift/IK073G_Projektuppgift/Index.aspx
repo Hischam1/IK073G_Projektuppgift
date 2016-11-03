@@ -4,13 +4,12 @@
                 <div class="header" id="header">
 
                     <%--<a href ="Index.aspx">--%><img id="logotyp" src="/Images/logga.gif" alt="JE LOGO"/><%--</a>--%>
-                     
+
             <div class="nav">
 				    <ul id="navRutor">
 					    <li ><a href="Index.aspx" class="current">Start</a></li>
 				    </ul>
 		    </div>
-
             </div>
 
 </asp:Content>

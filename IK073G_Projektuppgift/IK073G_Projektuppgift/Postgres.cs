@@ -390,7 +390,7 @@ namespace IK073G_Projektuppgift
 
 
             }
-            catch (NpgsqlException ex)
+            catch 
             {
                 
             }

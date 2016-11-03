@@ -218,20 +218,6 @@ namespace IK073G_Projektuppgift
             return AllaQALista;
 
         }
-        //public void RensaXML()
-        //{
-        //    string path = Server.MapPath("../aktuelltprov.xml");
-        //    XmlDocument doc = new XmlDocument();
-        //    doc.Load(path);
-
-        //    XmlNodeList allaFrågorOchSvar = doc.SelectNodes("/Frågor/Frågenummer");
-
-        //    foreach (XmlNode node in allaFrågorOchSvar)
-        //    {
-        //        node.ParentNode.RemoveChild(node);
-        //    }
-        //    doc.Save(path);
-        //}
 
         public void TaUtEnFråga()
         {
@@ -288,7 +274,7 @@ namespace IK073G_Projektuppgift
             }
 
             Session["AktuellPerson"] = aktuellPerson;
-            provText.InnerHtml = aktuellPerson.förnamn;
+            provText.InnerHtml = "";
 
             TaUtEnFråga();
             VisaAllt(PåbörjadFråga);
@@ -304,11 +290,11 @@ namespace IK073G_Projektuppgift
             CheckBox3.Visible = true;
             CheckBox4.Visible = true;
             frågenummer.Visible = true;
-            //provText.Visible = false;
+            frågeform.Visible = true;
             startaNyttTest.Visible = false;
             nyanställningsLista.Visible = false;
             namnet.Visible = false;
-            //provText.InnerHtml = "";
+            provText.InnerHtml = "";
             frågenummer.InnerHtml = "Fråga: " + fråganummer + " av 25";
 
         }
@@ -582,29 +568,6 @@ namespace IK073G_Projektuppgift
                     new XElement("användarenSvar3", användarenSvar3));
 
                 aktuelltProv.Element("Frågor").Add(xmlElement);
-                //aktuelltProv.Save(aktuelltProv.ToString());
-
-                //XDocument prov = XDocument.Load(path);
-
-                //XElement xmlElement = new XElement("Frågenummer",
-                //    new XElement("Kategori", aktuellFråga.kategori),
-                //    new XElement("Typ", aktuellFråga.typ),
-                //    new XElement("Bild", aktuellFråga.bild),
-                //    new XElement("Fråga", aktuellFråga.fråga),
-                //    new XElement("Svar1", aktuellFråga.svar1),
-                //    new XElement("Svar2", aktuellFråga.svar2),
-                //    new XElement("Svar3", aktuellFråga.svar3),
-                //    new XElement("Svar4", aktuellFråga.svar4),
-                //    new XElement("RättSvar1", aktuellFråga.rättSvar1),
-                //    new XElement("RättSvar2", aktuellFråga.rättSvar2),
-                //    new XElement("användarenSvar1", användarenSvar1),
-                //    new XElement("användarenSvar2", användarenSvar2),
-                //    new XElement("användarenSvar3", användarenSvar3)
-
-                //    );
-                //prov.Element("Frågor").Add(xmlElement);
-                //prov.Save(path);
-
 
             }
             catch
@@ -633,11 +596,7 @@ namespace IK073G_Projektuppgift
                 frågenummer.InnerText = "Nu är du klar med provet. Tryck på rätta för att få reda på ditt resultat";
                 nästaSida1.Visible = false;
                 avslutaProv.Visible = true;
-                avslutaProv.Text = "Rätta";
-
-                //Postgres p = new Postgres();
-                //p.LäggTillXMLString(XmlTillDataBas());
-                //p.StängConnection();                
+                avslutaProv.Text = "Rätta";            
 
             }
             användarenSvar1 = "";
@@ -656,14 +615,6 @@ namespace IK073G_Projektuppgift
             {
                 aktuelltProv = (XDocument)Session["aktuelltProv"];
             }
-
-            //string path = Server.MapPath("../aktuelltprov.xml");
-
-            //XDocument doc = XDocument.Load(path, LoadOptions.None);
-
-            //string xmlstring = doc.ToString();
-
-            //return xmlstring;
 
             string xmlstring = aktuelltProv.ToString();
 
@@ -697,7 +648,6 @@ namespace IK073G_Projektuppgift
 
         protected void avslutaAllt_Click(object sender, EventArgs e)
         {
-            //RensaXML();
         }
     }
 }

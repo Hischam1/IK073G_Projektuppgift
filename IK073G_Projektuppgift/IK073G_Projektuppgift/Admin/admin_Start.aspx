@@ -28,7 +28,7 @@
 				         </ul>
                     </div>
                          <div id="gridMitten" class="grid gridMiddle mobil" runat="server">
-                                                               <div id="frågeform" runat="server">
+                                <div id="frågeform" runat="server">
                                 <h4 id="frågenummer" runat="server" Visible="false"></h4>
                                 <h3 id="provTyp" runat="server" Visible="false"></h3>
                                 <h2 id="status" runat="server" Visible="false"></h2>
@@ -40,6 +40,7 @@
                                     </div>
 
                          </div>
+                        </div>
                        <div class="grid gridRight mobil hidden">
                         <p>höger meny</p>
                     </div>
