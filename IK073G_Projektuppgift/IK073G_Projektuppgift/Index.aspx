@@ -21,11 +21,11 @@
 				         </ul>
                     </div>
 				        <div id="väljPerson" class="grid gridMiddle mobil" runat="server" >
-
-                            <a href="Nyanställd/nyanställd_Start.aspx">Nyanställd</a>
-                            <a href="Anställd/anställd_Start.aspx">Anställd</a>
-                            <a href="Admin/admin_Start.aspx">Admin</a>
-
+                            <div class="knappar">
+                            <div class="knapp"><a href="Nyanställd/nyanställd_Start.aspx">Nyanställd</a></div>
+                            <div class="knapp"><a href="Anställd/anställd_Start.aspx">Anställd</a></div>
+                            <div class="knapp"><a href="Admin/admin_Start.aspx">Admin</a></div>
+                            </div>
                             <div id="bild" runat="server"></div>
                             
 

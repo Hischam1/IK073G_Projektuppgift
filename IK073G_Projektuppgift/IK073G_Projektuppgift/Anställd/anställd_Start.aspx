@@ -7,8 +7,8 @@
 
                 <div class="nav">
 				        <ul id="navRutor">
-					        <li ><a href="anställd_Start.aspx" class="current">Prov</a></li>
-                            <li ><a href="anställd_MittKonto.aspx">Mitt konto</a></li>
+					        <li ><a href="anställd_Start.aspx" class="current">Nytt Prov</a></li>
+                            <li ><a href="anställd_MittKonto.aspx">Mitt Prov</a></li>
                             <li id="loggaut" ><a href="../Index.aspx"" >Logga ut</a></li>
 				        </ul>
 		        </div>
@@ -24,10 +24,10 @@
 				         </ul>
                     </div>
 				        <div id="gridMitten" class="grid gridMiddle mobil" runat="server">
-                            <div id="namnet" runat="server" style="margin-left: 35%; margin-bottom: 2%;">Välj Person: <asp:DropDownList ID="anställningsLista" runat="server" AutoPostBack="True"></asp:DropDownList></div>
+                            <div id="namnet" runat="server">Välj Person: <asp:DropDownList ID="anställningsLista" runat="server" AutoPostBack="True"></asp:DropDownList></div>
                             
-                            <p id="provText" runat="server" style="text-align:center; font-size: 16px;">Du har ett ÅKU-Prov att göra.</p>
-                            <asp:Button ID="startaNyttTest" runat="server" Text="Starta prov" OnClick="startaNyttTest_Click"  style="margin-left: 45%; margin-bottom: 2%;"/>
+                            <p id="provText" runat="server">Du har ett ÅKU-Prov att göra.</p>
+                            <center><asp:Button ID="startaNyttTest" runat="server" Text="Starta prov" OnClick="startaNyttTest_Click"/></center>
                             <div id="frågeform" runat="server" Visible="false">
                                 <h4 id="frågenummer" runat="server" Visible="false"></h4>
                                 <h2 id="status" runat="server" Visible="false"></h2>
@@ -46,11 +46,11 @@
                                         </ul>
                                     </div>
                                                             </div>
-                            <asp:Button ID="nästaSida1" runat="server" Text="Nästa Fråga" OnClick="nästaSida1_Click" Visible="false" style="margin-left: 45%; margin-bottom: 2%;"/>
-                            <asp:Button ID="avslutaProv" runat="server" Text="Avsluta provet" OnClick="avslutaProv_Click" Visible="false" style="margin-left: 45%; margin-bottom: 2%;"/>
-                            <asp:Button ID="seDetaljer" runat="server" Text="Se detaljer" OnClick="seDetaljer_Click" Visible="false" style="margin-left: 45%; margin-bottom: 2%;"/>                          
-                            <asp:Button ID="görOm" runat="server" Text="Gör om test" OnClientClick="window.open('anställd_Start.aspx', 'anställd_Start');" Visible="false" style="margin-left: 45%; margin-bottom: 2%;"/>           
-                            <asp:Button ID="avslutaAllt" runat="server" Text="Avsluta" OnClick="avslutaAllt_Click" OnClientClick="window.open('../Index.aspx', 'Index');" Visible="false" style="margin-left: 45%; margin-bottom: 2%;"/>
+                            <center><asp:Button ID="nästaSida1" runat="server" Text="Nästa Fråga" OnClick="nästaSida1_Click" Visible="false"/></center>
+                            <center><asp:Button ID="avslutaProv" runat="server" Text="Avsluta provet" OnClick="avslutaProv_Click" Visible="false"/></center>
+                            <center><asp:Button ID="seDetaljer" runat="server" Text="Se detaljer" OnClick="seDetaljer_Click" Visible="false"/></center>                 
+                           <center><asp:Button ID="görOm" runat="server" Text="Gör om test" OnClientClick="window.open('anställd_Start.aspx', 'anställd_Start');" Visible="false"/></center>        
+                           <center><asp:Button ID="avslutaAllt" runat="server" Text="Avsluta" OnClick="avslutaAllt_Click" OnClientClick="window.open('../Index.aspx', 'Index');" Visible="false"/></center>
                         </div>
 				    <div class="grid gridRight mobil hidden">
                         

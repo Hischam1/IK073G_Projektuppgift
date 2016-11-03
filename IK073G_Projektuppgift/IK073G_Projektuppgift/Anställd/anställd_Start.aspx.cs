@@ -77,8 +77,11 @@ namespace IK073G_Projektuppgift.Anställd
                 kategoriFråga.InnerText = qa.kategori;
                 fråga.Controls.Add(kategoriFråga);
 
+                HtmlGenericControl bildDiv = new HtmlGenericControl("div id=bild");
+                fråga.Controls.Add(bildDiv);
+
                 HtmlGenericControl bildFråga = new HtmlGenericControl("img src= '" + qa.bild + "' class=bildFråga width=20%");
-                fråga.Controls.Add(bildFråga);
+                bildDiv.Controls.Add(bildFråga);
 
                 HtmlGenericControl rubrikFråga = new HtmlGenericControl("p class=frågaRubrik id=hej runat=server");
                 rubrikFråga.InnerText = qa.fråga;
@@ -101,12 +104,15 @@ namespace IK073G_Projektuppgift.Anställd
                 kategoriFråga.InnerText = qa.kategori;
                 varjeFråga.Controls.Add(kategoriFråga);
 
-                HtmlGenericControl bildFråga = new HtmlGenericControl("img src= '" + qa.bild + "' class=bildFråga width=20%");
-                varjeFråga.Controls.Add(bildFråga);
-
                 HtmlGenericControl rubrikFråga = new HtmlGenericControl("p class=frågaRubrik id=hej runat=server");
                 rubrikFråga.InnerText = qa.fråga;
                 varjeFråga.Controls.Add(rubrikFråga);
+
+                HtmlGenericControl bildDiv = new HtmlGenericControl("div id=bild");
+                varjeFråga.Controls.Add(bildDiv);
+
+                HtmlGenericControl bildFråga = new HtmlGenericControl("img src= '" + qa.bild + "' class=bildFråga width=20%");
+                bildDiv.Controls.Add(bildFråga);
 
                 HtmlGenericControl divText = new HtmlGenericControl("div class=text");
                 divText.InnerText = qa.text;
@@ -144,12 +150,38 @@ namespace IK073G_Projektuppgift.Anställd
                 li4.Controls.Add(checkboxSvar4);
 
                 HtmlGenericControl rättaSvar = new HtmlGenericControl("div id=rättaSvar");
-                rättaSvar.InnerText = "Korrekta svar: " + qa.rättSvar1 + " - " + qa.rättSvar2;
+                rättaSvar.InnerText = "Korrekta svar:";
                 varjeFråga.Controls.Add(rättaSvar);
 
+                HtmlGenericControl rättaSvarul = new HtmlGenericControl("ul");
+                rättaSvar.Controls.Add(rättaSvarul);
+
+                HtmlGenericControl rättaSvarli1 = new HtmlGenericControl("li");
+                rättaSvarli1.InnerText = qa.rättSvar1;
+                rättaSvarul.Controls.Add(rättaSvarli1);
+
+                HtmlGenericControl rättaSvarli2 = new HtmlGenericControl("li");
+                rättaSvarli2.InnerText = qa.rättSvar2;
+                rättaSvarul.Controls.Add(rättaSvarli2);
+
                 HtmlGenericControl användarensSvar = new HtmlGenericControl("div id=användarensSvar");
-                användarensSvar.InnerText = "Dina svar: " + qa.användarensSvar1 + " - " + qa.användarensSvar2 + " - " + qa.användarensSvar3;
+                användarensSvar.InnerText = "Dina svar: ";
                 varjeFråga.Controls.Add(användarensSvar);
+
+                HtmlGenericControl användarensSvarul = new HtmlGenericControl("ul");
+                användarensSvar.Controls.Add(användarensSvarul);
+
+                HtmlGenericControl användarensSvarli1 = new HtmlGenericControl("li");
+                användarensSvarli1.InnerText = qa.användarensSvar1;
+                användarensSvarul.Controls.Add(användarensSvarli1);
+
+                HtmlGenericControl användarensSvarli2 = new HtmlGenericControl("li");
+                användarensSvarli2.InnerText = qa.användarensSvar2;
+                användarensSvarul.Controls.Add(användarensSvarli2);
+
+                HtmlGenericControl användarensSvarli3 = new HtmlGenericControl("li");
+                användarensSvarli3.InnerText = qa.användarensSvar3;
+                användarensSvarul.Controls.Add(användarensSvarli3);
 
             }
         }
@@ -301,6 +333,7 @@ namespace IK073G_Projektuppgift.Anställd
         {
             CheckBox[] checkArray = new CheckBox[] { CheckBox1, CheckBox2, CheckBox3, CheckBox4 };
 
+            provText.InnerHtml = "";
 
             if (Session["fråganummer"] != null)
             {

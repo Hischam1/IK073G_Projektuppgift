@@ -30,19 +30,9 @@ body {
     margin: 0 auto;
 }
 
-#main_väljPerson a{
-    padding: 0% 3%;
-    margin: 9%;
-    border-radius: 6px;
-    background-color:lightgrey;
-    text-decoration: none;
-    color: black;
-    }
-
-#main_väljPerson a:hover{
-
-        background-color:darkgray;
-    }
+.clearfix{
+    min-height: 230px;
+}
 
 
 .headerbildCurrent {
@@ -171,7 +161,7 @@ body {
 .subnavigering {
     list-style-type: none;
     width: 14.5%;
-    height: 120px;
+    min-height: 75px;
     position: absolute;
     z-index: 1;
     
@@ -179,7 +169,7 @@ body {
 
 
 .subnavigering ul li{
-    list-style-type: square;
+    list-style-type: none
 }
 
 .subnavigering ul li a{
@@ -190,8 +180,8 @@ body {
 
 .gridMiddle {
     width: 60%;
-    height: inherit;
     margin-left: 18.9%;
+    min-height: 100px;
     
 }
 
@@ -204,6 +194,48 @@ body {
     
 }
 
+#main_väljPerson {
+       height: inherit;
+}
+
+#main_väljPerson .knappar{
+    max-width: 90%;
+    margin: auto;
+    height: 100%;
+    text-align: center;
+}
+
+
+#main_väljPerson .knapp{
+    background-color: rgba(200, 200, 200, 1);
+    max-width: 100%;
+    width: auto;
+    color: black;
+    margin: 0 3%;
+    display: inline-block;
+    padding: 5.5%;
+    min-height: inherit;
+    border-radius: 4px;
+    
+}
+
+#main_provTyp{
+    text-align:center;
+}
+
+#main_väljPerson a{
+        text-decoration: none;
+        color: black;
+}
+
+#main_väljPerson .knapp:hover{
+        background-color:darkgray;
+    }
+
+#main_provText{
+    text-align:center;
+    color:red;
+}
 
 #main_frågeform {
     padding: 5px;
@@ -215,8 +247,17 @@ body {
 
 #main_frågeform h4{
     margin: 0 auto;
-    max-width: 60%;
+    max-width: 70%;
     text-align: center;
+}
+
+#main_frågeform h2{
+    margin: 4% auto;
+    text-align: center;
+
+}
+#main_fråga {
+    border-bottom: 1px solid rgba(170, 170, 170, 1);
 }
 
 #main_fråga p {
@@ -233,14 +274,17 @@ body {
     font-size: medium;
     margin-bottom: 4%;
 }
+
+#bild{
+      text-align: center;
+      margin: 0 auto;
+}
+
 #svarsalternativ ul{
-        margin: 0 auto;
-        margin-left: 30%;
-        padding: 0;
+    padding-left: 22%;
 }
 #svarsalternativ li{
     list-style-type: none;
-    border
 
 }
 #svarsalternativ li label:hover {
@@ -252,16 +296,41 @@ body {
 }
 
 #svarsalternativ li label{
-    display: inline;
+    /*display: inline;
     margin-left: 1%;
     max-width: 1px;
-    border-radius: 3px;
+    border-radius: 3px;*/
+}
+
+.text{
+    text-align: center;
+    font-size: 15px;
 }
 
 #varjeFråga{
-
     border-top: 1px solid black;
 }
+
+#varjeFråga ul{
+    list-style-type: none;
+}
+
+#main_namnet {
+    text-align: center;
+    margin: 0 auto;
+    list-style-type: none;
+    font-size: 14px;
+}
+
+
+#rättaSvar{
+    list-style-type: none;
+}
+
+#användarensSvar{
+    list-style-type: none;
+}
+
 
 
 /* ----------------------------------------------------------- Botten på sidan */

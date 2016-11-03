@@ -8,8 +8,6 @@
                 <div class="nav">
 				        <ul id="navRutor">
 					        <li ><a href="admin_Start.aspx" class="current">Provdeltagare</a></li>
-                            <li ><a href="#">Provresultat</a></li>
-                            <li ><a href="#">Mitt Konto</a></li>
                             <li id="loggaut" ><a href="../Index.aspx"" >Logga ut</a></li>
 				        </ul>
 		        </div>
@@ -21,7 +19,7 @@
           <div class="clearfix">
                     <div class="grid subnavigering mobil">
                          <ul>
-                            <li><div id="namnet" runat="server" style="margin-left: 35%; margin-bottom: 2%;">Välj Person: <asp:DropDownList ID="AdminLista" OnSelectedIndexChanged="AdminLista_SelectedIndexChanged"  AutoPostBack="True" runat="server"></asp:DropDownList></div></li>
+                            <li><div id="namnet" runat="server">Välj Person: <asp:DropDownList ID="AdminLista" OnSelectedIndexChanged="AdminLista_SelectedIndexChanged"  AutoPostBack="True" runat="server"></asp:DropDownList></div></li>
                             <li><div id="lista1" runat="server"  Visible="false">Inte klarat licens: <asp:DropDownList ID="LicensInteKlarat" AutoPostBack="True" OnSelectedIndexChanged="LicensInteKlarat_SelectedIndexChanged" runat="server"></asp:DropDownList></div></li>
                             <li><div id="lista3" runat="server"  Visible="false">Inte klarat ÅKU: <asp:DropDownList ID="ÅKUinteKlarat" AutoPostBack="True" OnSelectedIndexChanged="ÅKUinteKlarat_SelectedIndexChanged" runat="server"></asp:DropDownList></div></li>
                             <li><div id="lista4" runat="server"  Visible="false">Klarat Prov: <asp:DropDownList ID="PROVKlarat" AutoPostBack="True" OnSelectedIndexChanged="PROVKlarat_SelectedIndexChanged" runat="server"></asp:DropDownList></div></li>

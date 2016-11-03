@@ -7,8 +7,8 @@
 
                 <div class="nav">
 				        <ul id="navRutor">
-					        <li ><a href="nyanställd_Start.aspx">Prov</a></li>
-                            <li ><a href="nyanställd_MittKonto.aspx" class="current">Mitt konto</a></li>
+					        <li ><a href="nyanställd_Start.aspx">Nytt Prov</a></li>
+                            <li ><a href="nyanställd_MittKonto.aspx" class="current">Mitt Prov</a></li>
                             <li id="loggaut" ><a href="../Index.aspx"" >Logga ut</a></li>
 				        </ul>
 		        </div>
@@ -20,7 +20,7 @@
      <div class="clearfix">
                     <div class="grid subnavigering mobil" >
                          <ul>
-                             <li><div id="namnet" runat="server" style="margin-left: 35%; margin-bottom: 2%;">Välj Person: <asp:DropDownList ID="nyanställningsLista" runat="server" OnSelectedIndexChanged="nyanställningsLista_SelectedIndexChanged" AutoPostBack="True"></asp:DropDownList></div></li>
+                             <li><div id="namnet" runat="server">Välj Person: <asp:DropDownList ID="nyanställningsLista" runat="server" OnSelectedIndexChanged="nyanställningsLista_SelectedIndexChanged" AutoPostBack="True"></asp:DropDownList></div></li>
 				         </ul>
                     </div>
 				        <div id="gridMitten" class="grid gridMiddle mobil" runat="server">
