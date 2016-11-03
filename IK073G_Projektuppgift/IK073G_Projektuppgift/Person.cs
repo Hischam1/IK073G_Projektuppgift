@@ -14,6 +14,7 @@ namespace IK073G_Projektuppgift
         public bool nyanställd { get; set; }
         public bool anställd { get; set; }
         public bool admin { get; set; }
+        public bool klaratProv { get; set; } // Blir true om man klarat prov och blir false efter 1 år.
 
         public override string ToString()
         {

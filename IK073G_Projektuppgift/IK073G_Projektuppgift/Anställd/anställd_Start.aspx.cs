@@ -263,6 +263,14 @@ namespace IK073G_Projektuppgift.Anställd
         {
             AllaFrågor = XmlTillLista();
             Session["AllaFrågor"] = AllaFrågor;
+            fråganummer = 1;
+            Session["fråganummer"] = fråganummer;
+            for (int i = 0; i < allaResultat.Length; i++)
+            {
+                allaResultat[i] = 0;
+            }
+
+            Session["allaResultat"] = allaResultat;
 
             if (Session["AllaAnställda"] != null)
             {
@@ -306,6 +314,7 @@ namespace IK073G_Projektuppgift.Anställd
         protected void nästaSida1_Click(object sender, EventArgs e)
         {
             CheckBox[] checkArray = new CheckBox[] { CheckBox1, CheckBox2, CheckBox3, CheckBox4 };
+
 
             if (Session["fråganummer"] != null)
             {
@@ -476,6 +485,7 @@ namespace IK073G_Projektuppgift.Anställd
         protected void avslutaProv_Click(object sender, EventArgs e)
         {
             Postgres p = new Postgres();
+            Postgres p1 = new Postgres();
 
             seDetaljer.Visible = true;
             avslutaProv.Visible = false;
@@ -506,6 +516,11 @@ namespace IK073G_Projektuppgift.Anställd
                 kategori1.InnerHtml = "Kategori 1: " + allaResultat[1].ToString() + " av 5 poäng vilket är " + procentKat1 + "%";
                 kategori2.InnerHtml = "Kategori 2: " + allaResultat[2].ToString() + " av 5 poäng vilket är " + procentKat2 + "%";
                 kategori3.InnerHtml = "Kategori 3: " + allaResultat[3].ToString() + " av 5 poäng vilket är " + procentKat3 + "%";
+                aktuellPerson.klaratProv = true;
+                aktuellPerson.anställd = true;
+                aktuellPerson.nyanställd = false;
+                p1.UppdateraPerson(aktuellPerson.klaratProv, aktuellPerson.anställd, aktuellPerson.nyanställd, aktuellPerson.anställningsID);
+                p1.StängConnection();
             }
             else
             {
@@ -516,6 +531,9 @@ namespace IK073G_Projektuppgift.Anställd
                 kategori2.InnerHtml = "Kategori 2: " + allaResultat[2].ToString() + " av 5 poäng vilket är " + procentKat2 + "%";
                 kategori3.InnerHtml = "Kategori 3: " + allaResultat[3].ToString() + " av 5 poäng vilket är " + procentKat3 + "%";
                 görOm.Visible = true;
+                aktuellPerson.klaratProv = false;
+                p1.UppdateraPerson(aktuellPerson.klaratProv, aktuellPerson.anställd, aktuellPerson.nyanställd, aktuellPerson.anställningsID);
+                p1.StängConnection();
             }
 
             p.LäggTillProv(nuvarandeProvId, aktuellPerson.anställningsID, "ÅKU", DateTime.Today, godkänd, allaResultat[0], 22, allaResultat[1], allaResultat[2], allaResultat[3], XmlTillDataBas());

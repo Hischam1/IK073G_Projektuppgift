@@ -16,7 +16,6 @@ namespace IK073G_Projektuppgift
         private NpgsqlCommand cmd;
         private NpgsqlDataReader dr;
         private DataTable tabell;
-        public Person aktuellPerson;
         
 
         //Kontaktar databasen.
@@ -139,6 +138,7 @@ namespace IK073G_Projektuppgift
                 p.nyanställd = (bool)rad[4];
                 p.anställd = (bool)rad[5];
                 p.admin = (bool)rad[6];
+                p.klaratProv = (bool)rad[7];
 
                 AnställdLista.Add(p);
 
@@ -372,6 +372,30 @@ namespace IK073G_Projektuppgift
 
             return p;
 
+        }
+        public void UppdateraPerson(bool klaratProv, bool anställd, bool nyanställd, int anställningsID)
+        {
+
+            try
+            {
+                string sql = "update person SET klaratprov = '" + klaratProv + "', anställd ='" + anställd + "', nyanställd ='" + nyanställd + "' where anställnings_id = '" + anställningsID + "'";
+
+                cmd = new NpgsqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@klaratprov", klaratProv);
+                cmd.Parameters.AddWithValue("@anställd", anställd);
+                cmd.Parameters.AddWithValue("@nyanställd", nyanställd);
+
+                dr = cmd.ExecuteReader();
+                dr.Close();
+
+
+            }
+            catch (NpgsqlException ex)
+            {
+                
+            }
+
+            conn.Close();
         }
 
     }

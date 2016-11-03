@@ -261,8 +261,18 @@ namespace IK073G_Projektuppgift
 
         protected void startaNyttTest_Click(object sender, EventArgs e)
         {
+
             AllaFrågor = XmlTillLista();
             Session["AllaFrågor"] = AllaFrågor;
+
+            fråganummer = 1;
+            Session["fråganummer"] = fråganummer;
+            for (int i = 0; i < allaResultat.Length; i++)
+            {
+                allaResultat[i] = 0;
+            }
+
+            Session["allaResultat"] = allaResultat;
 
             if (Session["AllaNyanställda"] != null)
             {
@@ -476,6 +486,7 @@ namespace IK073G_Projektuppgift
         protected void avslutaProv_Click(object sender, EventArgs e)
         {
             Postgres p = new Postgres();
+            Postgres p1 = new Postgres();
 
             seDetaljer.Visible = true;
             avslutaProv.Visible = false;
@@ -506,6 +517,11 @@ namespace IK073G_Projektuppgift
                 kategori1.InnerHtml = "Kategori 1: " + allaResultat[1].ToString() + " av 8 poäng vilket är " + procentKat1 + "%";
                 kategori2.InnerHtml = "Kategori 2: " + allaResultat[2].ToString() + " av 8 poäng vilket är " + procentKat2 + "%";
                 kategori3.InnerHtml = "Kategori 3: " + allaResultat[3].ToString() + " av 9 poäng vilket är " + procentKat3 + "%";
+                aktuellPerson.klaratProv = true;
+                aktuellPerson.anställd = true;
+                aktuellPerson.nyanställd = false;
+                p1.UppdateraPerson(aktuellPerson.klaratProv, aktuellPerson.anställd, aktuellPerson.nyanställd, aktuellPerson.anställningsID);
+                p1.StängConnection();
             }
             else
             {
@@ -516,6 +532,9 @@ namespace IK073G_Projektuppgift
                 kategori2.InnerHtml = "Kategori 2: " + allaResultat[2].ToString() + " av 8 poäng vilket är " + procentKat2 + "%";
                 kategori3.InnerHtml = "Kategori 3: " + allaResultat[3].ToString() + " av 9 poäng vilket är " + procentKat3 + "%";
                 görOm.Visible = true;
+                aktuellPerson.klaratProv = false;
+                p1.UppdateraPerson(aktuellPerson.klaratProv, aktuellPerson.anställd, aktuellPerson.nyanställd, aktuellPerson.anställningsID);
+                p1.StängConnection();
             }
 
             p.LäggTillProv(nuvarandeProvId, aktuellPerson.anställningsID, "LICENS", DateTime.Today, godkänd, allaResultat[0], 22, allaResultat[1], allaResultat[2], allaResultat[3], XmlTillDataBas());
