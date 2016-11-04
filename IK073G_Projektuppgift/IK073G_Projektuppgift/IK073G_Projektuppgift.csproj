@@ -79,6 +79,8 @@
     <Content Include="Images\wallstreet.jpg" />
     <Content Include="Index.aspx" />
     <Content Include="Images\logga.gif" />
+    <Content Include="JavaScript.js" />
+    <Content Include="jquery-ui.css" />
     <Content Include="mainStyle.css" />
     <Content Include="Nyanställd\nyanställd_MittKonto.aspx" />
     <Content Include="Nyanställd\nyanställd_Start.aspx" />
