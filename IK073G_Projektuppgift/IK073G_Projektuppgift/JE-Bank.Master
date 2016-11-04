@@ -31,17 +31,15 @@
 	            logotyp.style.marginLeft = ("75px");
 	            logotyp.style.height = "20px";
 	            logotyp.style.width = "90px";
-	            loggaut.style.width = "70px";
 
 	        }
 	        else {
-	            header.style.height = "122px";
+	            header.style.height = "87px";
 	            header.style.backgroundColor = "rgba(246, 246, 246, 0.75)";
 	            logotyp.style.marginRight = ("0px");
 	            logotyp.style.marginLeft = ("43px");
 	            logotyp.style.height = "60px";
 	            logotyp.style.width = "200px";
-	            loggaut.style.width = "40px";
 	            
 	        }
         }
